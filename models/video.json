@@ -1,0 +1,42 @@
+{
+    "name": "video",
+    "plural" : "videos",
+    "attributes" : {
+        "section" : {
+            "type": "string",
+            "required" : true
+        },
+        "public": {
+            "type": "boolean",
+            "required": true,
+            "default": false
+        },
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "poster": {
+            "type": "string",
+            "required": true
+        },
+        "datetime" : {
+            "type" : "datetime",
+            "required": true
+        },
+        "type": {
+            "type": "string",
+            "required": true
+        },
+        "sources": {
+            "type" : "array",
+            "model" : "source"
+        },
+        "credits" : {
+            "type" : "array",
+            "model" : "credit"
+        },
+        "description": {
+            "type": "string"
+        }
+    }
+}
