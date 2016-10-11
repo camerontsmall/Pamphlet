@@ -2,15 +2,34 @@
 
 class video_implementation extends Implementation{
     
-    public static $model_name = "video";
-    public static $db_name = "video";
+    public static $model = "video";
+    public static $collection = "video";
     
 }
 
 class video_controller extends Controller{
     
     public static $implementation = "video_implementation";
+    public static $name = "video";
     public static $title = "Videos";
+    
+    public function TaskNames() {
+        return ["Videos"];
+    }
+    
+    public function UIMethod() {
+        echo "Video killed the radio star";
+        
+        $imp = new video_implementation();
+        
+        $data = $imp->ReadAll();
+        
+        foreach($data as $item){
+            echo "<div class=\"video-preview\">";
+            echo $item->source;
+            echo "</div>";
+        }
+    }
     
 }
 

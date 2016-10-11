@@ -10,11 +10,11 @@ class Model {
     public static $name;
     public $contents;
     
-    public function __construct() {
+    public function __construct($name) {
         
         try{
             
-            $path = "models/" . self::$name . ".json";
+            $path = "models/" . $this::$name . ".json";
             $file_contents = readfile($path);
             
             $this->contents = json_decode($file_contents,true);

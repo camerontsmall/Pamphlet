@@ -11,8 +11,8 @@ $config = [
    
     "db_type" => "mongodb",
     /* Connection string for mongodb */
-    "mongo_connect_string" => "mongodb://192.168.1.4:27016/",
+    "mongodb_connect_string" => "mongodb://192.168.1.4:27017/",
     /* db name to use */
-    "mongo_db_name" => ""
+    "mongodb_db_name" => ""
     
 ];  
