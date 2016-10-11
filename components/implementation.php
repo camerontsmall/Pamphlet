@@ -28,15 +28,15 @@ class Implementation {
         $cn = self::CollectionName();
     }
     
-    public function ReadAll($params = null){
+    public function ReadMany($params = null, $options = null){
         global $db;
         $cn = $this->CollectionName();
         
-        $params = [];
-        
-        $options = [
-           'projection' => ['_id' => 0],
-        ];
+        if($options == null){
+            $options = [
+               'projection' => ['_id' => 0],
+            ];
+        }
         
         $query = new MongoDB\Driver\Query($params,$options);
         $rows = $db->executeQuery($cn,$query);

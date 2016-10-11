@@ -14,20 +14,35 @@ class video_controller extends Controller{
     public static $title = "Videos";
     
     public function TaskNames() {
-        return ["Videos"];
+        $task_parts = explode('/',$this->task);
+        if($task_parts[1]){
+            return ["Videos","New"];
+        }else{
+            return ["Videos"];
+        }
     }
     
     public function UIMethod() {
-        echo "Video killed the radio star";
         
-        $imp = new video_implementation();
-        
-        $data = $imp->ReadAll();
-        
-        foreach($data as $item){
-            echo "<div class=\"video-preview\">";
-            echo $item->source;
-            echo "</div>";
+        $task_parts = explode('/',$this->task);
+        if($task_parts[1]){
+            echo "New Video!";
+        }else{
+            
+            echo "<a href=\"./?a=video/new\">Go!</a>";
+            $imp = new video_implementation();
+
+            $data = $imp->ReadMany(["id" => 18]);
+
+
+            foreach($data as $item){
+                echo "<div class=\"video-preview\">";
+                echo $item->source;
+                echo "</div>";
+            }
+
+            $list = new DynamicList($data, "test");
+            //$list->display();
         }
     }
     

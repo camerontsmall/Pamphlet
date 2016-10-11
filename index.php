@@ -47,11 +47,11 @@ if(class_exists($ui_controller_class)){
     </head>
     <body>
         
-        <nav class="desktop-nav sidebar theme-color-text">
+        <nav class="desktop-nav sidebar">
             <div class="nav-header">
                 <?= $config['site_title'] ?>
             </div>
-            <ul class="nav-list">
+            <ul class="nav-list theme-color-text">
                 <?php
                 
                 $controller_list = Controller::listAll();
@@ -64,7 +64,7 @@ if(class_exists($ui_controller_class)){
             </ul>
         </nav>
         
-        <nav class="mobile-nav sliding-nav theme-color-text">
+        <nav class="mobile-nav sliding-nav">
             
         </nav>
         
