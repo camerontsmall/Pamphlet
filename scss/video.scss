@@ -1,0 +1,26 @@
+/* 
+    Created on : 12-Oct-2016, 21:48:46
+    Author     : Cameron
+*/
+
+.video-preview-parent{
+    
+    width:100%;
+    
+}
+
+.video-preview-container{
+    width:100%;
+    position: relative;
+    padding-bottom:  56.25%;
+    height:0;
+}
+
+.video-preview{
+    background-color:grey;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+}

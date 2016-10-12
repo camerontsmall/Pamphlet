@@ -10,16 +10,17 @@ class Implementation {
     /* Constants */
     
     /* Model name to use */
-    public static $model;
+    public $model_name;
     
     /** MongoDB collection to use */
-    public static $collection;
+    public $collection_name;
    
     
     public function __construct(){
         
-        $this->model = new Model($this::$model);
+        $model_name = $this->model_name;
         
+        $this->model = self::LoadModel($model_name);
     }
     
     /* Database operations */
@@ -50,7 +51,28 @@ class Implementation {
     }
     
     public function Read($id){
+        global $db;
+        $cn = $this->CollectionName();
         
+        $params = [
+            'id' => $id
+        ];
+        
+        if($options == null){
+            $options = [
+               'projection' => ['_id' => 0],
+            ];
+        }
+        
+        $query = new MongoDB\Driver\Query($params,$options);
+        $rows = $db->executeQuery($cn,$query);
+        
+        $output = [];
+        foreach($rows as $data_row){
+            return $data_row;
+        }
+        
+        return false;
     }
     
     public function Update($id, $data){
@@ -70,7 +92,28 @@ class Implementation {
     public function CollectionName(){
         global $config;
         
-        return $config['mongodb_db_name'] . '.' . $this::$collection;
+        return $config['mongodb_db_name'] . '.' . $this->collection_name;
     }
     
+    
+    public static function LoadModel($model_name){
+        
+        try{
+            
+            $path = "models/" . $model_name . ".json";
+            
+            $file_contents = file_get_contents($path);
+            
+            return json_decode($file_contents,true);
+            
+            
+        }catch(Exception $e){
+            
+            echo "<span class=\"error\">{$e->getMessage()}</span>";
+            
+           
+        }
+        
+        return false;
+    }
 }

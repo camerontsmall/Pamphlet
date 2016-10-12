@@ -1,7 +1,9 @@
 <?php
 
 /**
- * Description of controller
+ * Controller class handles user actions on an Implementation
+ * 
+ * The class defines a 
  *
  * @author Cameron
  */
@@ -12,8 +14,8 @@ class Controller {
      /* Friendly name to display in the sidebar */
     public static $title;
     
-    /* The implementation this controller connects to */
-    public static $implementation;
+    /* The name of the implementation this controller connects to */
+    public $implementation_name;
     
     /* Variables */
     
@@ -22,6 +24,15 @@ class Controller {
     
     public function __construct($task) {
         $this->task = $task;
+        $this->task_parts = explode('/',$task);
+        
+        $implementation_name = $this->implementation_name;
+        
+        if(class_exists($implementation_name)){
+            $this->implementation = new $implementation_name();
+        }else{
+            echo error("Could not load implementation \"$implementation_name\"");
+        }
     }
     
     /** Method to display editor pages */
@@ -32,8 +43,23 @@ class Controller {
     
     /** Method to generate API pages. Should return a single object */
     function APIMethod(){
-        global $task;
-        return "Loaded API for $task";
+        $tp = $this->task_parts;
+        
+        switch($_SERVER['REQUEST_METHOD']){
+            case 'GET':
+                
+                if($tp[1]){
+                    $id = intval($tp[1]);
+                    return $this->implementation->Read($id);
+                }else{
+                    $params = (array) json_decode($_GET['q']);
+                    return $this->implementation->ReadMany($params);
+                }
+                
+                break;
+            default:
+                return ["ResponseStatus" => "Error", "ErrorName" => "InvalidRequestMethod"];
+        }
     }
     
     /** Return task name for breadcrumbs (array of strings */

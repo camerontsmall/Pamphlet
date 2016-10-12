@@ -48,6 +48,19 @@ body{
     background-color: #E6E6E6;
 }
 
+/* General classes */
+
+h3{
+    font-family: "Roboto Bold";
+    margin:0.25em;
+}
+
+
+.formrow{
+    width:100%;
+    white-space:nowrap;
+    height:1em;
+}
 /* Navigation */
 
 /* Height of breadcrumps and title */
@@ -97,7 +110,7 @@ nav li:hover, nav li.active{
     background-color:#e6e6e6;
 }
 
-nav a{
+a{
     color:inherit;
     text-decoration: none;
 }
@@ -146,12 +159,58 @@ main {
 }
 
 .container{
-    padding:15px;
+    min-height:100px;
+    min-width:100px;
     background-color:white;
 }
 
-.video-preview{
-    width:800px;
-    height:450px;
+/* Richlist */
+
+.richlist-parent{
+    width:100%;
     overflow:hidden;
+    min-height:200px;
+}
+
+.richlist-top-bar{
+    height:40px;
+    color:white;
+    line-height:40px;
+    width:100%;
+}
+
+
+.richlist-left-pane, .richlist-right-pane{
+}
+
+.richlist-left-pane{
+    width:60%;
+    height:100%;
+    float:left;
+}
+
+.richlist-right-pane{
+    width:calc(40% - 1px);
+    height:100%;
+    float:right;
+    border-left:1px solid rgba(0,0,0,0.12);
+}
+
+.richlist-data-form{
+    padding:15px;
+}
+
+.richlist-bottom-bar{
+    height:40px;
+    line-height:40px;
+    padding-right:10px;
+    color:white;
+    text-align:right;
+}
+
+.rl-btn{
+    
+}
+.rl-btn:hover{
+    
 }

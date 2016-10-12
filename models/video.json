@@ -1,35 +1,40 @@
 {
-    "name": "video",
-    "plural" : "videos",
-    "attributes" : {
+    "title" : "Video",
+    "model_name" : "video",
+    "description" : "Pamphlet video object",
+    "type" : "object",
+    "properties" : {
+        "id" : {
+          "type" : "integer"  
+        },
         "section" : {
-            "type": "string",
-            "required" : true
+            "type": "string"
         },
         "public": {
-            "type": "boolean",
-            "required": true,
-            "default": false
+            "type": "boolean"
         },
         "title": {
-            "type": "string",
-            "required": true
+            "type": "string"
         },
         "poster": {
-            "type": "string",
-            "required": true
+            "type": "string"
         },
         "datetime" : {
-            "type" : "datetime",
-            "required": true
+            "type" : "datetime"
         },
         "type": {
-            "type": "string",
-            "required": true
+            "type": "string"
         },
         "sources": {
             "type" : "array",
-            "model" : "source"
+            "items" : {
+                "type" : "object",
+                "properties" : {
+                    "src" : { "type" : "string" },
+                    "mime_type" : {"type" : "string" },
+                    "res" : { "type" : "" }
+                }
+            }
         },
         "credits" : {
             "type" : "array",
@@ -38,5 +43,6 @@
         "description": {
             "type": "string"
         }
-    }
+    },
+    "required" : ["id","section","title"]
 }

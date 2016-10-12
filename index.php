@@ -31,6 +31,10 @@ if(class_exists($ui_controller_class)){
     <head>
         <!-- Styling -->
         <link rel="stylesheet" href="css/main.css" />
+        
+        <!-- Additional styles -->
+        <link rel="stylesheet" href="css/video.css" />
+
         <style>
             .theme-color{
                 background-color: <?= $config['theme_color'] ?>;
@@ -41,8 +45,14 @@ if(class_exists($ui_controller_class)){
         </style>
         
         <!-- JS Includes -->
+        <!-- Bower -->
+        <script src="bower_components/jquery/dist/jquery.min.js" ></script>
+        <script src="bower_components/handlebars/handlebars.min.js" ></script>
+        
+        <!-- Custom -->
         <script src="js/CustomForm.js" ></script>
         <script src="js/DynamicList.js" ></script>
+        <script src="js/VideoPage.js" ></script>
         
     </head>
     <body>
