@@ -103,7 +103,32 @@ if(class_exists($ui_controller_class)){
         </main>
         
         <script>
-            CKEDITOR.replaceAll();
+        //CKEDITOR.replaceAll();
+        
+        var j = 0;
+        $("textarea[data-schemaformat='html']").each(function(){
+            $(this).attr('id','textarea_' + j);
+            j++;
+            var editor = CKEDITOR.replace($(this).attr('id'));
+            editor.on('change', function(event){
+                //write ckeditor value to textarea value
+                this.updateElement();
+                //write value to dom - apparently not necessary
+                //this.element.$.innerHTML = this.element.$.value;
+                //create new event
+                var event = new Event('change');
+                //tell json editor the value has changed
+                this.element.$.dispatchEvent(event);
+            });
+        });
+
+/*
+        $(document).ready(function(){
+            for (var i in CKEDITOR.instances) {  
+                console.log(i);
+                CKEDITOR.instances[i].on('mouseup', function() { CKEDITOR.instances[i].updateElement() });  
+            }
+        }); */
         </script>
     </body>
 </html>

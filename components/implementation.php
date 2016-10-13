@@ -14,6 +14,11 @@ class Implementation {
     
     /** MongoDB collection to use */
     public $collection_name;
+    
+    public $view_permission = "";
+    public $add_permission = "";
+    public $edit_permission = "";
+    public $delete_permission = "";
    
     
     public function __construct(){
@@ -26,6 +31,8 @@ class Implementation {
     /* Database operations */
     
     public function Insert($data){
+        global $db;
+        
         $cn = self::CollectionName();
     }
     

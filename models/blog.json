@@ -12,7 +12,8 @@
         },
         "title": {
             "type": "string",
-            "title" : "Title"
+            "title" : "Title",
+            "format" : "html"
         },
         "public": {
             "type": "boolean",
