@@ -1,8 +1,8 @@
 <?php
 
-class ModelForm{
+class CustomForm{
     
-    private $optionsArray = array();
+    public $model;
     public $id; /* ID for each individual form */
     public $method; /* Method (GET or POST) */
     private $optionsIDs = array();
@@ -19,8 +19,8 @@ class ModelForm{
      * @param string $onReloadAction - page to return to if reload request is received
      * 
      */
-    public function __construct($optionsArray,$id, $action, $method, $onReloadAction){
-        $this->optionsArray = $optionsArray;
+    public function __construct($model,$id, $action, $method, $onReloadAction){
+        $this->model = $model;
         $this->id = $id;
         $this->method = $method;
         $this->action = $action;
@@ -42,7 +42,7 @@ class ModelForm{
         }
         
         //Print each element in the option array
-        foreach($this->optionsArray as $optionId => $option){
+        foreach($this->model->properties as $optionId => $option){
             /* */
             $fullId = $this->id . '_' . $optionId;
             if($option['type'] == 'button'){
@@ -90,6 +90,21 @@ class ModelForm{
                 $options = $option['options'];
                 //echo count($options);
                 self::$type($id, $value, $options, $label);
+                break;
+            case 'number':
+            case 'integer':
+                break;
+            case 'string':
+            case 'text':
+                if($option['editor'] == "html"){
+                    
+                }else{
+                    self::input($id,$value,"text",$label);
+                }
+                break;
+            case 'array':
+                break;
+            case 'object':
                 break;
             default:
                 if(method_exists($this,$type)){

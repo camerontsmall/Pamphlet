@@ -49,6 +49,7 @@ if(class_exists($ui_controller_class)){
         <!-- Bower -->
         <script src="bower_components/jquery/dist/jquery.min.js" ></script>
         <script src="bower_components/handlebars/handlebars.min.js" ></script>
+        <script src="bower_components/json-editor/dist/jsoneditor.min.js" ></script>
         
         <!-- Custom -->
         <script src="js/CustomForm.js" ></script>
@@ -80,14 +81,7 @@ if(class_exists($ui_controller_class)){
         </nav>
         
         <div class="breadcrumbs theme-color" >
-            <?php
-                $task_names = $ui_controller->TaskNames();
-            
-                for($i = 0; $i < count($task_names); $i++){
-                    if($i > 0) echo '<i class="material-icons">chevron_right</i>';
-                    echo "<span>" . $task_names[$i] . "</span>";
-                }
-            ?>
+            <?php $ui_controller->PrintBreadcrumbs(); ?>
         </div>
         
         <main>

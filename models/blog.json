@@ -1,0 +1,34 @@
+{
+    "title" : "Blog",
+    "model_name" : "blog",
+    "description" : "Simple blog object",
+    "type" : "object",
+    "properties" : {
+        "id" : {
+          "type" : "integer",
+          "options" : {
+            "hidden" : true
+          }
+        },
+        "title": {
+            "type": "string",
+            "title" : "Title"
+        },
+        "public": {
+            "type": "boolean",
+            "title" : "Public"
+        },
+        "datetime" : {
+            "type" : "string",
+            "title" : "Date posted",
+            "format" : "datetime"
+        },
+        "content": {
+            "type": "string",
+            "title" : "Content",
+            "format" : "textarea"
+        }
+        
+    },
+    "required" : ["id","title"]
+}

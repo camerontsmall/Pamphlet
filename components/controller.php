@@ -35,8 +35,28 @@ class Controller {
     
     /** Method to display editor pages */
     function UIMethod(){
-        global $task;
-        echo "Loaded page $task";
+        
+        /* Create standard control only if we have an implementation */
+        if($this->implementation){
+            
+            if($this->task_parts[1] == "add"){
+                
+                $form = new ModelForm($this->implementation->model, "add_form", $action, "PUT", "");
+
+                $form->render();
+                
+            }else if(($this->task_parts[1]) > 0){
+                
+                $this->PrintEditForm(intval($this->task_parts[1]));
+                
+                
+            }else{
+                $this->PrintItemList();
+            }
+            
+        }else{
+            echo "Put your content for page $this->$name here"; 
+        }
     }
     
     /** Method to generate API pages. Should return a single object */
@@ -65,6 +85,53 @@ class Controller {
         return explode('/', $this->task);
     }
     
+    function PrintBreadcrumbs(){
+        
+        $task_names = $this->TaskNames();
+        
+        $full_task = "";
+        
+        for($i = 0; $i < count($task_names); $i++){
+            if($i > 0){ echo '<i class="material-icons">chevron_right</i>'; $slash = '/'; }
+            $full_task .= $slash . $task_names[$i];
+            echo "<a href=\"./?a=$full_task\">" . $task_names[$i] . "</a>";
+        }
+        if($this->task_parts[1] != "add") echo "<a class=\"bc-action\" href=\"./?a=video/add\">New<i class=\"material-icons\">add</i></a>";
+    }
+    
+    function PrintItemList(){
+        
+        $data = $this->implementation->ReadMany([]);
+        
+        $data = $this->PrepareData($data);
+        
+        $list = new DynamicList($data, "datalist");
+        
+        $list->display();
+    }
+    
+    function PrintEditForm($id){
+        
+        $data = $this->implementation->Read($id);
+        
+        $action = $this::$name . '/' . $id;
+        
+        $form = new ModelForm($this->implementation->model, "edit-form", $action, "PUT", "");
+        
+        $form->import_object($data);
+        
+        $form->render();
+        
+    }
+    
+    /**
+     * Convert data set for use in DynamicList
+     * @param type $data
+     * @return type
+     */
+    function PrepareData($data){
+        return $data;
+    }
     
     /* Generic static functions */
     

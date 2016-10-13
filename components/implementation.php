@@ -50,7 +50,7 @@ class Implementation {
         return $output;
     }
     
-    public function Read($id){
+    public function Read($id,$options = null){
         global $db;
         $cn = $this->CollectionName();
         

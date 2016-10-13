@@ -14,10 +14,10 @@ class video_controller extends Controller{
 
     public $implementation_name = "video_implementation";
     
-    public function TaskNames() {
+    public function TaskNamesTwo() {
         $task_parts = explode('/',$this->task);
         if($task_parts[1] != null){
-            return ["Videos","Edit"];
+            return ["Videos","Add"];
         }else{
             return ["Videos"];
         }
@@ -26,12 +26,19 @@ class video_controller extends Controller{
     public function UIMethod() {
         
         $task_parts = explode('/',$this->task);
-        if($task_parts[1]){
-            echo "New Video!";
+        if($task_parts[1] == 'add'){
             
-            $model = $this->implementation->model;
-            echo "<br />";
-            var_dump($model);
+            $form = new ModelForm($this->implementation->model, "add_form", $action, "POST", "");
+
+            $form->render();
+            
+        }else if($task_parts[1]){
+             
+            $data = $this->implementation->Read(intval($task_parts[1]));
+            
+            $form = new ModelForm($this->implementation->model, "add_form", $action, "PUT", "");
+            $form->import_object($data);
+            $form->render();
             
         }else{
             
@@ -48,9 +55,10 @@ class video_controller extends Controller{
             $video = $this->implementation->Read(15);
             
             ?>
+<!--
 <div class="richlist-top-bar theme-color">
     <span><i class="material-icons">add</i>Add</span>
-</div>
+</div> -->
 <div class="richlist-parent">
     
     <div class="richlist-left-pane">
@@ -125,9 +133,13 @@ class video_controller extends Controller{
     static function convert_list($data){
         $output = [];
         foreach($data as $item){
-            $output[] = ["Title" => $item->title, "Type" => $item->type, "Tags" => $item->tags, "Date posted" => $item->date, "onclick" => "loadVideoPreview($item->id);"];
+            $output[] = [ "Title" => $item->title, "Type" => $item->type, "Tags" => $item->tags, "Date posted" => $item->date, "onclick" => "loadVideoPreview($item->id);"];
         }
         return $output;
+    }
+    
+    function PrintBreadcrumbs() {
+        parent::PrintBreadcrumbs();
     }
     
 }
