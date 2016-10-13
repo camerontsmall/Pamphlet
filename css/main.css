@@ -115,13 +115,14 @@ a {
 main {
   width: auto;
   min-height: 50px;
-  padding-top: 60px;
+  padding-top: 80px;
   padding-left: 250px;
   padding-right: 30px; }
 
 .container {
   min-height: 100px;
   min-width: 100px;
+  margin-bottom: 40px;
   background-color: white; }
 
 /* Richlist */
@@ -148,7 +149,8 @@ main {
   border-left: 1px solid rgba(0, 0, 0, 0.12); }
 
 .richlist-data-form {
-  padding: 15px; }
+  padding: 15px;
+  min-height: 186px; }
 
 .richlist-bottom-bar {
   height: 40px;
@@ -156,5 +158,94 @@ main {
   padding-right: 10px;
   color: white;
   text-align: right; }
+
+/* 
+    Created on : 13-Oct-2016, 00:26:10
+    Author     : Cameron
+*/
+/* Object list styles */
+.objectList {
+  width: 100%;
+  margin: 0px;
+  border-spacing: 0px;
+  clear: both; }
+  .objectList tbody tr {
+    cursor: pointer;
+    overflow: hidden; }
+  .objectList tbody tr:hover {
+    background-color: #2196F3;
+    color: white; }
+  .objectList th {
+    margin: 0px;
+    text-align: center;
+    height: 50px;
+    padding: 0px 15px;
+    max-width: 400px;
+    overflow: hidden;
+    /* border-bottom: 1px solid $weak-border; */
+    height: 56px;
+    font-famiy: "Roboto Bold"; }
+  .objectList td {
+    height: 50px;
+    text-align: center;
+    overflow: hidden; }
+  .objectList a {
+    text-decoration: none;
+    text-align: center;
+    color: inherit;
+    width: 100%;
+    line-height: 100%;
+    display: inline-block;
+    vertical-align: middle; }
+
+.listWrapper {
+  min-height: 300px; }
+  .listWrapper i {
+    cursor: pointer;
+    font-size: 2em;
+    float: right;
+    line-height: inherit;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    line-height: 40px; }
+
+.listcontrols {
+  height: 40px;
+  white-space: nowrap;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.12); }
+  .listcontrols input {
+    padding-left: 10px;
+    margin-right: 10px;
+    height: 38px;
+    border: none;
+    outline: none;
+    min-width: 250px; }
+  .listcontrols input:focus {
+    outline: none; }
+  .listcontrols .pagenum {
+    float: right;
+    line-height: 40px; }
+
+/* 
+    Created on : 12-Oct-2016, 21:48:46
+    Author     : Cameron
+*/
+.video-preview-parent {
+  width: 100%; }
+
+.video-preview-container {
+  width: 100%;
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0; }
+
+.video-preview {
+  background-color: grey;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
 
 /*# sourceMappingURL=main.css.map */

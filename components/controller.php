@@ -30,8 +30,6 @@ class Controller {
         
         if(class_exists($implementation_name)){
             $this->implementation = new $implementation_name();
-        }else{
-            echo error("Could not load implementation \"$implementation_name\"");
         }
     }
     

@@ -17,7 +17,7 @@ class video_controller extends Controller{
     public function TaskNames() {
         $task_parts = explode('/',$this->task);
         if($task_parts[1] != null){
-            return ["Videos","New"];
+            return ["Videos","Edit"];
         }else{
             return ["Videos"];
         }
@@ -37,6 +37,8 @@ class video_controller extends Controller{
             
             $this->listVideoPage();
         }
+        
+        self::videoPreviewTemplate();
     }
     
     function listVideoPage(){
@@ -47,7 +49,7 @@ class video_controller extends Controller{
             
             ?>
 <div class="richlist-top-bar theme-color">
-    <span>Add</span>
+    <span><i class="material-icons">add</i>Add</span>
 </div>
 <div class="richlist-parent">
     
@@ -59,27 +61,6 @@ class video_controller extends Controller{
         $list->display();
         ?>
     </div>
-
-    <script id="video-preview-template" type="text/x-handlebars-template">
-        <div class="video-preview-parent">
-            <div class="video-preview-container">
-                <div class="video-preview">{{{source}}}</div>
-            </div>
-        </div>
-        <div class="richlist-data-form">
-            <h3>{{title}}</h3>
-            <p>
-                <span>Posted {{date}}</span>
-                <span style="font-style:italic;">{{tags}}</span>
-            </p>
-            <p>{{{description}}}</p>
-        </div>
-        <div class="richlist-bottom-bar theme-color">
-            <span>
-                <a href="./?a=video/{{id}}">Edit</a>
-            </span>
-        </div>
-    </script>
    
     
     <div class="richlist-right-pane" id="video-preview-section">
@@ -89,19 +70,47 @@ class video_controller extends Controller{
             </div>
         </div>
         <div class="richlist-data-form">
-            <p>Select a video to preview</p>
+            <p>Select a video to load preview</p>
         </div>
         <div class="richlist-bottom-bar theme-color"></div>
     </div>
     
-     <script>
-        var vid_source = $("#video-preview-template").html();
-        var template = Handlebars.compile(vid_source);
-        //loadVideoPreview(15);
-    </script>
+    
     
 </div>
 <?php
+    }
+    
+    static function videoPreviewTemplate(){
+        ?>
+        <script id="video-preview-template" type="text/x-handlebars-template">
+            <div class="video-preview-parent">
+                <div class="video-preview-container">
+                    <div class="video-preview">{{{source}}}</div>
+                </div>
+            </div>
+            <div class="richlist-data-form">
+                <h3>{{title}}</h3>
+                <p>
+                    <span>Posted {{date}}</span>
+                    <span style="font-style:italic;">{{tags}}</span>
+                </p>
+                <p>{{{description}}}</p>
+            </div>
+            <div class="richlist-bottom-bar theme-color">
+                <span>
+                    <a href="./?a=video/{{id}}">
+                    Edit
+                    <i class="material-icons">edit</i>
+                    </a>
+                </span>
+            </div>
+        </script>
+        <script>
+        var vid_source = $("#video-preview-template").html();
+        var template = Handlebars.compile(vid_source);
+        </script>
+        <?php
     }
     
     static function processTags($tags){
@@ -125,8 +134,8 @@ class video_controller extends Controller{
 
 class video_view extends View{
     
-    public static $api_endpoint = "videos";
+    public static $api_endpoint = "video";
     
-    public $implemenation_name = "video_implementation";
+    public $implementation_name = "video_implementation";
     
 }

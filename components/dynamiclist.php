@@ -50,7 +50,8 @@ class DynamicList{
             $search = "<input onkeyup=\"list_search('$this->id','$data_id',this.value);\" placeholder='Search' type='text' id='$search_id' />";
             $back = "<i onclick=\"list_change_page('$this->id','$data_id',0);\" id='$back_id' class='material-icons' style=\"color:#888;\">chevron_left</i>";
             $next = "<i onclick=\"list_change_page('$this->id','$data_id',1);\" id='$next_id' class='material-icons'>chevron_right</i>"; 
-            echo "$search<div class=\"listnav\"><p>Page <span id='$page_number'>1</span> of $numpages</p>$back$next</div>";
+            
+            echo "<div class=\"listcontrols\">$search$next$back<span class=\"pagenum\">Page <span id='$page_number'>1</span> of $numpages</span></div>";
         }
         echo "<table class=\"objectList\" id=\"$this->id\" $this->tags >",PHP_EOL;
         

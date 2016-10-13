@@ -17,13 +17,32 @@ class View {
     public $implementation;
     
     public function __construct() {
-        $this->$implemenation = new $this->implementation_name();
+        
+        if(class_exists($this->implementation_name)){
+            $this->implementation = new $this->implementation_name();
+        }else{
+            throw new Exception("Invalid implementation name \"$this->implementation_name\"");
+        }
     }
     
     public function APIMethod(){
+        $tp = $this->task_parts;
         
-        
-        
+        switch($_SERVER['REQUEST_METHOD']){
+            case 'GET':
+                
+                if($tp[1]){
+                    $id = intval($tp[1]);
+                    return $this->implementation->Read($id);
+                }else{
+                    $params = (array) json_decode($_GET['q']);
+                    return $this->implementation->ReadMany($params);
+                }
+                
+                break;
+            default:
+                return ["ResponseStatus" => "Error", "ErrorName" => "InvalidRequestMethod", "Note" => "This API endpoint only supports GET requests"];
+        }
     }
     
     

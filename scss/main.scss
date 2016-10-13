@@ -14,6 +14,9 @@ Z-INDEXES
 
 */
 
+$primary-medium: #2196F3;
+//$primary-medium: #4a1863;
+
 /* Fonts and stuff */
 
 @font-face{
@@ -152,7 +155,7 @@ main {
     
     width:auto;
     min-height:50px;
-    padding-top: 60px;
+    padding-top: 80px;
     padding-left: 250px;
     padding-right:30px;
     
@@ -161,6 +164,7 @@ main {
 .container{
     min-height:100px;
     min-width:100px;
+    margin-bottom:40px;
     background-color:white;
 }
 
@@ -181,6 +185,7 @@ main {
 
 
 .richlist-left-pane, .richlist-right-pane{
+    
 }
 
 .richlist-left-pane{
@@ -198,6 +203,7 @@ main {
 
 .richlist-data-form{
     padding:15px;
+    min-height:186px;
 }
 
 .richlist-bottom-bar{
@@ -214,3 +220,6 @@ main {
 .rl-btn:hover{
     
 }
+
+@import 'DynamicList.scss';
+@import 'video.scss';

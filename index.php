@@ -30,10 +30,11 @@ if(class_exists($ui_controller_class)){
 <html>
     <head>
         <!-- Styling -->
-        <link rel="stylesheet" href="css/main.css" />
         
-        <!-- Additional styles -->
-        <link rel="stylesheet" href="css/video.css" />
+        <link rel="stylesheet" href="bower_components/material-design-icons/iconfont/material-icons.css" />
+        
+        <!-- Master stylesheet -->
+        <link rel="stylesheet" href="css/main.css" />
 
         <style>
             .theme-color{
@@ -83,7 +84,7 @@ if(class_exists($ui_controller_class)){
                 $task_names = $ui_controller->TaskNames();
             
                 for($i = 0; $i < count($task_names); $i++){
-                    if($i > 0) echo '<span class="slash"></span>';
+                    if($i > 0) echo '<i class="material-icons">chevron_right</i>';
                     echo "<span>" . $task_names[$i] . "</span>";
                 }
             ?>

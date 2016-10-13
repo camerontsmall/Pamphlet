@@ -1,0 +1,9 @@
+Options +FollowSymLinks -MultiViews
+RewriteEngine On
+RewriteBase "/"
+RewriteRule ^api/([.*]+)?$ api_public.php?a=[L,NC,QSA]
+##RewriteRule ^files/([a-z0-9]+)\.(A-Za-z0-9)(\?[.*]+)?$ files/$1/original.$2&$3 [L,NC,QSA,R]
+##RewriteRule ^(files/[^.]+)\.jpg(\?[.*]+)?$ image.php?file=$1.jpg&type=jpg&$2 [L,NC,QSA]
+##RewriteRule ^(files/[^.]+)\.jpeg(\?[.*]+)?$ image.php?file=$1.jpg&type=jpg&$2 [L,NC,QSA]
+##RewriteRule ^(files/[^.]+)\.png(\?[.*]+)?$ image.php?file=$1.png&type=png&$2 [L,NC,QSA]
+##RewriteRule ^(files/[^.]+)\.gif(\?[.*]+)?$ image.php?file=$1.gif&type=gif&$2 [L,NC,QSA]
