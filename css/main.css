@@ -38,7 +38,7 @@ h3 {
   font-family: "Roboto Bold";
   margin: 0.25em; }
 
-.fieldRow {
+.formrow {
   width: 100%;
   white-space: nowrap;
   height: 1em; }
@@ -134,6 +134,86 @@ main {
   min-width: 100px;
   margin-bottom: 40px;
   background-color: white; }
+
+/* Forms */
+.form h3 {
+  font-family: "Roboto Regular";
+  font-weight: normal !important; }
+.form div h3 {
+  color: #2196F3;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 20px;
+  margin: 0;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.12); }
+.form button {
+  background: none;
+  border: none;
+  color: #2196F3;
+  cursor: pointer; }
+.form button:focus {
+  outline: none; }
+.form div {
+  border: none; }
+.form label {
+  float: left;
+  font-weight: normal !important; }
+.form input, .form select, .form .select2 {
+  float: right; }
+.form .row h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  color: black;
+  font-family: "Open Sans Regular";
+  border-bottom-style: solid; }
+.form table {
+  width: 100%; }
+.form td input {
+  width: 100%;
+  height: 25px; }
+.form td .select2 {
+  width: 100% !important; }
+.form .ui-buttonset div {
+  border: 1px solid rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.12) !important; }
+  .form .ui-buttonset div textarea {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
+  .form .ui-buttonset div textarea:focus {
+    outline: none; }
+
+.select2-container--default .select2-selection--single {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 0px; }
+
+.form-control {
+  width: 100%;
+  min-height: 40px; }
+  .form-control input:focus {
+    outline: none;
+    border-bottom-color: #2196F3; }
+  .form-control input {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    min-width: 300px; }
+  .form-control div[data-schematype='table'] {
+    border: 1px solid rgba(0, 0, 0, 0.3); }
+  .form-control .select2 {
+    min-width: 170px; }
+  .form-control textarea, .form-control .cke {
+    clear: both; }
+  .form-control .cke {
+    border: none;
+    box-shadow: none;
+    margin-left: -20px;
+    margin-right: -20px; }
+  .form-control .cke_bottom {
+    background-color: #2196F3;
+    color: white; }
+  .form-control .cke_path {
+    color: white; }
 
 /* Richlist */
 .richlist-parent {

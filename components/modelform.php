@@ -43,10 +43,12 @@ class ModelForm{
     
     var editor = new JSONEditor(jeditor_el, {
         schema : <?= json_encode($this->model) ?>,
-        disable_properties: true,
+        disable_properties: false,
         disable_collapse: true,
-        template: "jqueryui",
-        theme: "jqueryui"
+        disable_edit_json: false,
+        no_additional_properties : false,
+        theme: "jqueryui",
+        template : "handlebars"
     });
     
     <?php if($this->data){ echo "editor.setValue(" . json_encode($this->data) . ");" ;}?>

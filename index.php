@@ -32,6 +32,9 @@ if(class_exists($ui_controller_class)){
         <!-- Styling -->
         
         <link rel="stylesheet" href="bower_components/material-design-icons/iconfont/material-icons.css" />
+        <!-- <link rel="stylesheet" href="bower_components/jquery-ui/themes/base/jquery-ui.min.css" />      -->  
+        <link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css" />        
+        <!-- <link rel="stylesheet" href="bower_components/sceditor/minified/jquery.sceditor.default.min.css" /> -->
         
         <!-- Master stylesheet -->
         <link rel="stylesheet" href="css/main.css" />
@@ -48,8 +51,13 @@ if(class_exists($ui_controller_class)){
         <!-- JS Includes -->
         <!-- Bower -->
         <script src="bower_components/jquery/dist/jquery.min.js" ></script>
+        <script src="bower_components/jquery-ui/jquery-ui.min.js" ></script>
         <script src="bower_components/handlebars/handlebars.min.js" ></script>
         <script src="bower_components/json-editor/dist/jsoneditor.min.js" ></script>
+        <script src="bower_components/select2/dist/js/select2.full.min.js" ></script>
+        <script src="bower_components/ace/static.js" ></script>
+ 
+        <script src="ckeditor/ckeditor.js" ></script>        
         
         <!-- Custom -->
         <script src="js/CustomForm.js" ></script>
@@ -94,5 +102,8 @@ if(class_exists($ui_controller_class)){
             </div>
         </main>
         
+        <script>
+            CKEDITOR.replaceAll();
+        </script>
     </body>
 </html>

@@ -96,7 +96,7 @@ class Controller {
             $full_task .= $slash . $task_names[$i];
             echo "<a href=\"./?a=$full_task\">" . $task_names[$i] . "</a>";
         }
-        if($this->task_parts[1] != "add") echo "<a class=\"bc-action\" href=\"./?a=video/add\">New<i class=\"material-icons\">add</i></a>";
+        if($this->task_parts[1] != "add") echo "<a class=\"bc-action\" href=\"./?a={$task_names[0]}/add\">New<i class=\"material-icons\">add</i></a>";
     }
     
     function PrintItemList(){
@@ -116,7 +116,11 @@ class Controller {
         
         $action = $this::$name . '/' . $id;
         
-        $form = new ModelForm($this->implementation->model, "edit-form", $action, "PUT", "");
+        $model = $this->implementation->model;
+        
+        $model->title = "Edit " . $model->title;
+        
+        $form = new ModelForm($model, "edit-form", $action, "PUT", "");
         
         $form->import_object($data);
         
