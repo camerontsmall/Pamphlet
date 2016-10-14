@@ -140,7 +140,13 @@ class video_controller extends Controller{
     }
     
     function PrintBreadcrumbs() {
-        parent::PrintBreadcrumbs();
+        $tp = $this->task_parts;
+        if($tp[1]){
+            $doc = $this->implementation->Read($tp[1]);
+            echo "<a href=\"./?a=video\">Videos</a><i class=\"material-icons\">chevron_right</i><a href=\"./?a=video/$tp[1]\">{$doc->title}</a>";
+        }else{
+            parent::PrintBreadcrumbs();
+        }
     }
     
 }
