@@ -34,7 +34,7 @@ class video_controller extends Controller{
             
         }else if($task_parts[1]){
              
-            $data = $this->implementation->Read(intval($task_parts[1]));
+            $data = $this->implementation->Read($task_parts[1]);
             
             $form = new ModelForm($this->implementation->model, "add_form", $action, "PUT", "");
             $form->import_object($data);
@@ -106,7 +106,7 @@ class video_controller extends Controller{
             </div>
             <div class="richlist-bottom-bar theme-color">
                 <span>
-                    <a href="./?a=video/{{id}}">
+                    <a href="./?a=video/{{_id}}">
                     Edit
                     <i class="material-icons">edit</i>
                     </a>
@@ -133,7 +133,8 @@ class video_controller extends Controller{
        
         $output = [];
         foreach($data as $item){
-            $output[] = [ "Title" => $item->title, "Type" => $item->type, "Tags" => $item->tags, "Date posted" => $item->date, "onclick" => "loadVideoPreview($item->id);"];
+            $_id = (string) $item->{_id};
+            $output[] = [ "Title" => $item->title, "Type" => $item->type, "Tags" => $item->tags, "Date posted" => $item->date, "onclick" => "loadVideoPreview('{$_id}');"];
         }
         return $output;
     }
