@@ -55,7 +55,7 @@ class Controller {
             }
             
         }else{
-            echo "Put your content for page $this->$name here"; 
+            echo "Put your content for page {$this::$name} here"; 
         }
     }
     
@@ -90,7 +90,7 @@ class Controller {
         $task_names = $this->TaskNames();
         
         $full_task = "";
-        
+        $slash = '';
         for($i = 0; $i < count($task_names); $i++){
             if($i > 0){ echo '<i class="material-icons">chevron_right</i>'; $slash = '/'; }
             $full_task .= $slash . $task_names[$i];
