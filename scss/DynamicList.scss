@@ -77,14 +77,16 @@
     height:40px;
     white-space:nowrap;
     border-bottom: 1px dashed rgba(0,0,0,0.12);
+    padding-left:10px;
+    line-height:40px;
     
     input{
         padding-left:10px;
-        margin-right:10px;
         height:38px;
         border:none;
         outline:none;
         min-width:250px;
+        float:left;
     }
     input:focus{
         outline:none;

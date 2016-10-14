@@ -3,7 +3,7 @@
 class blog_implementation extends Implementation{
     
     public $model_name = "blog";
-    public $collection_name = "video";
+    public $collection_name = "blog";
     
 }
 

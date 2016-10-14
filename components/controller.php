@@ -88,17 +88,18 @@ class Controller {
     function PrintBreadcrumbs(){
         $name = $this::$name;
         $title = $this::$title;
+        $item_name = $this->implementation->model['title'];
         
         $tp = $this->task_parts;
         if($tp[1] == 'add'){
-            echo "<a href=\"./?a=$name\">$title</a><i class=\"material-icons\">chevron_right</i><a href=\"./?a=$name/add\">New</a>";
+            echo "<a href=\"./?a=$name\">$title</a><i class=\"material-icons\">chevron_right</i><a href=\"./?a=$name/add\">New $item_name</a>";
         }
         else if($tp[1]){
             $doc = $this->implementation->Read($tp[1]);
             echo "<a href=\"./?a=$name\">$title</a><i class=\"material-icons\">chevron_right</i><a href=\"./?a=$name/$tp[1]\">{$doc->title}</a>";
         }else{
             echo "<a href=\"./?a=$name\">$title</a>";
-            echo "<a class=\"bc-action\" href=\"./?a=$name/add\">New<i class=\"material-icons\">add</i></a>";
+            echo "<a class=\"bc-action\" href=\"./?a=$name/add\">New $item_name<i class=\"material-icons\">add</i></a>";
         }
     }
     
@@ -108,9 +109,14 @@ class Controller {
         
         $data = $this->PrepareData($data);
         
-        $list = new DynamicList($data, "datalist");
+        if(count($data) > 0){
         
-        $list->display();
+            $list = new DynamicList($data, "datalist");
+
+            $list->display();
+        }else{
+            echo "<div class=\"listcontrols\"><span>No items</span></div>";
+        }
     }
     
     function PrintEditForm($id){

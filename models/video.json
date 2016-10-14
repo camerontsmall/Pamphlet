@@ -28,12 +28,13 @@
         },
         "poster": {
             "type": "string",
-            "title" : "Poster URL"
+            "title" : "Poster URL",
+            "format" : "url"
         },
         "datetime" : {
             "type" : "string",
             "title" : "Date posted",
-            "format" : "datetime"
+            "format" : "date"
         },
         "type": {
             "type": "string",

@@ -1,5 +1,5 @@
 {
-    "title" : "Blog",
+    "title" : "Post",
     "model_name" : "blog",
     "description" : "",
     "type" : "object",
@@ -16,12 +16,13 @@
         },
         "public": {
             "type": "boolean",
-            "title" : "Public"
+            "title" : "Public",
+            "format" : "checkbox"
         },
         "datetime" : {
             "type" : "string",
             "title" : "Date posted",
-            "format" : "datetime"
+            "format" : "date"
         },
         "content": {
             "type": "string",

@@ -36,14 +36,20 @@ class ModelForm{
     
     public function render(){
         echo PHP_EOL, "<!-- ajaxForm2 $this->id starts -->", PHP_EOL;
-        echo "<div id='$this->id' class='form'>", PHP_EOL;   
+        echo "<div id='$this->id' class='form'>", PHP_EOL;
+        echo "<div id=\"{$this->id}_jsoneditor\" class=\"jsoneditor\"></div>", PHP_EOL;
+        
         ?>
+<div class="control-row">
+    <span id="<?= $this->id ?>_result">Editing</span>
+    <button value="submit">Save</button>
+</div>
 <script>
-    var jeditor_el = document.getElementById('<?= $this->id ?>');
+    var jeditor_el = document.getElementById('<?= $this->id ?>_jsoneditor');
     
     var editor = new JSONEditor(jeditor_el, {
         schema : <?= json_encode($this->model) ?>,
-        disable_properties: false,
+        disable_properties: true,
         disable_collapse: true,
         disable_edit_json: false,
         no_additional_properties : false,
@@ -55,8 +61,8 @@ class ModelForm{
     
 </script>
 <?php
-        
-        echo "</div>";
+
+echo "</div>";
     }
     
     public function string($name,$value,$label){
