@@ -91,5 +91,5 @@
             }
         }
     },
-    "required" : ["id","section","title"]
+    "required" : ["section","title"]
 }

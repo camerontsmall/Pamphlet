@@ -42,10 +42,20 @@
         text-decoration:none;
         text-align:center;
         color:inherit;
-        width:100%;
         line-height:100%;
         display:inline-block;
         vertical-align:middle;
+    }
+    
+    .material-icons{
+        cursor:pointer;
+        display:block;
+        height:50px;
+        line-height:50px;
+    }
+    
+    .green{
+        color:#76FF03;
     }
 }
 .listWrapper{

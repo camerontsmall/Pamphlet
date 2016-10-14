@@ -86,17 +86,20 @@ class Controller {
     }
     
     function PrintBreadcrumbs(){
+        $name = $this::$name;
+        $title = $this::$title;
         
-        $task_names = $this->TaskNames();
-        
-        $full_task = "";
-        $slash = '';
-        for($i = 0; $i < count($task_names); $i++){
-            if($i > 0){ echo '<i class="material-icons">chevron_right</i>'; $slash = '/'; }
-            $full_task .= $slash . $task_names[$i];
-            echo "<a href=\"./?a=$full_task\">" . $task_names[$i] . "</a>";
+        $tp = $this->task_parts;
+        if($tp[1] == 'add'){
+            echo "<a href=\"./?a=$name\">$title</a><i class=\"material-icons\">chevron_right</i><a href=\"./?a=$name/add\">New</a>";
         }
-        if($this->task_parts[1] != "add") echo "<a class=\"bc-action\" href=\"./?a={$task_names[0]}/add\">New<i class=\"material-icons\">add</i></a>";
+        else if($tp[1]){
+            $doc = $this->implementation->Read($tp[1]);
+            echo "<a href=\"./?a=$name\">$title</a><i class=\"material-icons\">chevron_right</i><a href=\"./?a=$name/$tp[1]\">{$doc->title}</a>";
+        }else{
+            echo "<a href=\"./?a=$name\">$title</a>";
+            echo "<a class=\"bc-action\" href=\"./?a=$name/add\">New<i class=\"material-icons\">add</i></a>";
+        }
     }
     
     function PrintItemList(){

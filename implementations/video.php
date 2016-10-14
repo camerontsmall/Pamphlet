@@ -25,16 +25,16 @@ class video_controller extends Controller{
     
     public function UIMethod() {
         
-        $task_parts = explode('/',$this->task);
-        if($task_parts[1] == 'add'){
+        $tp = $this->task_parts;
+        if($tp[1] == 'add'){
             
             $form = new ModelForm($this->implementation->model, "add_form", $action, "POST", "");
 
             $form->render();
             
-        }else if($task_parts[1]){
+        }else if($tp[1]){
              
-            $data = $this->implementation->Read($task_parts[1]);
+            $data = $this->implementation->Read($tp[1]);
             
             $form = new ModelForm($this->implementation->model, "add_form", $action, "PUT", "");
             $form->import_object($data);
@@ -134,20 +134,17 @@ class video_controller extends Controller{
         $output = [];
         foreach($data as $item){
             $_id = (string) $item->{'_id'};
-            $output[] = [ "Title" => $item->title, "Type" => $item->type, "Tags" => $item->tags, "Date posted" => $item->date, "onclick" => "loadVideoPreview('{$_id}');"];
+            $output[] = [ 
+                "Title" => $item->title, 
+                "Type" => $item->type, 
+                "Tags" => $item->tags, 
+                "Date posted" => $item->date, 
+                "" => "<a href=\"./?a=video/$_id\"><i class=\"material-icons\">edit</i></a>",
+                "onclick" => "loadVideoPreview('{$_id}');"];
         }
         return $output;
     }
     
-    function PrintBreadcrumbs() {
-        $tp = $this->task_parts;
-        if($tp[1]){
-            $doc = $this->implementation->Read($tp[1]);
-            echo "<a href=\"./?a=video\">Videos</a><i class=\"material-icons\">chevron_right</i><a href=\"./?a=video/$tp[1]\">{$doc->title}</a>";
-        }else{
-            parent::PrintBreadcrumbs();
-        }
-    }
     
 }
 
