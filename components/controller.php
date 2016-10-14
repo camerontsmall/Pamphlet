@@ -47,7 +47,7 @@ class Controller {
                 
             }else if(($this->task_parts[1]) > 0){
                 
-                $this->PrintEditForm(intval($this->task_parts[1]));
+                $this->PrintEditForm($this->task_parts[1]);
                 
                 
             }else{
@@ -67,7 +67,7 @@ class Controller {
             case 'GET':
                 
                 if($tp[1]){
-                    $id = intval($tp[1]);
+                    $id = $tp[1];
                     return $this->implementation->Read($id);
                 }else{
                     $params = (array) json_decode($_GET['q']);

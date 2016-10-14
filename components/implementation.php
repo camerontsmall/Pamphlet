@@ -47,10 +47,12 @@ class Implementation {
         }
         
         $query = new MongoDB\Driver\Query($params,$options);
-        $rows = $db->executeQuery($cn,$query);
+        $cursor = $db->executeQuery($cn,$query);
+        
+        //$cursor->setTypeMap(['root' => 'array']);
         
         $output = [];
-        foreach($rows as $data_row){
+        foreach($cursor as $data_row){
             $output[] = $data_row;
         }
         
@@ -62,7 +64,7 @@ class Implementation {
         $cn = $this->CollectionName();
         
         $params = [
-            'id' => $id
+            '_id' => new MongoDB\BSON\ObjectId($id)
         ];
         
         if($options == null){

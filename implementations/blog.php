@@ -17,7 +17,7 @@ class blog_controller extends Controller{
     function PrepareData($data) {
         $c = [];
         foreach($data as $item){
-            $c[] = ["action" => "blog/$item->id", "Title" => $item->title, "Tags" => $item->tags, "Date" => $item->date];
+            $c[] = ["action" => "blog/$item->_id", "Title" => $item->title, "Tags" => $item->tags, "Date" => $item->date];
         }
         return $c;
     }

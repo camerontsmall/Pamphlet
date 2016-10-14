@@ -52,7 +52,6 @@ class video_controller extends Controller{
         
             $data = $this->implementation->ReadMany([]);
             
-            $video = $this->implementation->Read(15);
             
             ?>
 <!--
@@ -131,6 +130,7 @@ class video_controller extends Controller{
     }
     
     static function convert_list($data){
+       
         $output = [];
         foreach($data as $item){
             $output[] = [ "Title" => $item->title, "Type" => $item->type, "Tags" => $item->tags, "Date posted" => $item->date, "onclick" => "loadVideoPreview($item->id);"];

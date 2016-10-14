@@ -32,7 +32,7 @@ class View {
             case 'GET':
                 
                 if($tp[1]){
-                    $id = intval($tp[1]);
+                    $id = $tp[1];
                     return $this->implementation->Read($id);
                 }else{
                     $params = (array) json_decode($_GET['q']);
