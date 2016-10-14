@@ -51,7 +51,7 @@ class View {
     
     public function GenerateMethod(){
         
-        echo "Generate Page for task " . $this::$api_endpoint;
+        echo "This interface does not have a generate function defined.<br />API Endpoint: " . $this::$api_endpoint;
         
     }
     

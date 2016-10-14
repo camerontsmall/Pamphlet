@@ -130,7 +130,7 @@ class video_controller extends Controller{
         <script id="video-preview-template" type="text/x-handlebars-template">
             <div class="video-preview-parent">
                 <div class="video-preview-container">
-                    <div class="video-preview">{{{source}}}</div>
+                    <iframe class="video-preview" src="./generated.php?a=video/{{_id}}" ></iframe>
                 </div>
             </div>
             <div class="richlist-data-form">
@@ -197,6 +197,7 @@ class video_view extends View{
             echo $data->source;
         }
         
+        echo "<style>.video-js{ width:100%; height:100%; </style>", PHP_EOL;
         echo PHP_EOL . "</body>" . PHP_EOL . "</html>";
         
     }
