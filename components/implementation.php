@@ -54,7 +54,7 @@ class Implementation {
         $output = [];
         foreach($cursor as $data_row){
             $doc = $data_row;
-            $doc->{_id} = (string) $doc->{_id};
+            $doc->{'_id'} = (string) $doc->{'_id'};
             $output[] = $doc;
         }
         
@@ -81,7 +81,7 @@ class Implementation {
         $output = [];
         foreach($rows as $data_row){
             $doc = $data_row;
-            $doc->{_id} = (string) $doc->{_id};
+            $doc->{'_id'} = (string) $doc->{'_id'};
             return $data_row;
         }
         

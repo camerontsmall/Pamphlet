@@ -133,7 +133,7 @@ class video_controller extends Controller{
        
         $output = [];
         foreach($data as $item){
-            $_id = (string) $item->{_id};
+            $_id = (string) $item->{'_id'};
             $output[] = [ "Title" => $item->title, "Type" => $item->type, "Tags" => $item->tags, "Date posted" => $item->date, "onclick" => "loadVideoPreview('{$_id}');"];
         }
         return $output;
