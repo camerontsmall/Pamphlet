@@ -227,6 +227,9 @@ main {
   line-height: 40px;
   width: 100%; }
 
+.richlist-left-pane, .richlist-right-pane {
+  overflow: hidden; }
+
 .richlist-left-pane {
   width: 60%;
   height: 100%;

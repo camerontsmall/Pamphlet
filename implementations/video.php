@@ -26,6 +26,9 @@ class video_controller extends Controller{
     public function UIMethod() {
         
         $tp = $this->task_parts;
+        
+        self::loadVideoPreviewTemplate();
+        
         if($tp[1] == 'add'){
             
             $form = new ModelForm($this->implementation->model, "add_form", $action, "POST", "");
@@ -33,19 +36,14 @@ class video_controller extends Controller{
             $form->render();
             
         }else if($tp[1]){
-             
-            $data = $this->implementation->Read($tp[1]);
-            
-            $form = new ModelForm($this->implementation->model, "add_form", $action, "PUT", "");
-            $form->import_object($data);
-            $form->render();
+           
+            $this->editVideoPage();
             
         }else{
             
             $this->listVideoPage();
         }
         
-        self::videoPreviewTemplate();
     }
     
     function listVideoPage(){
@@ -88,7 +86,46 @@ class video_controller extends Controller{
 <?php
     }
     
-    static function videoPreviewTemplate(){
+    
+    function editVideoPage(){
+        $tp = $this->task_parts;  
+        
+        $data = $this->implementation->Read($tp[1]);
+
+        $form = new ModelForm($this->implementation->model, "add_form", $action, "PUT", "");
+        $form->import_object($data);
+        
+        ?>
+<div class="richlist-parent">
+    
+    <div class="richlist-left-pane">
+        <?php
+        
+        $form->render();
+        ?>
+    </div>
+   
+    
+    <div class="richlist-right-pane" id="video-preview-section">
+        <div class="video-preview-parent">
+            <div class="video-preview-container">
+                <div class="video-preview"></div>
+            </div>
+        </div>
+        <div class="richlist-data-form">
+        </div>
+    </div>
+    
+    <script>
+        loadVideoPreview('<?= $data->{'_id'} ?>');
+    </script>
+    
+</div>
+<?php
+        
+    }
+    
+    static function loadVideoPreviewTemplate(){
         ?>
         <script id="video-preview-template" type="text/x-handlebars-template">
             <div class="video-preview-parent">
@@ -105,12 +142,6 @@ class video_controller extends Controller{
                 <p>{{{description}}}</p>
             </div>
             <div class="richlist-bottom-bar theme-color">
-                <span>
-                    <a href="./?a=video/{{_id}}">
-                    Edit
-                    <i class="material-icons">edit</i>
-                    </a>
-                </span>
             </div>
         </script>
         <script>
@@ -157,8 +188,8 @@ class video_view extends View{
     function GenerateMethod() {
         $tp = $this->task_parts;
         
-        echo "<!doctype html>";
-        echo "<html><body style=\"margin:0px; height:100vh; width:100%; overflow:hidden;\">";
+        echo "<!doctype html>",PHP_EOL;
+        echo "<html>" . PHP_EOL . "<body style=\"margin:0px; height:100vh; width:100%; overflow:hidden;\">",PHP_EOL;
         
         if($tp[1]){
             $id = $tp[1];
@@ -166,7 +197,7 @@ class video_view extends View{
             echo $data->source;
         }
         
-        echo "</body></html>";
+        echo PHP_EOL . "</body>" . PHP_EOL . "</html>";
         
     }
     
