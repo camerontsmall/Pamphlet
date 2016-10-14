@@ -16,13 +16,17 @@ class View {
     /* Implementation class to use for connections */
     public $implementation;
     
-    public function __construct() {
+    public function __construct($task) {
+ 
+        $this->task = $task;
+        $this->task_parts = explode('/',$task);
         
-        if(class_exists($this->implementation_name)){
-            $this->implementation = new $this->implementation_name();
-        }else{
-            throw new Exception("Invalid implementation name \"$this->implementation_name\"");
+        $implementation_name = $this->implementation_name;
+        
+        if(class_exists($implementation_name)){
+            $this->implementation = new $implementation_name();
         }
+        
     }
     
     public function APIMethod(){
@@ -45,6 +49,11 @@ class View {
         }
     }
     
+    public function GenerateMethod(){
+        
+        echo "Generate Page for task " . $this::$api_endpoint;
+        
+    }
     
     static function loadViewByEndpoint($name){
         

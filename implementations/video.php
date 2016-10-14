@@ -154,4 +154,20 @@ class video_view extends View{
     
     public $implementation_name = "video_implementation";
     
+    function GenerateMethod() {
+        $tp = $this->task_parts;
+        
+        echo "<!doctype html>";
+        echo "<html><body style=\"margin:0px; height:100vh; width:100%; overflow:hidden;\">";
+        
+        if($tp[1]){
+            $id = $tp[1];
+            $data = $this->implementation->Read($id);
+            echo $data->source;
+        }
+        
+        echo "</body></html>";
+        
+    }
+    
 }
