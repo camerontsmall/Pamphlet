@@ -30,10 +30,28 @@ class Implementation {
     
     /* Database operations */
     
+    /**
+     * Insert pre-validated documents into database
+     * 
+     * @global type $db
+     * @param type $data
+     */
     public function Insert($data){
         global $db;
         
         $cn = self::CollectionName();
+        
+        //Remove any preset IDs !IMPORTANT!
+        unset($data->{'_id'});
+        
+        $bw = new MongoDB\Driver\BulkWrite();
+        
+        $bw->insert($data);
+        
+        $result = $db->executeBulkWrite($cn,$bw);
+        
+        return $result;
+        
     }
     
     public function ReadMany($params = null, $options = null){
@@ -88,8 +106,27 @@ class Implementation {
         return false;
     }
     
-    public function Update($id, $data){
+    public function Update($id_string, $data){
+        global $db;
         
+        $cn = self::CollectionName();
+        
+        //Remove any preset IDs !IMPORTANT!
+        unset($data->{'_id'});
+        
+        $bw = new MongoDB\Driver\BulkWrite();
+        
+        $_id = new MongoDB\BSON\ObjectId($id_string);
+        
+        $bw->update(
+                ['_id' => $_id], 
+                ['$set' => $data],
+                ['multi' => false, 'upsert' => true]
+                );
+        
+        $result = $db->executeBulkWrite($cn,$bw);
+        
+        return $result;
     }
     
     public function Delete($id){

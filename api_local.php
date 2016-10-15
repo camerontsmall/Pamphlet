@@ -30,7 +30,7 @@ if(class_exists($api_controller_name)){
 
 }else{
     
-    $data = ["ResponseStatus" => "Error", "ErrorName" => "InvalidTask"];
+    $data = ["ResponseStatus" => "Error", "ErrorName" => "InvalidTask","Task" => $task];
 }
 
 ob_end_clean();

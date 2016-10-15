@@ -1,4 +1,4 @@
-function cm_updateForm(fields,action,method,result,onReloadAction){
+function updateForm(data,action,method,result,onReloadTask){
     if(!onReloadAction){
         var onReloadAction = action;
     }
@@ -7,7 +7,7 @@ function cm_updateForm(fields,action,method,result,onReloadAction){
         if(updateRequest.readyState == 4 && updateRequest.status == 200){
             var response = updateRequest.responseText;
             if(response == "reload"){
-                window.location.href = '.?action=' + onReloadAction;
+                window.location.href = '.?a=' + onReloadAction;
             }else if(response == "refresh"){
                 location.reload();
             }
@@ -25,22 +25,29 @@ function cm_updateForm(fields,action,method,result,onReloadAction){
             document.getElementById(result).innerHTML = "Error 500: Saving failed";
         }
     }
-    var postRequest = "";
-            
-    for(var i = 0; i < fields.length; i++){
-        value = $('#' + fields[i]).val();
-        if(i == 0){
-            postRequest = fields[i] + "=" + encodeURIComponent(value);
-        }else{
-            postRequest = postRequest + "&" + fields[i] + "=" + encodeURIComponent(value);
-        }
-    }   
+    var postRequest = "data=" + JSON.stringify(data);
             
     console.log(postRequest);
-    updateRequest.open(method,"request.php?update&action=" + action,"true");
-    updateRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    updateRequest.open(method,"./api_local.php?a=" + action,"true");
+    updateRequest.setRequestHeader("Content-type","application/json");
     updateRequest.send(postRequest);
 }
+
+function submitForm(data,action,method,result_field,reload_task){
+    
+    var kvp_data = "data=" + JSON.stringify(data);
+    
+    $.ajax({
+        url : './api_local.php?a=' + action + '&debug',
+        method : method,
+        data : kvp_data,
+        success : function(data){
+            console.log(data);
+        }
+    });
+    
+}
+
 function expand(id){
     var thing = document.getElementById(id);
     if(thing.style.maxHeight != "500px"){

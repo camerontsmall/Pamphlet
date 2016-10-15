@@ -22,12 +22,12 @@ class ModelForm{
      * @param string $onReloadAction - page to return to if reload request is received
      * 
      */
-    public function __construct($model,$id, $action, $method, $onReloadAction){
+    public function __construct($model,$id, $action, $method, $onReloadTask){
         $this->model = $model;
         $this->id = $id;
         $this->http_method = $method;
         $this->api_action = $action;
-        $this->reload_action = $onReloadAction;
+        $this->reload_task = $onReloadTask;
     }
     
     public function import_object($data){
@@ -42,7 +42,10 @@ class ModelForm{
         ?>
 <div class="control-row">
     <span id="<?= $this->id ?>_result">Editing</span>
-    <button value="submit">Save</button>
+    <button
+        onclick="submitForm(editor.getValue(),'<?= $this->api_action ?>','<?= $this->http_method ?>','<?= $this->id ?>_result', '<?= $this->onReloadTask ?>')"
+        value="submit"
+        >Save</button>
 </div>
 <script>
     var jeditor_el = document.getElementById('<?= $this->id ?>_jsoneditor');

@@ -41,7 +41,7 @@ class Controller {
             
             if($this->task_parts[1] == "add"){
                 
-                $form = new ModelForm($this->implementation->model, "add_form", $action, "PUT", "");
+                $form = new ModelForm($this->implementation->model, "add_form", $this::$name, "POST", "");
 
                 $form->render();
                 
@@ -65,7 +65,7 @@ class Controller {
         
         switch($_SERVER['REQUEST_METHOD']){
             case 'GET':
-                
+                //Read
                 if($tp[1]){
                     $id = $tp[1];
                     return $this->implementation->Read($id);
@@ -75,6 +75,22 @@ class Controller {
                 }
                 
                 break;
+            case 'POST':
+                //Add
+                $data = json_decode($_POST['data']);
+                //return $data;
+                return $this->implementation->Insert($data);
+                break;
+            case 'PUT':
+                if($tp[1]){
+                    $id = $tp[1];
+                    parse_str(file_get_contents("php://input"),$put_vars);
+                    $data = json_decode($put_vars['data']);
+                    return $this->implementation->Update($id,$data);
+                }else{
+                    header('HTTP/1.1 404 Not Found');
+                    return ["ResponseStatus" => "Error", "ErrorName" => "InvalidTaskForMethod"];
+                }
             default:
                 return ["ResponseStatus" => "Error", "ErrorName" => "InvalidRequestMethod"];
         }

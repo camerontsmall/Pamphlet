@@ -4,8 +4,8 @@
     "description" : "",
     "type" : "object",
     "properties" : {
-        "id" : {
-          "type" : "integer",
+        "_id" : {
+          "type" : "string",
           "options" : {
             "hidden" : true
           }
@@ -34,5 +34,5 @@
         }
         
     },
-    "required" : ["id","title"]
+    "required" : ["title"]
 }
