@@ -53,6 +53,7 @@ body{
 
 .off-canvas-content{
     background-color: #E6E6E6;
+    min-height:100vh;
 }
 
 /* Nav */
@@ -80,15 +81,19 @@ body{
 }
 
 /* General grid */
-
 .body-container{
-    margin-top:40px;
-    padding:0px;
-    //background-color:white;
+        padding:0px;
 }
 
-.row{
-    max-width:95rem;
+
+@media(min-width: 1820px){
+    .row{
+        max-width:95rem;
+    }
+    .body-container{
+        margin-top:40px;
+        //background-color:white;
+    }
 }
 
 /* Breadcrumbs */
@@ -143,14 +148,20 @@ body{
             float:left;
             margin:0px;
             box-shadow: none;
+            background-color:transparent;
         }
         
         i{
             cursor:pointer;
         }
-        i,span{
+        i,.pagenum{
             float:right;
             line-height:40px;
+        }
+        
+        .empty{
+            float:left;
+            margin-left:20px;
         }
         
     }
@@ -189,6 +200,38 @@ body{
     .callout.secondary{
         background-color:transparent;
         border:none;
+    }
+    
+    div[data-schematype="boolean"] .form-control{
+        height:40px;
+        line-height:40px;
+        label{
+            line-height:40px;
+        }
+    }
+    
+    .button{
+        border-radius:5px;
+    }
+    
+    .control-row{
+        height:50px;
+        line-height:40px;
+        padding: 0px 20px 10px 20px;
+        
+        .span{
+            float:left;
+            line-height:40px;
+        }
+        
+        
+        button{
+            float:right;
+            line-height:36px;
+            padding:0px 10px 0px 10px;
+            margin: 2px 10px 0px 0px;
+            height:36px;
+        }
     }
 }
 

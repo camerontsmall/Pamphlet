@@ -34,7 +34,8 @@ body {
   background-color: #E6E6E6; }
 
 .off-canvas-content {
-  background-color: #E6E6E6; }
+  background-color: #E6E6E6;
+  min-height: 100vh; }
 
 /* Nav */
 .navigation {
@@ -50,12 +51,14 @@ body {
 
 /* General grid */
 .body-container {
-  margin-top: 40px;
   padding: 0px; }
 
-.row {
-  max-width: 95rem; }
+@media (min-width: 1820px) {
+  .row {
+    max-width: 95rem; }
 
+  .body-container {
+    margin-top: 40px; } }
 /* Breadcrumbs */
 .breadcrumbs {
   margin: 0;
@@ -93,12 +96,16 @@ body {
       border: none;
       float: left;
       margin: 0px;
-      box-shadow: none; }
+      box-shadow: none;
+      background-color: transparent; }
     .list .listcontrols i {
       cursor: pointer; }
-    .list .listcontrols i, .list .listcontrols span {
+    .list .listcontrols i, .list .listcontrols .pagenum {
       float: right;
       line-height: 40px; }
+    .list .listcontrols .empty {
+      float: left;
+      margin-left: 20px; }
 
 /* Forms */
 .form {
@@ -123,6 +130,26 @@ body {
   .form .callout.secondary {
     background-color: transparent;
     border: none; }
+  .form div[data-schematype="boolean"] .form-control {
+    height: 40px;
+    line-height: 40px; }
+    .form div[data-schematype="boolean"] .form-control label {
+      line-height: 40px; }
+  .form .button {
+    border-radius: 5px; }
+  .form .control-row {
+    height: 50px;
+    line-height: 40px;
+    padding: 0px 20px 10px 20px; }
+    .form .control-row .span {
+      float: left;
+      line-height: 40px; }
+    .form .control-row button {
+      float: right;
+      line-height: 36px;
+      padding: 0px 10px 0px 10px;
+      margin: 2px 10px 0px 0px;
+      height: 36px; }
 
 /* Video previews */
 .video-info {

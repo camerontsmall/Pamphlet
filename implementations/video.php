@@ -140,7 +140,7 @@ class video_controller extends Controller{
                 </div>
             </div>
             <div class="video-info-text">
-                <h3>{{title}}</h3>
+                <h4>{{title}}</h4>
                 <p>
                     <span>Posted {{date}}</span>
                     <span style="font-style:italic;">{{tags}}</span>

@@ -146,7 +146,7 @@ class Controller {
 
             $list->display();
         }else{
-            echo "<div class=\"list\"><div class=\"listcontrols\"><span>No items</span></div></div>";
+            echo "<div class=\"list\"><div class=\"listcontrols\"><span class=\"empty\">No items</span></div></div>";
         }
     }
     

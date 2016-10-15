@@ -43,13 +43,13 @@ class ModelForm{
         ?>
 <div class="control-row">
     <span id="<?= $this->id ?>_result">No changes detected</span>
-    <button
+    <button class="button tiny"
         onclick="submitForm(editor.getValue(),'<?= $this->api_action ?>','<?= $this->http_method ?>','<?= $this->id ?>_result', '<?= $this->reload_task ?>',function(){<?= $this->optional_function ?>});"
         value="submit"
         >Save
     </button>
     <?php if($this->http_method == 'PUT'){ ?>
-    <button
+    <button class="button tiny"
         onclick="if(confirm('Are you sure you want to delete this?')){submitForm(null,'<?= $this->api_action ?>','DELETE','<?= $this->id ?>_result', '<?= $this->reload_task ?>');}"
         value="submit">
         Delete

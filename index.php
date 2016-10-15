@@ -65,6 +65,10 @@ if(class_exists($ui_controller_class)){
         <script src="js/DynamicList.js" ></script>
         <script src="js/VideoPage.js" ></script>
         
+        <!-- Meta tags -->
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        
+        
     </head>
     <body>
         
