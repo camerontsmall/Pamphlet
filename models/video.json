@@ -12,9 +12,8 @@
         },
         "section" : {
             "type": "string",
-            "options" : {
-                "hidden" : true
-            }
+            "title" : "Section",
+            "enum" : ["General","Label","LCR","Lens","LSUTV","Hall Media"]
         },
         "public": {
             "type": "boolean",

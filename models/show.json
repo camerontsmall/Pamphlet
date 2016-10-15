@@ -1,0 +1,47 @@
+{
+    "title" : "Show",
+    "model_name" : "show",
+    "description" : "",
+    "type" : "object",
+    "properties" : {
+        "_id" : {
+          "type" : "string",
+          "options" : {
+            "hidden" : true
+          }
+        },
+        "title": {
+            "type": "string",
+            "title" : "Title"
+        },
+        "public": {
+            "type": "boolean",
+            "title" : "Public",
+            "format" : "checkbox"
+        },
+        "tags" : {
+            "type" : "string",
+            "title" : "Tags"
+        },
+        "poster" : {
+            "type" : "string",
+            "title" : "Poster image",
+            "format" : "file"
+        },
+        "theme_color" : {
+            "type" : "string",
+            "title" : "Theme colour",
+            "format" : "color"
+        },
+        "description": {
+            "type": "string",
+            "title" : "Description",
+            "format" : "html",
+            "options" : {
+                "wysiwyg" : true
+            }
+        }
+        
+    },
+    "required" : ["title"]
+}
