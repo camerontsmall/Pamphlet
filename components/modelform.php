@@ -57,6 +57,8 @@ class ModelForm{
     <?php } ?>
 </div>
 <script>
+    JSONEditor.plugins.selectize.enable = true;
+    
     var jeditor_el = document.getElementById('<?= $this->id ?>_jsoneditor');
     
     var editor = new JSONEditor(jeditor_el, {

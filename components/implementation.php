@@ -165,9 +165,8 @@ class Implementation {
         return $response;
     }
     
-    /* Validation */
-    
-    public function ValidateInput($data){
+    /* Return number of entries in the collection */
+    public function Count(){
         
     }
     

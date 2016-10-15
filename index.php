@@ -35,7 +35,7 @@ if(class_exists($ui_controller_class)){
         <!-- <link rel="stylesheet" href="bower_components/jquery-ui/themes/base/jquery-ui.min.css" />      -->  
         <!-- <link rel="stylesheet" href="bower_components/sceditor/minified/jquery.sceditor.default.min.css" /> -->
         <link rel="stylesheet" href="bower_components/foundation-sites/dist/foundation.min.css" />
-        <link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css" />        
+        <link rel="stylesheet" href="bower_components/selectize/dist/css/selectize.css" />        
 
         
         <!-- Master stylesheet -->
@@ -56,7 +56,7 @@ if(class_exists($ui_controller_class)){
         <script src="bower_components/jquery-ui/jquery-ui.min.js" ></script>
         <script src="bower_components/handlebars/handlebars.min.js" ></script>
         <script src="bower_components/json-editor/dist/jsoneditor.min.js" ></script>
-        <script src="bower_components/select2/dist/js/select2.full.min.js" ></script>
+        <script src="bower_components/selectize/dist/js/standalone/selectize.min.js" ></script>
  
         <script src="ckeditor/ckeditor.js" ></script>        
         

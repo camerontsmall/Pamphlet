@@ -13,7 +13,8 @@
         "section" : {
             "type": "string",
             "title" : "Section",
-            "enum" : ["General","Label","LCR","Lens","LSUTV","Hall Media"]
+            "enum_titles" : ["General","Label","LCR","Lens","LSUTV","Hall Media"],
+            "enum" : ["","label","lcr","lens","lsutv","halls"]
         },
         "public": {
             "type": "boolean",
@@ -27,7 +28,7 @@
         },
         "tags" :{
             "type" : "string",
-            "title" : "Tags"
+            "title" : "Tags (space seperated)"
         },
         "poster": {
             "type": "string",
