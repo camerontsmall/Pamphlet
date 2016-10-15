@@ -267,7 +267,7 @@ main {
         line-height:40px;
     }
     
-    div[data-schematype='array'] h3{
+    div[data-schematype='array'] h3, div[data-schematype='object'] h3{
         padding-left:20px;
     }
     

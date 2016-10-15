@@ -161,17 +161,20 @@ class Controller {
     
     function PrintEditForm($id){
         
-        $data = $this->implementation->Read($id);
+        if($data = $this->implementation->Read($id)){
         
-        $action = $this::$name . '/' . $id;
-        
-        $model = $this->PrepareModel(); 
-                
-        $form = new ModelForm($model, "edit-form", $action, "PUT", $this::$name);
-        
-        $form->import_object($data);
-        
-        $form->render();
+            $action = $this::$name . '/' . $id;
+
+            $model = $this->PrepareModel(); 
+
+            $form = new ModelForm($model, "edit-form", $action, "PUT", $this::$name);
+
+            $form->import_object($data);
+
+            $form->render();
+        }else{
+            echo "<div class=\"listtitle\"><span>Error - invalid id provided</span></div>";
+        }
         
     }
     

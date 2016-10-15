@@ -185,7 +185,7 @@ main {
 .form div[data-schematype='boolean'] label {
   width: 100%;
   line-height: 40px; }
-.form div[data-schematype='array'] h3 {
+.form div[data-schematype='array'] h3, .form div[data-schematype='object'] h3 {
   padding-left: 20px; }
 .form input[type='checkbox'] {
   min-width: 0px; }
