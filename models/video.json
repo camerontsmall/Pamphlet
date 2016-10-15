@@ -32,6 +32,10 @@
             "type" : "string",
             "title" : "Tags (space seperated)"
         },
+        "show_id" : {
+            "type" : "string",
+            "title" : "Show"
+        },
         "poster": {
             "type": "string",
             "title" : "Poster URL",

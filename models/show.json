@@ -26,7 +26,7 @@
         "poster" : {
             "type" : "string",
             "title" : "Poster image",
-            "format" : "file"
+            "format" : "url"
         },
         "theme_color" : {
             "type" : "string",

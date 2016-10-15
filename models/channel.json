@@ -32,6 +32,11 @@
             "type" : "string",
             "title" : "Poster URL",
             "format" : "url"
+        },
+        "description" : {
+            "type" : "string",
+            "title" : "Description",
+            "format" : "html"
         }
     }
 }

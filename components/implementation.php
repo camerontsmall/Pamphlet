@@ -58,7 +58,7 @@ class Implementation {
         
     }
     
-    public function ReadMany($params = null, $options = null){
+    public function ReadMany($params = [], $options = null){
         global $db;
         $cn = $this->CollectionName();
         
@@ -167,6 +167,16 @@ class Implementation {
     
     /* Return number of entries in the collection */
     public function Count(){
+        global $db;
+        $cn = $this->CollectionName();
+        
+        $param = [];
+        $options = [];
+        
+        $query = new MongoDB\Driver\Query($params,$options);
+        $cursor = $db->executeQuery($cn,$query);
+        
+        return count($cursor->toArray());
         
     }
     

@@ -4,8 +4,9 @@ $config = [
     
     /* General site settings */
     
-    "site_title" => "Pamphlet",
+    "site_title" => "Pamphlet 4",
     "theme_color" => "#2196F3",
+    "welcome_message" => "Welcome to the site!",
     
     /* Database settings */
    

@@ -33,7 +33,8 @@ class channel_controller extends Controller{
     function PrepareData($data) {
         $c = [];
         foreach($data as $item){
-            $c[] = ["action" => "channel/$item->_id", "Title" => $item->title, "Tags" => $item->tags, "Description" => substr(htmlentities($item->description),0,30) . "..."];
+            $on_air = ($item->on_air && $item->public)? 'On Air' : (($item->public)? "Off Air" : "Hidden" );
+            $c[] = ["action" => "channel/$item->_id", "Title" => $item->title, "Status" => $on_air, "Description" => substr(htmlentities($item->description),0,30) . "..."];
         }
         return $c;
     }
