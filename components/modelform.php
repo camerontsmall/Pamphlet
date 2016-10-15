@@ -43,9 +43,17 @@ class ModelForm{
 <div class="control-row">
     <span id="<?= $this->id ?>_result">Editing</span>
     <button
-        onclick="submitForm(editor.getValue(),'<?= $this->api_action ?>','<?= $this->http_method ?>','<?= $this->id ?>_result', '<?= $this->onReloadTask ?>')"
+        onclick="submitForm(editor.getValue(),'<?= $this->api_action ?>','<?= $this->http_method ?>','<?= $this->id ?>_result', '<?= $this->reload_task ?>')"
         value="submit"
-        >Save</button>
+        >Save
+    </button>
+    <?php if($this->http_method == 'PUT'){ ?>
+    <button
+        onclick="submitForm(null,'<?= $this->api_action ?>','DELETE','<?= $this->id ?>_result', '<?= $this->reload_task ?>')"
+        value="submit">
+        Delete
+    </button>
+    <?php } ?>
 </div>
 <script>
     var jeditor_el = document.getElementById('<?= $this->id ?>_jsoneditor');

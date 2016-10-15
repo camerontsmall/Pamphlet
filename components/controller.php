@@ -41,7 +41,7 @@ class Controller {
             
             if($this->task_parts[1] == "add"){
                 
-                $form = new ModelForm($this->implementation->model, "add_form", $this::$name, "POST", "");
+                $form = new ModelForm($this->implementation->model, "add_form", $this::$name, "POST", $this::$name);
 
                 $form->render();
                 
@@ -91,6 +91,16 @@ class Controller {
                     header('HTTP/1.1 404 Not Found');
                     return ["ResponseStatus" => "Error", "ErrorName" => "InvalidTaskForMethod"];
                 }
+                break;
+            case 'DELETE':
+                if($tp[1]){
+                    $id = $tp[1];
+                    return $this->implementation->Delete($id);
+                }else{
+                    header('HTTP/1.1 404 Not Found');
+                    return ["ResponseStatus" => "Error", "ErrorName" => "InvalidTaskForMethod"];
+                }
+                break;
             default:
                 return ["ResponseStatus" => "Error", "ErrorName" => "InvalidRequestMethod"];
         }
@@ -145,7 +155,7 @@ class Controller {
         
         $model->title = "Edit " . $model->title;
         
-        $form = new ModelForm($model, "edit-form", $action, "PUT", "");
+        $form = new ModelForm($model, "edit-form", $action, "PUT", $this::$name);
         
         $form->import_object($data);
         

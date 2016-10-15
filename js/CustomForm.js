@@ -43,6 +43,9 @@ function submitForm(data,action,method,result_field,reload_task){
         data : kvp_data,
         success : function(data){
             console.log(data);
+            if(data['editor_action'] == 'reload'){
+                window.location.href = './?a=' + reload_task;
+            }
         }
     });
     

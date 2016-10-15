@@ -50,7 +50,11 @@ class Implementation {
         
         $result = $db->executeBulkWrite($cn,$bw);
         
-        return $result;
+        $response = [];
+        $response['editor_action'] = 'reload';
+        $response['db_output'] = $result;
+        
+        return $response;
         
     }
     
@@ -129,8 +133,27 @@ class Implementation {
         return $result;
     }
     
-    public function Delete($id){
+    public function Delete($id_string){
+        global $db;
         
+        $cn = self::CollectionName();
+        
+        $bw = new MongoDB\Driver\BulkWrite();
+        
+        $_id = new MongoDB\BSON\ObjectId($id_string);
+        
+        $bw->delete(
+            ['_id' => $_id],
+            ['limit' => 1]
+        );
+        
+        $result = $db->executeBulkWrite($cn,$bw);
+        
+        $response = [];
+        $response['editor_action'] = 'reload';
+        $response['db_output'] = $result;
+        
+        return $response;
     }
     
     /* Validation */
