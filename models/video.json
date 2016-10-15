@@ -13,8 +13,10 @@
         "section" : {
             "type": "string",
             "title" : "Section",
-            "enum_titles" : ["General","Label","LCR","Lens","LSUTV","Hall Media"],
-            "enum" : ["","label","lcr","lens","lsutv","halls"]
+            "enum" : ["","label","lcr","lens","lsutv","halls"],
+            "options" : {
+                "enum_titles" : ["General","Label","LCR","Lens","LSUTV","Hall Media"]
+            }
         },
         "public": {
             "type": "boolean",
