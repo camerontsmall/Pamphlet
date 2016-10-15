@@ -31,6 +31,13 @@ class Controller {
         if(class_exists($implementation_name)){
             $this->implementation = new $implementation_name();
         }
+        
+        
+        $view_name = $this->view_name;
+        
+        if(class_exists($view_name)){
+            $this->public_endpoint = $view_name::$api_endpoint;
+        }
     }
     
     /** Method to display editor pages */
@@ -41,9 +48,7 @@ class Controller {
             
             if($this->task_parts[1] == "add"){
                 
-                $form = new ModelForm($this->implementation->model, "add_form", $this::$name, "POST", $this::$name);
-
-                $form->render();
+                $this->PrintAddForm();
                 
             }else if(($this->task_parts[1]) > 0){
                 
@@ -145,22 +150,39 @@ class Controller {
         }
     }
     
+    function PrintAddForm(){
+       
+        $model = $this->PrepareModel();
+        
+        $form = new ModelForm($model, "add_form", $this::$name, "POST", $this::$name);
+
+        $form->render();
+    }
+    
     function PrintEditForm($id){
         
         $data = $this->implementation->Read($id);
         
         $action = $this::$name . '/' . $id;
         
-        $model = $this->implementation->model;
-        
-        $model->title = "Edit " . $model->title;
-        
+        $model = $this->PrepareModel(); 
+                
         $form = new ModelForm($model, "edit-form", $action, "PUT", $this::$name);
         
         $form->import_object($data);
         
         $form->render();
         
+    }
+    
+    /**
+     * Overwrite this to modify the model before sending it
+     * to the form
+     * 
+     * @return type
+     */
+    function PrepareModel(){
+        return $this->implementation->model;
     }
     
     /**

@@ -21,7 +21,7 @@ if(class_exists($ui_controller_class)){
     $ui_controller = new $ui_controller_class($task);
     
 }else{
-    echo error("Error - requested class does not exist");
+    header('HTTP/1.1 404 Not Found');
     die();
 }
 
@@ -101,33 +101,6 @@ if(class_exists($ui_controller_class)){
             </div>
         </main>
         
-        <script>
-        //CKEDITOR.replaceAll();
-        
-        var j = 0;
-        $("textarea[data-schemaformat='html']").each(function(){
-            $(this).attr('id','textarea_' + j);
-            j++;
-            var editor = CKEDITOR.replace($(this).attr('id'));
-            editor.on('change', function(event){
-                //write ckeditor value to textarea value
-                this.updateElement();
-                //write value to dom - apparently not necessary
-                //this.element.$.innerHTML = this.element.$.value;
-                //create new event
-                var event = new Event('change');
-                //tell json editor the value has changed
-                this.element.$.dispatchEvent(event);
-            });
-        });
-
-/*
-        $(document).ready(function(){
-            for (var i in CKEDITOR.instances) {  
-                console.log(i);
-                CKEDITOR.instances[i].on('mouseup', function() { CKEDITOR.instances[i].updateElement() });  
-            }
-        }); */
-        </script>
+        <script src="js/ckeditor_init.js"></script>
     </body>
 </html>

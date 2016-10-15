@@ -131,7 +131,7 @@ class Implementation {
         $result = $db->executeBulkWrite($cn,$bw);
         
         $response = [];
-        $response['editor_status'] = 'Updated at ' . date('H:m:s', time());
+        $response['editor_status'] = 'Saved at ' . date('H:m:s', time());
         $response['db_output'] = $result;
         
         return $response;

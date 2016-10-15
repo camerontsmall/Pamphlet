@@ -19,7 +19,7 @@
             "title" : "Public",
             "format" : "checkbox"
         },
-        "datetime" : {
+        "date" : {
             "type" : "string",
             "title" : "Date posted",
             "format" : "date"
@@ -38,5 +38,6 @@
         }
         
     },
-    "required" : ["title"]
+    "required" : ["title"],
+    "list" : ["title", "tags", "date"]
 }

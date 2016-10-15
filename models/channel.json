@@ -1,0 +1,31 @@
+{
+    "title" : "Channel",
+    "model_name" : "channel",
+    "description" : "",
+    "type" : "object",
+    "properties" : {
+        "title" : {
+            "type" : "string",
+            "title" : "Title"
+        },
+        "public" : {
+            "type" : "boolean",
+            "format" : "checkbox",
+            "title" : "Publish"
+        },
+        "on_air" : {
+            "type" : "boolean",
+            "title" : "On Air",
+            "format" : "checkbox"
+        },
+        "video_id" : {
+            "type" : "string",
+            "title" : "Video ID"
+        },
+        "poster" : {
+            "type" : "string",
+            "title" : "Poster URL",
+            "format" : "url"
+        }
+    }
+}

@@ -42,7 +42,7 @@ class ModelForm{
         
         ?>
 <div class="control-row">
-    <span id="<?= $this->id ?>_result">Not saved</span>
+    <span id="<?= $this->id ?>_result">No changes detected</span>
     <button
         onclick="submitForm(editor.getValue(),'<?= $this->api_action ?>','<?= $this->http_method ?>','<?= $this->id ?>_result', '<?= $this->reload_task ?>',function(){<?= $this->optional_function ?>});"
         value="submit"
@@ -67,6 +67,10 @@ class ModelForm{
         no_additional_properties : false,
         theme: "jqueryui",
         template : "handlebars"
+    });
+    
+    editor.on('change', function(){
+       $('#<?= $this->id ?>_result').html('Not saved');
     });
     
     <?php if($this->data){ echo "editor.setValue(" . json_encode($this->data) . ");" ;}?>
