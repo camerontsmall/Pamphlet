@@ -91,9 +91,13 @@ class video_controller extends Controller{
         $tp = $this->task_parts;  
         
         $data = $this->implementation->Read($tp[1]);
+        
+        $model = $this->implementation->model;
+        
+        //$model['title'] = 'Cheese';
 
         $action = 'video/' . $tp[1];
-        $form = new ModelForm($this->implementation->model, "add_form", $action, "PUT", "");
+        $form = new ModelForm($model, "add_form", $action, "PUT", 'video',"loadVideoPreview('" . $data->{'_id'} . "');");
         $form->import_object($data);
         
         ?>

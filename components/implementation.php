@@ -130,7 +130,11 @@ class Implementation {
         
         $result = $db->executeBulkWrite($cn,$bw);
         
-        return $result;
+        $response = [];
+        $response['editor_status'] = 'Updated at ' . date('H:m:s', time());
+        $response['db_output'] = $result;
+        
+        return $response;
     }
     
     public function Delete($id_string){

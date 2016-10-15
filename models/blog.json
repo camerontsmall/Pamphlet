@@ -24,6 +24,10 @@
             "title" : "Date posted",
             "format" : "date"
         },
+        "tags" : {
+            "type" : "string",
+            "title" : "Tags"
+        },
         "content": {
             "type": "string",
             "title" : "Content",

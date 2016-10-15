@@ -33,7 +33,7 @@ function updateForm(data,action,method,result,onReloadTask){
     updateRequest.send(postRequest);
 }
 
-function submitForm(data,action,method,result_field,reload_task){
+function submitForm(data,action,method,result_field,reload_task,optional_function){
     
     var kvp_data = "data=" + JSON.stringify(data);
     
@@ -45,7 +45,10 @@ function submitForm(data,action,method,result_field,reload_task){
             console.log(data);
             if(data['editor_action'] == 'reload'){
                 window.location.href = './?a=' + reload_task;
+            }else{
+                $('#' + result_field).html(data['editor_status']);
             }
+            optional_function();
         }
     });
     

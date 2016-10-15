@@ -20,14 +20,15 @@ class ModelForm{
      * @param string $action - URL parameters
      * @param string $method - PUT or POST
      * @param string $onReloadAction - page to return to if reload request is received
-     * 
+     * @param jsfunction $optional_function - JavaScript function to execute on form submit
      */
-    public function __construct($model,$id, $action, $method, $onReloadTask){
+    public function __construct($model,$id, $action, $method, $onReloadTask, $optional_function){
         $this->model = $model;
         $this->id = $id;
         $this->http_method = $method;
         $this->api_action = $action;
         $this->reload_task = $onReloadTask;
+        $this->optional_function = $optional_function;
     }
     
     public function import_object($data){
@@ -41,15 +42,15 @@ class ModelForm{
         
         ?>
 <div class="control-row">
-    <span id="<?= $this->id ?>_result">Editing</span>
+    <span id="<?= $this->id ?>_result">Not saved</span>
     <button
-        onclick="submitForm(editor.getValue(),'<?= $this->api_action ?>','<?= $this->http_method ?>','<?= $this->id ?>_result', '<?= $this->reload_task ?>')"
+        onclick="submitForm(editor.getValue(),'<?= $this->api_action ?>','<?= $this->http_method ?>','<?= $this->id ?>_result', '<?= $this->reload_task ?>',function(){<?= $this->optional_function ?>});"
         value="submit"
         >Save
     </button>
     <?php if($this->http_method == 'PUT'){ ?>
     <button
-        onclick="submitForm(null,'<?= $this->api_action ?>','DELETE','<?= $this->id ?>_result', '<?= $this->reload_task ?>')"
+        onclick="if(confirm('Are you sure you want to delete this?')){submitForm(null,'<?= $this->api_action ?>','DELETE','<?= $this->id ?>_result', '<?= $this->reload_task ?>');}"
         value="submit">
         Delete
     </button>
