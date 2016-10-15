@@ -75,14 +75,14 @@ body{
     }
     
     li{
-        
+        text-align:center;
     }
     
 }
 
 /* General grid */
 .body-container{
-        padding:0px;
+    padding:0px;
 }
 
 
@@ -92,6 +92,7 @@ body{
     }
     .body-container{
         margin-top:40px;
+        margin-bottom:40px;
         //background-color:white;
     }
 }
@@ -180,6 +181,18 @@ body{
         line-height:40px;
         background-color:white;
         border-bottom:1px dashed rgba(0,0,0,0.12);
+        
+        .tiny div{
+            box-shadow: none !important;
+            textarea{
+                border:none;
+                border-bottom:1px solid rgba(0,0,0,0.3);
+            }
+            .button{
+                margin-left:5px;
+            }
+        }
+        
     }
     
     .cke{
@@ -200,6 +213,7 @@ body{
     .callout.secondary{
         background-color:transparent;
         border:none;
+        padding-bottom:0px;
     }
     
     div[data-schematype="boolean"] .form-control{
@@ -231,6 +245,7 @@ body{
             padding:0px 10px 0px 10px;
             margin: 2px 10px 0px 0px;
             height:36px;
+            font-size:0.9rem;
         }
     }
 }

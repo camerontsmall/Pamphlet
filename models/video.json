@@ -95,7 +95,7 @@
         "credits" : {
             "type" : "array",
             "title" : "Credits",
-            "format" : "tabs",
+            "format" : "table",
             "items" : {
                 "type" : "object",
                 "title" : "Credit",

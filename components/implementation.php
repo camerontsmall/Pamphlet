@@ -122,19 +122,24 @@ class Implementation {
         
         $_id = new MongoDB\BSON\ObjectId($id_string);
         
+        if(!$_id){ return ['editor_status' => 'Error: Invalid ObjectID provided']; }
+                
+        if(!$data){ return ['editor_status' => 'Error: Could not decode dataset']; }
+
         $bw->update(
-                ['_id' => $_id], 
-                ['$set' => $data],
-                ['multi' => false, 'upsert' => true]
-                );
-        
+            ['_id' => $_id], 
+            ['$set' => $data],
+            ['multi' => false, 'upsert' => true]
+        );
+
         $result = $db->executeBulkWrite($cn,$bw);
-        
+
         $response = [];
         $response['editor_status'] = 'Saved at ' . date('H:m:s', time());
         $response['db_output'] = $result;
-        
+
         return $response;
+        
     }
     
     public function Delete($id_string){

@@ -1,6 +1,6 @@
 function submitForm(data,action,method,result_field,reload_task,optional_function){
     
-    var kvp_data = "data=" + JSON.stringify(data);
+    var kvp_data = "data=" + encodeURIComponent(JSON.stringify(data));
     console.log("Starting API request");
     
     $.ajax({
