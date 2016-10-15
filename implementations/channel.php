@@ -19,7 +19,13 @@ class channel_controller extends Controller{
     function PrepareModel(){
         $model = $this->implementation->model;
         
-        $model['properties']['video_id']['enum'] = ["1","2"];
+        $vid_imp = new video_implementation();
+        $videos = $vid_imp->ReadMany([]);
+        
+        foreach($videos as $video){
+            $model['properties']['video_id']['enum'][] = $video->{_id};
+            $model['properties']['video_id']['options']['enum_titles'][] = $video->title;
+        }
         
         return $model;
     }

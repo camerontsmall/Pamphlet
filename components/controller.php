@@ -180,7 +180,7 @@ class Controller {
     
     /**
      * Overwrite this to modify the model before sending it
-     * to the form
+     * to the form. Useful for inserting dynamic select boxes.
      * 
      * @return type
      */
