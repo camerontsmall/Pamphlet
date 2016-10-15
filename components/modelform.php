@@ -65,7 +65,7 @@ class ModelForm{
         disable_collapse: true,
         disable_edit_json: false,
         no_additional_properties : false,
-        theme: "jqueryui",
+        theme: "foundation6",
         template : "handlebars"
     });
     
