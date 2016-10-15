@@ -42,7 +42,7 @@ class DynamicList{
         
         $count = count($this->objects);
         echo "<div class=\"listtitle\">$this->title</div>", PHP_EOL;
-        if($count > 10){
+        if(true){
             $back; $next;
             $numpages = floor(($count-1) / 10 ) + 1;
             $back_id = $this->id . '_back';
