@@ -56,9 +56,9 @@ class video_controller extends Controller{
 <div class="richlist-top-bar theme-color">
     <span><i class="material-icons">add</i>Add</span>
 </div> -->
-<div class="richlist-parent">
+<div class="row">
     
-    <div class="richlist-left-pane">
+    <div class="small-12 large-8 column">
         <?php
         
         $list_data = self::convert_list($data);
@@ -68,16 +68,16 @@ class video_controller extends Controller{
     </div>
    
     
-    <div class="richlist-right-pane" id="video-preview-section">
+    <div class="small-12 large-4 column video-info" id="video-preview-section">
         <div class="video-preview-parent">
             <div class="video-preview-container">
                 <div class="video-preview"></div>
             </div>
         </div>
-        <div class="richlist-data-form">
+        <div class="video-info-text">
             <p>Select a video to load preview</p>
         </div>
-        <div class="richlist-bottom-bar theme-color"></div>
+        <div class="video-info-actions theme-color"></div>
     </div>
     
     
@@ -101,9 +101,9 @@ class video_controller extends Controller{
         $form->import_object($data);
         
         ?>
-<div class="richlist-parent">
+<div class="row">
     
-    <div class="richlist-left-pane">
+    <div class="small-12 large-8 column">
         <?php
         
         $form->render();
@@ -111,14 +111,15 @@ class video_controller extends Controller{
     </div>
    
     
-    <div class="richlist-right-pane" id="video-preview-section">
+     <div class="small-12 large-4 column video-info" id="video-preview-section">
         <div class="video-preview-parent">
             <div class="video-preview-container">
                 <div class="video-preview"></div>
             </div>
         </div>
-        <div class="richlist-data-form">
+        <div class="video-info-text">
         </div>
+        <div class="video-info-actions theme-color"></div>
     </div>
     
     <script>
@@ -138,7 +139,7 @@ class video_controller extends Controller{
                     <iframe class="video-preview" src="./generated.php?a=video/{{_id}}" ></iframe>
                 </div>
             </div>
-            <div class="richlist-data-form">
+            <div class="video-info-text">
                 <h3>{{title}}</h3>
                 <p>
                     <span>Posted {{date}}</span>

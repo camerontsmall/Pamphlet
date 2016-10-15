@@ -33,239 +33,105 @@ body {
   font-family: "Open Sans Regular", Arial, sans-serif;
   background-color: #E6E6E6; }
 
-/* General classes */
-h3 {
-  font-family: "Roboto Bold";
-  margin: 0.25em; }
+.off-canvas-content {
+  background-color: #E6E6E6; }
 
-.formrow {
-  width: 100%;
-  white-space: nowrap;
-  height: 1em; }
-
-/* Navigation */
-/* Height of breadcrumps and title */
-nav.sidebar {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
-  width: 200px;
-  z-index: 50;
+/* Nav */
+.navigation {
   background-color: white;
-  box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.1);
-  color: black; }
+  height: 100vh; }
+  .navigation p {
+    width: 100%;
+    line-height: 40px;
+    height: 40px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    margin: 0px; }
 
-nav.sliding-nav {
-  display: none;
-  z-index: 50; }
+/* General grid */
+.body-container {
+  margin-top: 40px;
+  padding: 0px; }
 
-.nav-header {
-  width: 100%;
-  height: 44px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  line-height: 45px;
-  font-family: "Roboto Medium";
-  text-align: center;
-  font-size: 30px; }
+.row {
+  max-width: 95rem; }
 
-nav ul {
-  list-style: none;
-  width: 100%;
-  padding: 0;
-  margin: 0; }
-
-nav li {
-  text-align: center;
-  height: 40px;
-  line-height: 40px;
-  cursor: pointer; }
-
-nav li:hover, nav li.active {
-  background-color: #e6e6e6; }
-
-a {
-  color: inherit;
-  text-decoration: none; }
-
-/* Breadcrumbs header */
+/* Breadcrumbs */
 .breadcrumbs {
-  z-index: 40;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  height: 45px;
-  background-color: white;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-  padding-left: 265px;
-  padding-right: 50px;
-  color: white;
-  font-family: "Roboto Regular";
-  font-size: 26px;
-  line-height: 45px; }
+  margin: 0;
+  height: 40px;
+  position: static;
+  padding-left: 20px; }
+  .breadcrumbs .bc-action {
+    float: right;
+    line-height: 40px; }
+    .breadcrumbs .bc-action i {
+      float: right; }
+  .breadcrumbs i {
+    line-height: 40px;
+    vertical-align: middle;
+    font-size: 32px;
+    height: 44px;
+    color: white; }
+  .breadcrumbs a {
+    color: white;
+    line-height: 40px; }
+  .breadcrumbs button {
+    float: left;
+    margin-right: 10px; }
 
-.breadcrumbs a {
-  color: inherit;
-  text-decoration: none; }
-
-.breadcrumbs .slash:after {
-  content: "/"; }
-
-.breadcrumbs .material-icons {
-  line-height: 45px;
-  font-size: 40px;
-  height: 50px;
-  vertical-align: middle; }
-
-.bc-action {
-  float: right; }
-
-/* Main section */
-main {
-  width: auto;
-  min-height: 50px;
-  padding-top: 80px;
-  padding-left: 250px;
-  padding-right: 30px; }
-
-.container {
-  min-height: 100px;
-  min-width: 100px;
-  margin-bottom: 40px;
+/* List */
+.list {
   background-color: white; }
+  .list .listcontrols {
+    height: 40px;
+    line-height: 40px;
+    background-color: white;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.12); }
+    .list .listcontrols input {
+      width: auto;
+      border: none;
+      float: left;
+      margin: 0px;
+      box-shadow: none; }
+    .list .listcontrols i {
+      cursor: pointer; }
+    .list .listcontrols i, .list .listcontrols span {
+      float: right;
+      line-height: 40px; }
 
-/* Richlist */
-.richlist-parent {
-  width: 100%;
-  overflow: hidden;
-  min-height: 200px; }
-
-.richlist-top-bar {
-  height: 40px;
-  color: white;
-  line-height: 40px;
-  width: 100%; }
-
-.richlist-left-pane, .richlist-right-pane {
-  overflow: hidden; }
-
-.richlist-left-pane {
-  width: 60%;
-  height: 100%;
-  float: left; }
-
-.richlist-right-pane {
-  width: calc(40% - 2px);
-  height: 100%;
-  float: right;
-  border-left: 1px solid rgba(0, 0, 0, 0.12); }
-
-.richlist-data-form {
-  padding: 15px;
-  min-height: 186px; }
-
-.richlist-bottom-bar {
-  height: 40px;
-  line-height: 40px;
-  padding-right: 10px;
-  color: white;
-  text-align: right; }
-
-.form .cke {
-  border: none;
-  box-shadow: none;
-  margin-left: -20px;
-  margin-right: -20px; }
-.form .cke_bottom {
-  background-color: #2196F3;
-  color: white; }
-.form .cke_path {
-  color: white; }
-
-/* 
-    Created on : 13-Oct-2016, 00:26:10
-    Author     : Cameron
-*/
-/* Object list styles */
-.objectList {
-  width: 100%;
-  margin: 0px;
-  border-spacing: 0px;
-  clear: both; }
-  .objectList tbody tr {
-    cursor: pointer;
-    overflow: hidden; }
-  .objectList tbody tr:hover {
+/* Forms */
+.form {
+  background-color: white; }
+  .form h3 {
+    height: 40px;
+    font-size: 100%;
+    padding-left: 20px;
+    line-height: 40px;
+    background-color: white;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.12); }
+  .form .cke {
+    border: none;
+    box-shadow: none;
+    margin-left: -15px;
+    margin-right: -15px; }
+  .form .cke_bottom {
     background-color: #2196F3;
     color: white; }
-  .objectList th {
-    margin: 0px;
-    text-align: center;
-    height: 50px;
-    padding: 0px 15px;
-    max-width: 400px;
-    overflow: hidden;
-    /* border-bottom: 1px solid $weak-border; */
-    height: 56px;
-    font-famiy: "Roboto Bold"; }
-  .objectList td {
-    height: 50px;
-    text-align: center;
-    overflow: hidden; }
-  .objectList a {
-    text-decoration: none;
-    text-align: center;
-    color: inherit;
-    line-height: 100%;
-    display: inline-block;
-    vertical-align: middle; }
-  .objectList .material-icons {
-    cursor: pointer;
-    display: block;
-    height: 50px;
-    line-height: 50px;
-    font-size: 25px; }
-  .objectList .green {
-    color: #76FF03; }
+  .form .cke_path {
+    color: white; }
+  .form .callout.secondary {
+    background-color: transparent;
+    border: none; }
 
-.listWrapper {
-  min-height: 300px; }
-  .listWrapper i {
-    cursor: pointer;
-    font-size: 2em;
-    float: right;
-    line-height: inherit;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    line-height: 40px; }
+/* Video previews */
+.video-info {
+  background-color: white;
+  padding: 0px; }
 
-.listcontrols {
-  height: 40px;
-  white-space: nowrap;
-  border-bottom: 1px dashed rgba(0, 0, 0, 0.12);
-  padding-left: 10px;
-  line-height: 40px; }
-  .listcontrols input {
-    padding-left: 10px;
-    height: 38px;
-    border: none;
-    outline: none;
-    min-width: 250px;
-    float: left;
-    box-shadow: none;
-    width: auto; }
-  .listcontrols input:focus {
-    outline: none; }
-  .listcontrols .pagenum {
-    float: right;
-    line-height: 40px; }
+.video-info-text {
+  padding: 15px; }
 
-/* 
-    Created on : 12-Oct-2016, 21:48:46
-    Author     : Cameron
-*/
 .video-preview-parent {
   width: 100%; }
 

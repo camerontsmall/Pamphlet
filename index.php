@@ -39,7 +39,7 @@ if(class_exists($ui_controller_class)){
 
         
         <!-- Master stylesheet -->
-        <!-- <link rel="stylesheet" href="css/main.css" /> -->
+        <link rel="stylesheet" href="css/main.css" />
 
         <style>
             .theme-color{
@@ -71,28 +71,32 @@ if(class_exists($ui_controller_class)){
         <div class="off-canvas-wrapper">
             <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
                 <div class="off-canvas position-left reveal-for-large" id="main-menu" data-off-canvas>
-                    <p><?= $config['site_title'] ?></p>
-                    <ul class="vertical-menu">
-                        <?php
+                    <div class="navigation">
+                        <p><?= $config['site_title'] ?></p>
+                        <ul class="vertical menu">
+                            <?php
 
-                        $controller_list = Controller::listAll();
-                        foreach($controller_list as $item){
-                            $active = ($item::$name == $controller_name)? "active" : "";
-                            echo "<li class=\"$active\"><a href=\"./?a={$item::$name}\">{$item::$title}</a></li>";
-                        }
+                            $controller_list = Controller::listAll();
+                            foreach($controller_list as $item){
+                                $active = ($item::$name == $controller_name)? "active" : "";
+                                echo "<li class=\"$active\"><a href=\"./?a={$item::$name}\">{$item::$title}</a></li>";
+                            }
 
-                        ?>
-                    </ul>
+                            ?>
+                        </ul>
+                    </div>
                 </div>
                 <div class="off-canvas-content" data-off-canvas-content>
                     
                     <!-- Main content section -->
                     <div class="breadcrumbs theme-color" >
-                        <button type="button" class="button" data-toggle="main-menu">Open Menu</button>
+                        <button type="button" class="hide-for-large" data-toggle="main-menu">
+                            <i class="material-icons">menu</i>
+                        </button>
                       <?php $ui_controller->PrintBreadcrumbs(); ?>
                     </div>
 
-                    <div class="column row">
+                    <div class="row column body-container">
                             <?php
 
                             $ui_controller->UIMethod();
