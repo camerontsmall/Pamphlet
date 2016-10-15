@@ -33,8 +33,10 @@ if(class_exists($ui_controller_class)){
         
         <link rel="stylesheet" href="bower_components/material-design-icons/iconfont/material-icons.css" />
         <!-- <link rel="stylesheet" href="bower_components/jquery-ui/themes/base/jquery-ui.min.css" />      -->  
-        <link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css" />        
         <!-- <link rel="stylesheet" href="bower_components/sceditor/minified/jquery.sceditor.default.min.css" /> -->
+        <link rel="stylesheet" href="bower_components/foundation-sites/dist/foundation.min.css" />
+        <link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css" />        
+
         
         <!-- Master stylesheet -->
         <link rel="stylesheet" href="css/main.css" />
@@ -63,44 +65,56 @@ if(class_exists($ui_controller_class)){
         <script src="js/DynamicList.js" ></script>
         <script src="js/VideoPage.js" ></script>
         
+        <!-- Meta tags -->
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        
+        
     </head>
     <body>
         
-        <nav class="desktop-nav sidebar">
-            <div class="nav-header">
-                <?= $config['site_title'] ?>
+        <div class="off-canvas-wrapper">
+            <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+                <div class="off-canvas position-left reveal-for-large" id="main-menu" data-off-canvas>
+                    <div class="navigation">
+                        <p><?= $config['site_title'] ?></p>
+                        <ul class="vertical menu">
+                            <?php
+
+                            $controller_list = Controller::listAll();
+                            foreach($controller_list as $item){
+                                $active = ($item::$name == $controller_name)? "active" : "";
+                                echo "<li class=\"$active\"><a href=\"./?a={$item::$name}\">{$item::$title}</a></li>";
+                            }
+
+                            ?>
+                        </ul>
+                    </div>
+                </div>
+                <div class="off-canvas-content" data-off-canvas-content>
+                    
+                    <!-- Main content section -->
+                    <div class="breadcrumbs theme-color" >
+                        <button type="button" class="hide-for-large" data-toggle="main-menu">
+                            <i class="material-icons">menu</i>
+                        </button>
+                      <?php $ui_controller->PrintBreadcrumbs(); ?>
+                    </div>
+
+                    <div class="row column body-container">
+                            <?php
+
+                            $ui_controller->UIMethod();
+
+                            ?>
+                    </div>
+                </div>
             </div>
-            <ul class="nav-list theme-color-text">
-                <?php
-                
-                $controller_list = Controller::listAll();
-                foreach($controller_list as $item){
-                    $active = ($item::$name == $controller_name)? "active" : "";
-                    echo "<li class=\"$active\"><a href=\"./?a={$item::$name}\">{$item::$title}</a></li>";
-                }
-                
-                ?>
-            </ul>
-        </nav>
-        
-        <nav class="mobile-nav sliding-nav">
             
-        </nav>
-        
-        <div class="breadcrumbs theme-color" >
-            <?php $ui_controller->PrintBreadcrumbs(); ?>
-        </div>
-        
-        <main>
-            <div class="container">
-                <?php
-                
-                $ui_controller->UIMethod();
-                
-                ?>
-            </div>
-        </main>
-        
+        </div>   
         <script src="js/ckeditor_init.js"></script>
+      
+        <script src="bower_components/what-input/what-input.min.js"></script>
+        <script src="bower_components/foundation-sites/dist/foundation.min.js" ></script>
+        <script>$(document).foundation();</script>
     </body>
 </html>

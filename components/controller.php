@@ -146,7 +146,7 @@ class Controller {
 
             $list->display();
         }else{
-            echo "<div class=\"listcontrols\"><span>No items</span></div>";
+            echo "<div class=\"list\"><div class=\"listcontrols\"><span class=\"empty\">No items</span></div></div>";
         }
     }
     
@@ -161,17 +161,20 @@ class Controller {
     
     function PrintEditForm($id){
         
-        $data = $this->implementation->Read($id);
+        if($data = $this->implementation->Read($id)){
         
-        $action = $this::$name . '/' . $id;
-        
-        $model = $this->PrepareModel(); 
-                
-        $form = new ModelForm($model, "edit-form", $action, "PUT", $this::$name);
-        
-        $form->import_object($data);
-        
-        $form->render();
+            $action = $this::$name . '/' . $id;
+
+            $model = $this->PrepareModel(); 
+
+            $form = new ModelForm($model, "edit-form", $action, "PUT", $this::$name);
+
+            $form->import_object($data);
+
+            $form->render();
+        }else{
+            echo "<div class=\"listtitle\"><span>Error - invalid id provided</span></div>";
+        }
         
     }
     

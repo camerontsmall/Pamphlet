@@ -25,6 +25,10 @@
             "title" : "Title",
             "propertyOrder" : 1
         },
+        "tags" :{
+            "type" : "string",
+            "title" : "Tags"
+        },
         "poster": {
             "type": "string",
             "title" : "Poster URL",
@@ -66,6 +70,25 @@
                         ]
                     },
                     "res" : { "type" : "number", "title" : "Size" }
+                }
+            }
+        },
+        "params" :{
+            "type" : "array",
+            "title" : "Custom parameters",
+            "format" : "table",
+            "items" : {
+                "type" : "object",
+                "title" : "Parameter",
+                "properties" : {
+                    "name" : {
+                        "type" : "string",
+                        "title" : "Name"
+                    },
+                    "value" : {
+                        "type" : "string",
+                        "title" : "Value"
+                    }
                 }
             }
         },
