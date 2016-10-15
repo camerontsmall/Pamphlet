@@ -31,7 +31,7 @@ class video_controller extends Controller{
         
         if($tp[1] == 'add'){
             
-            $form = new ModelForm($this->prepareModel(), "add_form", 'video', "POST", "");
+            $form = new ModelForm($this->prepareModel(), "add_form", 'video', "POST", "video");
 
             $form->render();
             

@@ -63,7 +63,7 @@ class ModelForm{
     
     var editor = new JSONEditor(jeditor_el, {
         schema : <?= json_encode($this->model) ?>,
-        disable_properties: true,
+        disable_properties: false,
         disable_collapse: true,
         disable_edit_json: false,
         no_additional_properties : false,
@@ -72,7 +72,7 @@ class ModelForm{
     });
     
     editor.on('change', function(){
-       $('#<?= $this->id ?>_result').html('Not saved');
+       $('#<?= $this->id ?>_result').html('Changes have not been saved');
     });
     
     <?php if($this->data){ echo "editor.setValue(" . json_encode($this->data) . ");" ;}?>

@@ -41,10 +41,19 @@
             "title" : "Poster URL",
             "format" : "url"
         },
-        "datetime" : {
+        "date" : {
             "type" : "string",
             "title" : "Date posted",
             "format" : "date"
+        },
+        "live_or_vod" : {
+            "type" : "string",
+            "title" : "Live/VOD",
+            "default" : "vod",
+            "enum" : ["live","vod"],
+            "options" : {
+                "enum_titles" : ["Live", "VOD"]
+            }
         },
         "type": {
             "type": "string",
@@ -69,9 +78,9 @@
                             "video/webm",
                             "audio/wav",
                             "audio/mp3",
-                            "audio/soundcloud",
-                            "video/youtube",
-                            "video/vimeo",
+                            "soundcloud/id",
+                            "youtube/id",
+                            "vimeo/id",
                             "rtmp/mp4",
                             "application/x-mpegURL"
                         ]

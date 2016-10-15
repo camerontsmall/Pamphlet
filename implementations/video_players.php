@@ -31,38 +31,11 @@ class videojs_5 extends mediaPlayer{
         $content->audioonly = $audioonly;
         
         ob_start();
-        
-        if($data['css']){
-            $css = true;
-            html::css($data['css']);
-        }
-        //html::js("plugins/video/videojs/core/video.min.js");
-        if($data['version']){
-            $version = $data['version'];
-            if(!$css){ html::css("//vjs.zencdn.net/$version/video-js.css"); $css = true;}
-            html::js("//vjs.zencdn.net/$version/video.js");	//CDN version
-        }else{
+       
             //html::css("plugins/video/videojs/core/video-js-custom.css");
-            if(!$css){ html::css("//vjs.zencdn.net/5.3.0/video-js.min.css"); $css = true;}
-            html::js("//vjs.zencdn.net/5.3.0/video.min.js");	//CDN version
-        }
+        echo "<link rel=\"stylesheet\" href=\"//vjs.zencdn.net/5.3.0/video-js.min.css\" />";
+        echo "<script src=\"//vjs.zencdn.net/5.3.0/video.min.js\"></script>";
         
-        if($data['hls'] == 1){
-            html::js('plugins/video/videojs/media-sources/videojs-media-sources.min.js');
-            html::js('plugins/video/videojs/hls/videojs.hls.min.js');
-        }
-        
-        foreach($data['plugins'] as $plugin){
-            echo $plugin, PHP_EOL;
-        }
-        
-        html::css('plugins/video/videojs/resolution-switcher/videojs-resolution-switcher.css');
-        html::js('plugins/video/videojs/resolution-switcher/videojs-resolution-switcher.js');
-        
-        /* Chromecast (requires app key) *//*
-        html::css('plugins/video/videojs/chromecast/videojs.chromecast.min.css');
-        html::js('plugins/video/videojs/chromecast/videojs.chromecast.min.js');
-        */
         
         if($video->live == 1 || $data['autoplay'] == 1 | $_GET['autoplay'] == true){
             $autoplay = 'autoplay';

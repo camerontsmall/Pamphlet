@@ -82,8 +82,10 @@ if(class_exists($ui_controller_class)){
 
                             $controller_list = Controller::listAll();
                             foreach($controller_list as $item){
-                                $active = ($item::$name == $controller_name)? "active" : "";
-                                echo "<li class=\"$active\"><a href=\"./?a={$item::$name}\">{$item::$title}</a></li>";
+                                if($item::$title){
+                                    $active = ($item::$name == $controller_name)? "active" : "";
+                                    echo "<li class=\"$active\"><a href=\"./?a={$item::$name}\">{$item::$title}</a></li>";
+                                }
                             }
 
                             ?>
