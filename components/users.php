@@ -33,6 +33,13 @@ class user_controller extends Controller{
         return $model;
     }
     
+    function PrepareData($data) {
+        foreach($data as $key => $row){
+            $data[$key] = ["Username" => $row->username, "Full name" => $row->fullname, "Email" => $row->email, "action" => "user/{$row->_id}"];
+        }
+        return $data;
+    }
+    
     
 }
 
@@ -57,6 +64,13 @@ class group_controller extends Controller{
     public static $title = "Groups";
 
     public $implementation_name = "group_implementation";
+    
+     function PrepareData($data) {
+        foreach($data as $key => $row){
+            $data[$key] = ["Title" => $row->title, "Description" => htmlspecialchars($row->description), "action" => "group/{$row->_id}"];
+        }
+        return $data;
+    }
     
 }
 
