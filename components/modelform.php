@@ -63,9 +63,9 @@ class ModelForm{
     
     var editor = new JSONEditor(jeditor_el, {
         schema : <?= json_encode($this->model) ?>,
-        disable_properties: false,
+        disable_properties: true,
         disable_collapse: true,
-        disable_edit_json: false,
+        disable_edit_json: true,
         no_additional_properties : false,
         theme: "foundation6",
         template : "handlebars"

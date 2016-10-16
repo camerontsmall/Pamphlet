@@ -71,7 +71,8 @@ body {
   margin: 0;
   height: 40px;
   position: static;
-  padding-left: 20px; }
+  padding-left: 20px;
+  overflow: hidden; }
   .breadcrumbs .bc-action {
     float: right;
     line-height: 40px;

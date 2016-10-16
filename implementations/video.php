@@ -48,7 +48,7 @@ class video_controller extends Controller{
     
     function listVideoPage(){
         
-            $data = $this->implementation->ReadMany([]);
+            $data = $this->implementation->ReadMany([],['sort' => ['date' => -1]]);
             
             
             ?>
@@ -189,6 +189,8 @@ class video_controller extends Controller{
         
         $show_imp = new show_implementation();
         $shows = $show_imp->ReadMany();
+        
+        $model['properties']['date']['default'] = date('Y-m-d');
         
         $model['properties']['show_id']['enum'][] = "";
         $model['properties']['show_id']['options']['enum_titles'][] = "";
