@@ -1,4 +1,4 @@
 RewriteEngine On
 RewriteBase "/admin"
 RewriteRule ^api/(.*) api_public.php?a=$1 [L,NC,QSA]
-RewriteRule ^generate/(.*) generate.php?a=1 [L,NC,QSA]
+RewriteRule ^generated/(.*) generated.php?a=1 [L,NC,QSA]
