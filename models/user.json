@@ -29,7 +29,30 @@
             "format" : "table",
             "items" : {
                 "type" : "string",
-                "title" : "Group"
+                "title" : "Group Membership"
+            }
+        },
+        "permissions" : {
+            "type" : "array",
+            "format" : "table",
+            "title" : "Group permissions",
+            "items" : {
+                "type" : "object",
+                "title" : "Permission",
+                "properties" : {
+                    "collection_name" : {
+                        "type" :"string",
+                        "title" : "Collection"
+                    },
+                    "permission" : {
+                        "type" : "string",
+                        "title" : "Access level",
+                        "enum" : [0,1,2,3],
+                        "options" : {
+                            "enum_titles" : ["None","Read","Read/Write","Read/Write/Modify"]
+                        }
+                    }
+                }
             }
         },
         "bio": {

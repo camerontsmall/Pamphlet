@@ -107,6 +107,7 @@ class Controller {
                 }
                 break;
             default:
+                header('HTTP/1.1 404 Not Found');
                 return ["ResponseStatus" => "Error", "ErrorName" => "InvalidRequestMethod"];
         }
     }
@@ -127,6 +128,7 @@ class Controller {
         }
         else if($tp[1]){
             $doc = $this->implementation->Read($tp[1]);
+            if(!$doc->title){ $doc->title = $doc->_id; }
             echo "<a href=\"./?a=$name\">$title</a><i class=\"material-icons\">chevron_right</i><a href=\"./?a=$name/$tp[1]\">{$doc->title}</a>";
             echo "<a class=\"bc-action\" href=\"./?a=$name/add\">New $item_name<i class=\"material-icons\">add</i></a>";
             echo "<a class=\"bc-action\" target=\"_blank\" href=\"./api_public.php?a=$name/$tp[1]\">API<i class=\"material-icons\">swap_horiz</i></a>";

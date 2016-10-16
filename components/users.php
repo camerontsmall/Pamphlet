@@ -1,5 +1,7 @@
 <?php
 
+if($config['enable_users']){
+
 class user_implementation extends Implementation{
     
     public $model_name = "user";
@@ -31,13 +33,6 @@ class user_controller extends Controller{
         return $model;
     }
     
-    function PrepareData($data) {
-        $c = [];
-        foreach($data as $item){
-            $c[] = ["action" => "blog/$item->_id", "Title" => $item->title, "Tags" => $item->tags, "Date" => $item->date];
-        }
-        return $c;
-    }
     
 }
 
@@ -63,4 +58,7 @@ class group_controller extends Controller{
 
     public $implementation_name = "group_implementation";
     
+}
+
+
 }

@@ -38,6 +38,9 @@ body {
   min-height: 100vh; }
 
 /* Nav */
+.off-canvas {
+  box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.12); }
+
 .navigation {
   background-color: white;
   height: 100vh; }
