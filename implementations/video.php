@@ -169,11 +169,14 @@ class video_controller extends Controller{
     static function convert_list($data){
        
         $output = [];
+        
+        $player_types = mediaPlayer::kpTypes();
+        
         foreach($data as $item){
             $_id = (string) $item->{'_id'};
             $output[] = [ 
                 "Title" => $item->title, 
-                "Type" => $item->type, 
+                "Type" => $player_types[$item->type], 
                 "Tags" => $item->tags, 
                 "Date posted" => $item->date, 
                 "" => "<a href=\"./?a=video/$_id\"><i class=\"material-icons\">edit</i></a>",
