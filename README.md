@@ -7,7 +7,7 @@ Installation instructions:
 
 > bower install
 
-Rename config.sample.php to config.php. 
+Rename config.sample.php to config.php
 
 Fill in your MongoDB database settings
 
