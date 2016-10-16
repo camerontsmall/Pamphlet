@@ -1,0 +1,36 @@
+{
+    "title" : "Group",
+    "model_name" : "group",
+    "description" : "",
+    "type" : "object",
+    "properties" : {
+        "_id" : {
+          "type" : "string",
+          "options" : {
+            "hidden" : true
+          }
+        },
+        "title": {
+            "type": "string",
+            "title" : "Group title"
+        },
+        "permissions" : {
+            "type" : "array",
+            "title" : "Group permissions",
+            "items" : {
+                "type" : "object",
+                "title" : "Permission"
+            }
+        },
+        "description": {
+            "type": "string",
+            "title" : "Description",
+            "format" : "html",
+            "options" : {
+                "wysiwyg" : true
+            }
+        }
+        
+    },
+    "required" : ["title"]
+}

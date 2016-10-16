@@ -43,6 +43,7 @@ require 'components/view.php';
 /* Load in classes */
 
 require 'components/homepage.php';
+require 'components/users.php';
 
 /* Load implementations */
 

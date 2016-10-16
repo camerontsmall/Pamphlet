@@ -1,0 +1,46 @@
+{
+    "title" : "User",
+    "model_name" : "user",
+    "description" : "",
+    "type" : "object",
+    "properties" : {
+        "_id" : {
+          "type" : "string",
+          "options" : {
+            "hidden" : true
+          }
+        },
+        "username": {
+            "type": "string",
+            "title" : "Username"
+        },
+        "full_name" : {
+            "type" : "string",
+            "title" : "Full name"
+        },
+        "email" : {
+            "type" : "string",
+            "title" : "Email address",
+            "format" : "email"
+        },
+        "groups" : {
+            "type" : "array",
+            "title" : "Group memberships",
+            "format" : "table",
+            "items" : {
+                "type" : "string",
+                "title" : "Group"
+            }
+        },
+        "bio": {
+            "type": "string",
+            "title" : "Bio",
+            "format" : "html",
+            "options" : {
+                "wysiwyg" : true
+            }
+        }
+        
+    },
+    "required" : ["username","email"]
+}

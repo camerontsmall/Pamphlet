@@ -197,6 +197,10 @@ class Controller {
      * @return type
      */
     function PrepareData($data){
+        foreach($data as $key => $item){
+            $action = $this::$name . '/' . $item->_id;
+            $data[$key]->action = $action;
+        }
         return $data;
     }
     
