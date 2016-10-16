@@ -136,7 +136,7 @@ class video_controller extends Controller{
         <script id="video-preview-template" type="text/x-handlebars-template">
             <div class="video-preview-parent">
                 <div class="video-preview-container">
-                    <iframe class="video-preview" src="./generated.php?a=video/{{_id}}" ></iframe>
+                    <iframe class="video-preview" src="./generated.php?a=video/{{_id}}" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="video-info-text">
@@ -240,6 +240,32 @@ class video_view extends View{
     public static $api_endpoint = "video";
     
     public $implementation_name = "video_implementation";
+    
+    /* Return generated data */
+    public function APIMethod(){
+        $tp = $this->task_parts;
+        
+        switch($_SERVER['REQUEST_METHOD']){
+            case 'GET':
+                
+                if($tp[1]){
+                    $id = $tp[1];
+                    $data = $this->implementation->Read($id);
+                     
+                    $player_name = mediaPlayer::getPlayer($data->type);
+                    $player = new $player_name();
+                    $data = $player->build($data);
+                    return $data;
+                }else{
+                    $params = (array) json_decode($_GET['q']);
+                    return $this->implementation->ReadMany($params);
+                }
+                
+                break;
+            default:
+                return ["ResponseStatus" => "Error", "ErrorName" => "InvalidRequestMethod", "Note" => "This API endpoint only supports GET requests"];
+        }
+    }
     
     function GenerateMethod() {
         $tp = $this->task_parts;

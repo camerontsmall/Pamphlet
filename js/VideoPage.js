@@ -1,7 +1,7 @@
 
 function loadVideoPreview(id){
     
-    var api_path = "api_local.php?a=video/" + id;
+    var api_path = "api_public.php?a=video/" + id;
     
      $.ajax({
          url: api_path, 
