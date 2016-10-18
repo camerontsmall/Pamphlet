@@ -16,12 +16,14 @@
             "enum" : ["","label","lcr","lens","lsutv","halls"],
             "options" : {
                 "enum_titles" : ["General","Label","LCR","Lens","LSUTV","Hall Media"]
-            }
+            },
+            "propertyOrder" : 7
         },
         "public": {
             "type": "boolean",
             "format" : "checkbox",
-            "title" : "Public"
+            "title" : "Public",
+            "propertyOrder" : 2
         },
         "title": {
             "type": "string",
@@ -30,35 +32,40 @@
         },
         "tags" :{
             "type" : "string",
-            "title" : "Tags (space seperated)"
+            "title" : "Tags (space seperated)",
+            "propertyOrder" : 3
         },
         "show_id" : {
             "type" : "string",
-            "title" : "Show"
+            "title" : "Show",
+            "propertyOrder" : 7
         },
         "poster": {
             "type": "string",
             "title" : "Poster URL",
-            "format" : "url"
+            "format" : "url",
+            "propertyOrder" : 4
         },
         "date" : {
             "type" : "string",
             "title" : "Date posted",
-            "format" : "date"
+            "format" : "date",
+            "propertyOrder" : 5
         },
-        "live_or_vod" : {
-            "type" : "string",
+        "live" : {
+            "type" : "number",
             "title" : "Live/VOD",
             "default" : "vod",
-            "enum" : ["live","vod"],
+            "enum" : [1,0],
             "options" : {
                 "enum_titles" : ["Live", "VOD"]
-            }
+            },
+            "propertyOrder" : 6
         },
         "type": {
             "type": "string",
             "title" : "Type",
-            "propertyOrder" : 2
+            "propertyOrder" : 7
         },
         "sources": {
             "type" : "array",
@@ -87,7 +94,8 @@
                     },
                     "res" : { "type" : "number", "title" : "Size" }
                 }
-            }
+            },
+            "propertyOrder" : 8
         },
         "params" :{
             "type" : "array",
@@ -106,7 +114,8 @@
                         "title" : "Value"
                     }
                 }
-            }
+            },
+            "propertyOrder" : 9
         },
         "credits" : {
             "type" : "array",
@@ -119,7 +128,8 @@
                     "username" : { "type" : "string", "title" : "Username" },
                     "role" : { "type" : "string", "title" : "Role" }
                 }
-            }
+            },
+            "propertyOrder" : 10
         },
         "description": {
             "type": "string",
@@ -127,7 +137,8 @@
             "format" : "html",
             "options" :{
                 "wysiwyg" : true
-            }
+            },
+            "propertyOrder" : 11
         }
     },
     "required" : ["section","title"]

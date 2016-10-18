@@ -253,12 +253,7 @@ class video_view extends View{
                 
                 if($tp[1]){
                     $id = $tp[1];
-                    $data = $this->implementation->Read($id);
-                     
-                    $player_name = mediaPlayer::getPlayer($data->type);
-                    $player = new $player_name();
-                    $data = $player->build($data);
-                    return $data;
+                    return $this->Output($id);
                 }else{
                     $params = (array) json_decode($_GET['q']);
                     return $this->implementation->ReadMany($params);
@@ -268,6 +263,15 @@ class video_view extends View{
             default:
                 return ["ResponseStatus" => "Error", "ErrorName" => "InvalidRequestMethod", "Note" => "This API endpoint only supports GET requests"];
         }
+    }
+    
+    public function Output($id){
+        $data = $this->implementation->Read($id);
+                     
+        $player_name = mediaPlayer::getPlayer($data->type);
+        $player = new $player_name();
+        $data = $player->build($data);
+        return $data;
     }
     
     function GenerateMethod() {

@@ -33,7 +33,6 @@ if(!$db = new MongoDb\Driver\Manager($config['mongodb_connect_string'])){
 /* Load in dependencies */
 
 require 'components/authenticator.php';
-require 'components/customform.php';
 require 'components/modelform.php';
 require 'components/dynamiclist.php';
 require 'components/implementation.php';

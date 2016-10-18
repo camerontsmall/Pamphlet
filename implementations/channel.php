@@ -47,4 +47,12 @@ class channel_view extends View{
     
     public $implementation_name = "channel_implementation";
     
+    public function Output($id){
+        $data = $this->implementation->Read($id);
+        
+        $v_view = new video_view(null);
+        $data->content = $v_view->Output($data->video_id);
+        
+        return $data;
+    }
 }

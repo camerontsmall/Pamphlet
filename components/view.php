@@ -37,16 +37,24 @@ class View {
                 
                 if($tp[1]){
                     $id = $tp[1];
-                    return $this->implementation->Read($id);
+                    return $this->Output($id);
                 }else{
-                    $params = (array) json_decode($_GET['q']);
-                    return $this->implementation->ReadMany($params);
+                    return $this->OutputMany();
                 }
                 
                 break;
             default:
                 return ["ResponseStatus" => "Error", "ErrorName" => "InvalidRequestMethod", "Note" => "This API endpoint only supports GET requests"];
         }
+    }
+    
+    public function Output($id){
+        return $this->implementation->Read($id);
+    }
+    
+    public function OutputMany(){
+        $params = (array) json_decode($_GET['q']);
+        return $this->implementation->ReadMany($params);
     }
     
     public function GenerateMethod(){

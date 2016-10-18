@@ -65,7 +65,7 @@ class ModelForm{
         schema : <?= json_encode($this->model) ?>,
         disable_properties: true,
         disable_collapse: true,
-        disable_edit_json: true,
+        disable_edit_json: false,
         no_additional_properties : false,
         theme: "foundation6",
         template : "handlebars"
