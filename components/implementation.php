@@ -58,15 +58,9 @@ class Implementation {
         
     }
     
-    public function ReadMany($params = [], $options = null){
+    public function ReadMany($params = [], $options = []){
         global $db;
         $cn = $this->CollectionName();
-        
-        if($options == null){
-            $options = [
-               //'projection' => ['_id' => 0],
-            ];
-        }
         
         $query = new MongoDB\Driver\Query($params,$options);
         $cursor = $db->executeQuery($cn,$query);

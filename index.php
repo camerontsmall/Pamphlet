@@ -66,6 +66,8 @@ if(class_exists($ui_controller_class)){
         <script src="js/VideoPage.js" ></script>
         
         <!-- Meta tags -->
+        
+        <title><?= $config['site_title'] . ' - ' . $ui_controller::$title ?></title>
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         
         

@@ -26,11 +26,11 @@
         },
         "video_id" : {
             "type" : "string",
-            "title" : "Video ID"
+            "title" : "Livestream Source"
         },
         "poster" : {
             "type" : "string",
-            "title" : "Poster URL",
+            "title" : "Holding Screen URL",
             "format" : "url"
         },
         "description" : {
