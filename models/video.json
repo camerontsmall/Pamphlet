@@ -33,7 +33,13 @@
         "tags" :{
             "type" : "string",
             "title" : "Tags (space seperated)",
-            "propertyOrder" : 3
+            "propertyOrder" : 3,
+            "options" : {
+                "selectize_options" : {
+                    "create" : true,
+                    "delimiter" : " "
+                }
+            }
         },
         "show_id" : {
             "type" : "string",

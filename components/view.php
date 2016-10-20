@@ -53,8 +53,8 @@ class View {
     }
     
     public function OutputMany(){
-        $params = (array) json_decode($_GET['q']);
-        return $this->implementation->ReadMany($params);
+        $filter = (array) json_decode($_GET['q']);
+        return $this->implementation->ReadMany($filter);
     }
     
     public function GenerateMethod(){

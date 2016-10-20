@@ -10,7 +10,7 @@ class channel_implementation extends Implementation{
 class channel_controller extends Controller{
     
     public static $name = "channel";
-    public static $title = "Channel";
+    public static $title = "Channels";
 
     public $implementation_name = "channel_implementation";
     public $view_name = "channel_view";

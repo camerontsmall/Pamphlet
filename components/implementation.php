@@ -58,11 +58,11 @@ class Implementation {
         
     }
     
-    public function ReadMany($params = [], $options = []){
+    public function ReadMany($filter = [], $options = []){
         global $db;
         $cn = $this->CollectionName();
         
-        $query = new MongoDB\Driver\Query($params,$options);
+        $query = new MongoDB\Driver\Query($filter,$options);
         $cursor = $db->executeQuery($cn,$query);
         
         //$cursor->setTypeMap(['root' => 'array']);

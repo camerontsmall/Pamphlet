@@ -35,7 +35,7 @@ if(class_exists($ui_controller_class)){
         <!-- <link rel="stylesheet" href="bower_components/jquery-ui/themes/base/jquery-ui.min.css" />      -->  
         <!-- <link rel="stylesheet" href="bower_components/sceditor/minified/jquery.sceditor.default.min.css" /> -->
         <link rel="stylesheet" href="bower_components/foundation-sites/dist/foundation.min.css" />
-        <link rel="stylesheet" href="bower_components/selectize/dist/css/selectize.css" />        
+        <link rel="stylesheet" href="bower_components/selectize/dist/css/selectize.css" />   
 
         
         <!-- Master stylesheet -->

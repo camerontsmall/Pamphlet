@@ -35,11 +35,34 @@ class user_controller extends Controller{
     
     function PrepareData($data) {
         foreach($data as $key => $row){
-            $data[$key] = ["Username" => $row->username, "Full name" => $row->fullname, "Email" => $row->email, "action" => "user/{$row->_id}"];
+            $data[$key] = ["Username" => $row->username, "Full name" => $row->full_name, "Email" => $row->email, "action" => "user/{$row->_id}"];
         }
         return $data;
     }
     
+    
+        function PrintBreadcrumbs(){
+        $name = $this::$name;
+        $title = $this::$title;
+        $item_name = $this->implementation->model['title'];
+        
+        $tp = $this->task_parts;
+        if($tp[1] == 'add'){
+            echo "<a href=\"./?a=$name\">$title</a><i class=\"material-icons\">chevron_right</i><a href=\"./?a=$name/add\">New $item_name</a>";
+        }
+        else if($tp[1]){
+            $doc = $this->implementation->Read($tp[1]);
+            if(!$doc->title){ $doc->title = $doc->_id; }
+            echo "<a href=\"./?a=$name\">$title</a><i class=\"material-icons\">chevron_right</i><a href=\"./?a=$name/$tp[1]\">{$doc->full_name}</a>";
+            echo "<a class=\"bc-action\" href=\"./?a=$name/add\">New $item_name<i class=\"material-icons\">add</i></a>";
+            echo "<a class=\"bc-action\" target=\"_blank\" href=\"./api_public.php?a=$name/$tp[1]\">API<i class=\"material-icons\">swap_horiz</i></a>";
+        }else{
+            echo "<a href=\"./?a=$name\">$title</a>";
+            echo "<a class=\"bc-action\" href=\"./?a=$name/add\">New $item_name<i class=\"material-icons\">add</i></a>";
+            echo "<a class=\"bc-action\" target=\"_blank\" href=\"./api_public.php?a=$name\">API<i class=\"material-icons\">swap_horiz</i></a>";
+        }
+    }
+
     
 }
 

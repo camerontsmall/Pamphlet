@@ -208,7 +208,13 @@ body {
   border: none; }
 
 /* Generic fixes */
-.selectize-control.single {
-  height: 36px !important; }
+input[type="text"] {
+  height: auto; }
+
+.selectize-input {
+  border-radius: 0px;
+  border: 1px solid #cacaca;
+  height: 40px;
+  line-height: 20px; }
 
 /*# sourceMappingURL=main.css.map */
