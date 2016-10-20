@@ -207,4 +207,8 @@ body {
   height: 100%;
   border: none; }
 
+/* Generic fixes */
+.selectize-control.single {
+  height: 36px !important; }
+
 /*# sourceMappingURL=main.css.map */
