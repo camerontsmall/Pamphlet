@@ -30,6 +30,13 @@ class user_controller extends Controller{
             $model['properties']['groups']['items']['options']['enum_titles'][] = $group->title;
         }
         
+        $controllers = Controller::listAll();
+        
+        foreach($controllers as $cnt){
+            $model['properties']['permissions']['items']['properties']['collection_name']['enum'][] = $cnt::$title;
+            $model['properties']['permissions']['items']['properties']['collection_name']['enum_titles'][] = $cnt::$title;
+        }
+        
         return $model;
     }
     

@@ -23,7 +23,7 @@ class homepage extends Controller{
         <p>All collections</p>
         <ul class="collections">
         <?php 
-        
+            
         ?>
         </ul>
     </div>
