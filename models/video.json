@@ -62,9 +62,9 @@
             "type" : "number",
             "title" : "Live/VOD",
             "default" : 0,
-            "enum" : [1,0],
+            "enum" : [0,1],
             "options" : {
-                "enum_titles" : ["Live", "VOD"]
+                "enum_titles" : ["VOD", "Live"]
             },
             "propertyOrder" : 6
         },
