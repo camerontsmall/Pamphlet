@@ -1,0 +1,37 @@
+{
+    "title" : "Playlist",
+    "model_name" : "playlist",
+    "description" : "",
+    "type" : "object",
+    "properties" : {
+        "_id" : {
+            "type" : "string",
+            "options" : {
+                "hidden" : true
+            }
+        },
+        "title" : {
+            "type" : "string",
+            "title" : "Title"
+        },
+        "public" : {
+            "type" : "boolean",
+            "format" : "checkbox",
+            "title" : "Publish"
+        },
+        "videos" : {
+            "type" : "array",
+            "title" : "Items",
+            "format" : "table",
+            "items" : {
+                "type" : "string",
+                "title" : "Video"
+            }
+        },
+        "description" : {
+            "type" : "string",
+            "title" : "Description",
+            "format" : "html"
+        }
+    }
+}
