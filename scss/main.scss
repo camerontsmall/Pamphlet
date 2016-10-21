@@ -319,3 +319,8 @@ input[type="text"] {
     height:40px;
     line-height:20px;
 }
+
+//Fix foundation row width issue
+.row .row {
+    max-width: none;
+}

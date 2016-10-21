@@ -217,4 +217,7 @@ input[type="text"] {
   height: 40px;
   line-height: 20px; }
 
+.row .row {
+  max-width: none; }
+
 /*# sourceMappingURL=main.css.map */

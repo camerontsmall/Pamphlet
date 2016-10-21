@@ -267,6 +267,14 @@ class video_view extends View{
     
     public function Output($id){
         $data = $this->implementation->Read($id);
+        
+        //Convert params array to object
+        $kp_params = [];
+        foreach($data->params as $param){
+            $kp_params[$param->name] = $param->value;
+        }
+        
+        $data->params = $kp_params;
                      
         $player_name = mediaPlayer::getPlayer($data->type);
         $player = new $player_name();
