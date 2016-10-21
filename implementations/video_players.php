@@ -37,7 +37,7 @@ class videojs_5 extends mediaPlayer{
         echo "<script src=\"//vjs.zencdn.net/5.3.0/video.min.js\"></script>";
         
         
-        if($video->live == 1 || $data['autoplay'] == 1 | $_GET['autoplay'] == true){
+        if($data['autoplay'] == 1 || $_GET['autoplay'] == true){
             $autoplay = 'autoplay';
         }else{
             $autoplay = '';
