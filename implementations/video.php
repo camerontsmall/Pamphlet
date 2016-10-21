@@ -175,12 +175,13 @@ class video_controller extends Controller{
         foreach($data as $item){
             $_id = (string) $item->{'_id'};
             $output[] = [ 
+                "action" => "video/$_id",
                 "Title" => $item->title, 
                 "Type" => $player_types[$item->type], 
                 "Tags" => $item->tags, 
                 "Date posted" => $item->date, 
-                "" => "<a href=\"./?a=video/$_id\"><i class=\"material-icons\">edit</i></a>",
-                "onclick" => "loadVideoPreview('{$_id}');"];
+                "" => "<a href=\"javascript:void(0);\" onclick=\"loadVideoPreview('{$_id}');\"><i class=\"material-icons\">play_circle_outline</i></a>"
+            ];
         }
         return $output;
     }
