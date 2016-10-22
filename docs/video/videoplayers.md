@@ -11,6 +11,9 @@ for the generated video. However, to allow efficient searching, the following fi
 * Poster
 * Date
 
+Options, as described in the individual player specs below, are added in the Custom Parameters section of the editor.
+Type the name in the name section and the value in the value section.
+
 ##VideoJS
 
 Enter any number of video file sources which are supported by VideoJS in the Sources section.
@@ -19,20 +22,18 @@ When entering multiple sources be sure to enter the vertical resolution of the s
 Options:
 
 ####Radio station current song info
-> server-type
-
+<code>server-type</code>
 Enter either <code>shoutcast</code> or <code>icecast</code>
-> nowplaying-url
 
+<code>nowplaying-url</code>
 Enter the URL of the server's info page
 (for Icecast this will usually be http://[server_name]:[port]/status-json.xsl)
 
 ####Animated backgrounds
-> background-type
+<code>background-type</code>
+Either <code>gif</code> or <code>gifv</code>
 
-Either <span style="background-color:#6e6e6e">gif<span> or <span style="background-color:#6e6e6e">gifgifv</spank>
-> animated-background-url
-
+<code>animated-background-url</code>
 URL of the animated background file. When using animated backgrounds, the poster
 value should still be filled in with a static image, and this will be used
 for thumbnails.
