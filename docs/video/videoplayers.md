@@ -21,16 +21,16 @@ Options:
 ####Radio station current song info
 > server-type
 
-enter either <mark>shoutcast</mark> or <mark>icecast</mark>
+Enter either <code>shoutcast</code> or <code>icecast</code>
 > nowplaying-url
 
 Enter the URL of the server's info page
-(for Icecast this will usually be http://[server_name]:[port]/status-json.xsl
+(for Icecast this will usually be http://[server_name]:[port]/status-json.xsl)
 
 ####Animated backgrounds
 > background-type
 
-either <mark>gif</mark> or <mark>gifv</mark>
+Either <span style="background-color:#6e6e6e">gif<span> or <span style="background-color:#6e6e6e">gifgifv</spank>
 > animated-background-url
 
 URL of the animated background file. When using animated backgrounds, the poster
