@@ -83,7 +83,7 @@ class channel_controller extends Controller{
             echo "<a href=\"./?a=$name\">$title</a><i class=\"material-icons\">chevron_right</i><a href=\"./?a=$name/add\">New $item_name</a>";
         }else if($tp[1] == 'studio'){
             $doc = $this->implementation->Read($tp[2]);
-            echo "<a href=\"./?a=$name\">$title</a><i class=\"material-icons\">chevron_right</i><a href=\"./?a=$name/$tp[2]\">{$doc->title}</a><i class=\"material-icons\">chevron_right</i><a href=\".\">Broadcast Studio</a>";
+            echo "<a href=\"./?a=$name\">$title</a><i class=\"material-icons\">chevron_right</i><a href=\"./?a=$name/$tp[2]\">{$doc->title}</a><i class=\"material-icons\">chevron_right</i><a href=\"./?a=channel/studio/{$tp[2]}\">Broadcast Studio</a>";
             echo "<a class=\"bc-action\" target=\"_blank\" href=\"./api_public.php?a=$name/$tp[2]\">API<i class=\"material-icons\">swap_horiz</i></a>";
             echo "<a class=\"bc-action\" target=\"_blank\" href=\"./generated.php?a=$name/$tp[2]\" title=\"Append '&autoplay' to autoplay videos\">Embed<i class=\"material-icons\">code</i></a>";
         }else if($tp[1]){

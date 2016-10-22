@@ -98,7 +98,7 @@ if(class_exists($ui_controller_class)){
                     
                     <!-- Main content section -->
                     <div class="breadcrumbs theme-color" >
-                        <button type="button" class="hide-for-large" data-toggle="main-menu">
+                        <button type="button" class="hide-for-large" id="launch-button" data-toggle="main-menu">
                             <i class="material-icons">menu</i>
                         </button>
                       <?php $ui_controller->PrintBreadcrumbs(); ?>
