@@ -22,20 +22,19 @@ When entering multiple sources be sure to enter the vertical resolution of the s
 Options:
 
 ####Radio station current song info
-<code>server-type</code>
+<code>server-type</code><br />
 Enter either <code>shoutcast</code> or <code>icecast</code>
 
-<code>nowplaying-url</code>
+<code>nowplaying-url</code><br />
 Enter the URL of the server's info page
 (for Icecast this will usually be http://[server_name]:[port]/status-json.xsl)
 
 ####Animated backgrounds
-<code>background-type</code>
+<code>background-type</code><br />
 Either <code>gif</code> or <code>gifv</code>
 
-<code>animated-background-url</code>
+<code>animated-background-url</code><br />
 URL of the animated background file. When using animated backgrounds, the poster
 value should still be filled in with a static image, and this will be used
 for thumbnails.
 
-####Autoplay
