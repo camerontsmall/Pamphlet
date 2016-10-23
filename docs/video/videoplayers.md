@@ -26,7 +26,20 @@ Enter any number of video file sources which are supported by VideoJS in the Sou
 
 Options:
 
+####Player styling
+
+* <code>theme_color</code>
+
+Enter a valid CSS colour to change the player bar background colour from the default
+
+* <code>ident</code>
+
+Enter a path to a transparent PNG file to use as an ident. This will be displayed in the top-left corner.
+
 ####Radio station current song info
+
+If using VideoJS to generate a player for an online radio stream, entering the following options will allow the generated video to be populated with the station's current song info.
+
 * <code>server_type</code>
 
 Enter either <code>shoutcast</code> or <code>icecast</code>
@@ -34,9 +47,12 @@ Enter either <code>shoutcast</code> or <code>icecast</code>
 * <code>nowplaying_url</code>
 
 Enter the URL of the server's info page
-(for Icecast this will usually be http://[server_name]:[port]/status-json.xsl)
+(for Icecast this will usually be <code>http://[server_name]:[port]/status-json.xsl</code>)
 
 ####Animated backgrounds
+
+For audio-only VideoJS objects, external implementations may support animated backgrounds. These parameters are not currently supported natively.
+
 * <code>animated_background_type</code>
 
 Either <code>gif</code> or <code>gifv</code>
