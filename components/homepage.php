@@ -16,6 +16,8 @@ class homepage extends Controller{
     
     public function UIMethod() {
         global $config;
+        global $auth;
+        
         ?>
 <div class="content-box">
     <?php if($config['enable_auth']){ ?>
