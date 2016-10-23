@@ -13,6 +13,10 @@ header('Content-Type:application/json');
 
 require 'init.php';
 
+if($config['enable_auth']){
+    $auth = new authenticator();
+}
+
 //$auth = new Authenticator();
 
 $task = $_GET['a'];

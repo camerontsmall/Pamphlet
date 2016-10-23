@@ -3,7 +3,9 @@
 /* Initialise app */
 require 'init.php';
 
-//$auth = new authenticator();
+if($config['enable_auth']){
+    $auth = new authenticator();
+}
 
 if(!isset($_GET['a'])){
     header('location:./?a=home');

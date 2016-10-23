@@ -20,12 +20,9 @@ class homepage extends Controller{
 <div class="content-box">
     <h4><?= $config['welcome_message'] ?></h4>
     <div class="pages">
-        <p>All collections</p>
-        <ul class="collections">
-        <?php 
-            
-        ?>
-        </ul>
+        <p>Click a page on the left to get started</p>
+        <h5>Looking for help?</h5>
+        <p>Read the documentation <a href="https://github.com/camerontsmall/pamphlet_nosql/tree/master/docs">here.</a></p>
     </div>
 </div>
 <?php

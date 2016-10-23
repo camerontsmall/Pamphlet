@@ -169,21 +169,3 @@ class soundcloud extends mediaPlayer{
     }
     
 }
-
-class spotify extends mediaPlayer{
-    public $name = 'spotify';
-    public $title = 'Spotify Playlist URI';
-    
-    public $live = false;
-    public $ondemand = true;
-    
-    public static function build($video){
-        $primarySource = $video->sources[0];
-        $id = $primarySource->src;
-        $video->source = "<iframe src=\"https://embed.spotify.com/?uri=$id&theme=white\" width=\"100%\" height=\"100%\" frameborder=\"0\" allowtransparency=\"true\" class=\"vidplayer\"></iframe>";
-
-        return $video;
-    }
-    
-}
-
