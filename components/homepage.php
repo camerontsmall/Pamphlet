@@ -18,7 +18,11 @@ class homepage extends Controller{
         global $config;
         ?>
 <div class="content-box">
+    <?php if($config['enable_auth']){ ?>
+    <h4>Hi <?= $auth->profile()['fullname'] ?>,</h4>
+    <?php }else{ ?>
     <h4><?= $config['welcome_message'] ?></h4>
+    <?php } ?>
     <div class="pages">
         <p>Click a page on the left to get started</p>
         <h5>Looking for help?</h5>
