@@ -148,7 +148,7 @@ class audio extends mediaPlayer{
             <?php
         }
         
-        echo "<video id=\"video\" class=\"vidplayer video-js vjs-default-skin html5vid\" width=\"100%\" height=\"100%\" poster=\"$poster\" controls $muted $autoplay data-setup='{\"techOrder\": [\"html5\",\"flash\"], \"plugins\": { \"videoJsResolutionSwitcher\" : { \"default\" : \"720\" } }, \"inactivityTimeout\" : 0}'>", PHP_EOL;
+        echo "<video id=\"video\" class=\"vidplayer video-js vjs-default-skin html5vid vjs-nofull\" width=\"100%\" height=\"100%\" poster=\"$poster\" controls $muted $autoplay data-setup='{\"techOrder\": [\"html5\",\"flash\"], \"plugins\": { \"videoJsResolutionSwitcher\" : { \"default\" : \"720\" } }, \"inactivityTimeout\" : 0}'>", PHP_EOL;
         foreach($video->sources as $source){
             $src = $source->src;
             $type = $source->type;
