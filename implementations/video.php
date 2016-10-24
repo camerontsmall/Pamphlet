@@ -292,12 +292,7 @@ class video_view extends View{
         echo "<html>" . PHP_EOL . "<body style=\"margin:0px; height:100vh; width:100%; overflow:hidden;\">",PHP_EOL;
         
         $id = $tp[1];
-        $data = $this->implementation->Read($id);
-        
-        
-        $player_name = mediaPlayer::getPlayer($data->type);
-        $player = new $player_name();
-        $data = $player->build($data);
+        $data = $this->Output($id);
         
         echo $data->source;
         

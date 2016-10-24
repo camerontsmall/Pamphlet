@@ -5,7 +5,7 @@
     <div class="column small-12 medium-12 large-6" id="preview-pane">
         <h4 class="studio-title title-preview">Preview</h4>
          <div class="video-preview-container">
-             <iframe class="video-preview iframe-preview" src="./generated.php?a=video/<?= $input_data->video_id ?>&autoplay=1&mute=1" allowfullscreen="1"></iframe>
+             <iframe class="video-preview iframe-preview" src="./generated.php?a=video/<?= $input_data->video_id ?>&autoplay=1&muted=1" allowfullscreen="1"></iframe>
         </div>
         <div class="video-title" id="content-title-preview"></div>
     </div>

@@ -22,7 +22,9 @@ Enter a single webpage URL to use as a source.
 
 ##VideoJS
 
-Enter any number of video file sources which are supported by VideoJS in the Sources section. It is important to enter the correct MIME type for each file added. VideoJS objects with only audio sources will be treated as audio objects and are handled differently. When entering multiple sources be sure to enter the vertical resolution of the source in the Size field.
+Enter any number of video file sources which are supported by VideoJS in the Sources section. 
+It is important to enter the correct MIME type for each file added. 
+When entering multiple sources be sure to enter the vertical resolution of the source in the Size field.
 
 Options:
 
@@ -36,9 +38,24 @@ Enter a valid CSS colour to change the player bar background colour from the def
 
 Enter a path to a transparent PNG file to use as an ident. This will be displayed in the top-left corner.
 
+##Audio
+
+Enter one audio file as a source
+
+####Player styling
+
+* <code>theme_color</code>
+
+Enter a valid CSS colour to change the player bar background colour from the default
+
+* <code>ident</code>
+
+Enter a path to a transparent PNG file to use as an ident. This will be displayed in the top-left corner.
+
+
 ####Radio station current song info
 
-If using VideoJS to generate a player for an online radio stream, entering the following options will allow the generated video to be populated with the station's current song info.
+If using to generate a player for an online radio stream, entering the following options will allow the generated video to be populated with the station's current song info.
 
 * <code>server_type</code>
 
@@ -61,7 +78,7 @@ Either <code>gif</code> or <code>gifv</code>
 
 URL of the animated background file. When using animated backgrounds, the poster
 value should still be filled in with a static image, and this will be used
-for thumbnails. Animated backgrounds will only work when all sources are audio files (and have correct MIME types entered)
+for thumbnails. When using gifv backgrounds, make sure to replace the file extension in the URL with "webm".
 
 ##YouTube
 
