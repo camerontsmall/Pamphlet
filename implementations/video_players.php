@@ -127,6 +127,22 @@ class audio extends mediaPlayer{
                 }
             </style>
         <?php
+        }else if($params['animated_background_type'] == 'gif'){
+             $anim_bg = $params['animated_background_url'];
+            ?>
+            <img style="position:absolute; width:100%; height:auto;" src="<?= $anim_bg ?>" />
+            <style>
+                body{
+                    background-color:black;
+                }
+                .video-js{
+                    background-color:transparent;
+                }
+                .vjs-tech{
+                    display:none;
+                }
+            </style>
+            <?php
         }
         
         echo "<video id=\"video\" class=\"vidplayer video-js vjs-default-skin html5vid\" width=\"100%\" height=\"100%\" poster=\"$poster\" controls $muted $autoplay data-setup='{\"techOrder\": [\"html5\",\"flash\"], \"plugins\": { \"videoJsResolutionSwitcher\" : { \"default\" : \"720\" } }, \"inactivityTimeout\" : 0}'>", PHP_EOL;
