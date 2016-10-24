@@ -174,6 +174,11 @@ class audio extends mediaPlayer{
                 });
             }
         </script>
+        <style>
+            .vjs-nofull .vjs-fullscreen-control {
+                display:none;
+            }
+        </style>
         <?php
         
         //echo '<script>videojs(\'#video\').videoJsResolutionSwitcher</script>';
