@@ -23,7 +23,9 @@
     "ace-builds": "^1.2.3",
     "foundation-sites": "6.2.4",
     "selectize": "^0.12.4",
-    "material-design-icons": "^3.0.1"
+    "material-design-icons": "^3.0.1",
+    "video.js": "^5.12.5",
+    "vjs-resolution-switcher": "videojs-resolution-switcher#^0.4.2"
   },
   "resolutions": {
     "jquery": "~2.2.0"

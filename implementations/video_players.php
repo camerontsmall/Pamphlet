@@ -33,8 +33,11 @@ class videojs_5 extends mediaPlayer{
         ob_start();
        
             //html::css("plugins/video/videojs/core/video-js-custom.css");
-        echo "<link rel=\"stylesheet\" href=\"//vjs.zencdn.net/5.3.0/video-js.min.css\" />";
-        echo "<script src=\"//vjs.zencdn.net/5.3.0/video.min.js\"></script>";
+        echo "<link rel=\"stylesheet\" href=\"bower_components/video.js/dist/video-js.min.css\" />", PHP_EOL;
+        echo "<script src=\"bower_components/video.js/dist/video.min.js\"></script>", PHP_EOL;
+        
+        echo "<link rel=\"stylesheet\" href=\"bower_components/vjs-resolution-switcher/lib/videojs-resolution-switcher.css\" />", PHP_EOL;
+        echo "<script src=\"bower_components/vjs-resolution-switcher/lib/videojs-resolution-switcher.js\"></script>", PHP_EOL;
         
         
         if($data['autoplay'] == 1 || $_GET['autoplay'] == true){
@@ -97,8 +100,8 @@ class audio extends mediaPlayer{
         $poster = $video->poster;
         $params = $video->params;
         
-        echo "<link rel=\"stylesheet\" href=\"//vjs.zencdn.net/5.3.0/video-js.min.css\" />", PHP_EOL;
-        echo "<script src=\"//vjs.zencdn.net/5.3.0/video.min.js\"></script>", PHP_EOL;
+        echo "<link rel=\"stylesheet\" href=\"bower_components/video.js/dist/video-js.min.css\" />", PHP_EOL;
+        echo "<script src=\"bower_components/video.js/dist/video.min.js\"></script>", PHP_EOL;
         
         
         if($data->autoplay == 1 || isset($_GET['autoplay'])){
