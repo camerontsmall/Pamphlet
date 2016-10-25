@@ -10,15 +10,6 @@
             "hidden" : true
           }
         },
-        "section" : {
-            "type": "string",
-            "title" : "Section",
-            "enum" : ["","label","lcr","lens","lsutv","halls"],
-            "options" : {
-                "enum_titles" : ["General","Label","LCR","Lens","LSUTV","Hall Media"]
-            },
-            "propertyOrder" : 7
-        },
         "public": {
             "type": "boolean",
             "format" : "checkbox",
@@ -147,5 +138,5 @@
             "propertyOrder" : 11
         }
     },
-    "required" : ["section","title"]
+    "required" : ["title"]
 }

@@ -34,6 +34,8 @@ class playlist_controller extends Controller{
             $model['properties']['videos']['items']['options']['enum_titles'][] = $video->title;
         }
         
+        $model = category_implementation::ModelAddCategories($model);
+        
         return $model;
     }
     

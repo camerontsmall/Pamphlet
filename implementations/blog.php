@@ -14,6 +14,14 @@ class blog_controller extends Controller{
 
     public $implementation_name = "blog_implementation";
     
+    function PrepareModel() {
+        $model = $this->implementation->model;
+        
+        $model = category_implementation::ModelAddCategories($model);
+        
+        return $model;
+    }
+    
     function PrepareData($data) {
         $c = [];
         foreach($data as $item){

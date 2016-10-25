@@ -193,6 +193,20 @@ body{
     }
 }
 
+.list-filter{
+    height:40px;
+    line-height:40px;
+    background-color:#f6f6f6;
+    padding:0px 10px;
+    .links{
+        float:right;
+    }
+    a{
+        text-decoration: underline;
+        //color:inherit;
+    }
+}
+
 /* Forms */
 
 .form{

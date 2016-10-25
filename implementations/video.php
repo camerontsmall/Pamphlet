@@ -41,14 +41,25 @@ class video_controller extends Controller{
             
         }else{
             
-            $this->listVideoPage();
+            switch($_GET['f']){
+                case 'live':
+                    $filter = ['live' => 1];
+                    break;
+                case 'vod':
+                    $filter = ['live' => 0];
+                    break;
+                default:
+                    $filter = [];
+            }
+            
+            $this->listVideoPage($filter);
         }
         
     }
     
-    function listVideoPage(){
+    function listVideoPage($filter = []){
         
-            $data = $this->implementation->ReadMany([],['sort' => ['date' => -1]]);
+            $data = $this->implementation->ReadMany($filter,['sort' => ['date' => -1]]);
             
             
             ?>
@@ -59,6 +70,14 @@ class video_controller extends Controller{
 <div class="row">
     
     <div class="small-12 large-8 column">
+        <div class="list-filter">
+            Filter
+            <span class="links">
+                <a href="./?a=video">All</a>
+                <a href="./?a=video&f=live">Live</a>
+                <a href="./?a=video&f=vod">VOD</a>
+            </span>
+        </div>
         <?php
         
         $list_data = self::convert_list($data);
@@ -211,6 +230,8 @@ class video_controller extends Controller{
             $model['properties']['type']['options']['enum_titles'][] = $player_type->title;
         }
         
+        $model = category_implementation::ModelAddCategories($model);
+       
         return $model;
     }
     

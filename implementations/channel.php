@@ -47,14 +47,16 @@ class channel_controller extends Controller{
         $model = $this->implementation->model;
         
         $vid_imp = new video_implementation();
-        //$streams = $vid_imp->ReadMany(['live' => 1]);
-        $streams = $vid_imp->ReadMany();
+        $streams = $vid_imp->ReadMany(['live' => 1]);
+        //$streams = $vid_imp->ReadMany();
         
         foreach($streams as $video){
             $model['properties']['video_id']['enum'][] = $video->{_id};
             $model['properties']['video_id']['options']['enum_titles'][] = $video->title;
         }
         
+        $model = category_implementation::ModelAddCategories($model);
+
         return $model;
     }
     

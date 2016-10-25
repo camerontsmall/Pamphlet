@@ -128,6 +128,16 @@ body {
       float: left;
       margin-left: 20px; }
 
+.list-filter {
+  height: 40px;
+  line-height: 40px;
+  background-color: #f6f6f6;
+  padding: 0px 10px; }
+  .list-filter .links {
+    float: right; }
+  .list-filter a {
+    text-decoration: underline; }
+
 /* Forms */
 .form {
   background-color: white; }
