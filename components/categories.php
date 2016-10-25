@@ -5,6 +5,16 @@ class category_implementation extends Implementation{
     public $model_name = "category";
     public $collection_name = "category";
  
+    /**
+     * Add category dropdown to form
+     * 
+     * To add to controller, insert the line
+     * $model = category_implementation::ModelAddCategories($model);
+     * into your PrepareModel function.
+     * 
+     * @param type $model
+     * @return type
+     */
     static function ModelAddCategories($model){
         
         $imp = new category_implementation();

@@ -22,6 +22,14 @@ class sample_controller extends Controller{
 
     public $implementation_name = "sample_implementation";
     
+    function PrepareModel(){
+        $model = $this->implementation->model;
+        
+        //Process model here 
+        
+        return $model;
+    }
+    
     function PrepareData($data) {
         $c = [];
         foreach($data as $item){
