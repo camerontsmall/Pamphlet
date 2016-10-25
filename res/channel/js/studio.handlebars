@@ -17,7 +17,7 @@
 </div>
 <div class="row">
     <div class="column small-12 live-row ">
-        <button class="live-btn btn-fx" onclick="studio.toggleLiveState();">{{#if on_air}}Stop Broadcast{{else}}Start Broadcast{{/if}}</button>
+        <button class="live-btn btn-fx" id="toggle-live-btn" onclick="studio.toggleLiveState();">{{#if on_air}}Stop Broadcast{{else}}Start Broadcast{{/if}}</button>
         <span class="live-btn float-right status-{{on_air}}" id="live-button" >{{#if on_air}}ON AIR{{else}}OFF AIR{{/if}}</span>
     </div>
 </div>

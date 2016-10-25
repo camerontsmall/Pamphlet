@@ -68,6 +68,10 @@ function PamphletStudio(channel_id){
        var send = { "on_air" : new_value };
        var url = 'api_local.php?a=channel/' +  this.id;
        
+       var button = document.getElementById('toggle-live-btn');
+       button.innerHTML = "WAIT";
+       button.setAttribute('onclick','');
+       
        $.ajax({
           url: url,
           data: 'data=' + JSON.stringify(send),
