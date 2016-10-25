@@ -1,0 +1,127 @@
+/* 
+    Created on : 01-Jul-2016, 23:09:32
+    Author     : Cameron
+*/
+body{
+    margin:0px;
+    font-family: Roboto, Arial, sans-serif;
+}
+
+nav{
+    background-color:#4a1863;
+}
+
+.brand-logo img{
+    height:86%;
+    float:left;
+}
+.brand-logo p{
+    float:left;
+    margin:0;
+    margin-left:10px;   
+}
+
+main{
+    padding:10px;
+    padding-top:2em;
+    width:800px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.main-logo{
+    display:inline;
+    margin-top:-20px;
+    height:130px;
+}
+
+.login-card{
+    margin-top:10vh;
+}
+/*
+input[type=text], input[type=password]{
+    border:none;
+    border-bottom:1px solid black;
+    outline:0px;
+    transition: border-bottom-color 0.5s;
+}
+
+input[type=text]:focus, input[type=password]:focus{
+    border-bottom-color:red;
+}*//*
+
+input[type=submit], button{
+    height:40px;
+    border:none;
+    transition:background-color 1s;
+}
+
+input[type=select]:hover, button:hover{
+    background-color:red;
+}
+
+.form_row{
+    width:100%;
+    margin-top:2em;
+    margin-bottom:2em;
+    overflow:hidden;
+}
+
+.form_row p{
+    float:left;
+    margin:0;
+}
+.form_row input{
+    float:right;
+    min-width:180px;
+    width:40%;
+}
+
+.border{
+    border-bottom:1px solid rgba(200,200,200,0.6);
+}
+
+input.disabled{
+    background-color: #EEE;
+}
+
+.form_row.success, .form_row.error{
+    padding:5px;
+    padding-left:10px;
+    border-radius:5px;
+}
+.form_row.success{
+    background-color:#76FF03;
+}
+.form_row.error{
+    color:white;
+    background-color:#FF1744;
+}
+
+textarea{
+    width:100%;
+    min-height:150px;
+    resize:vertical;
+}
+
+.panel-left{
+    float:left;
+    
+}
+
+.panel-right{
+    float:right;
+}
+@media(screen) and (max-width:799px){
+    main{
+        width:100%;
+        margin:0;
+    }
+    .form_row input{
+        width:auto;
+    }
+    .panel-left, .panel-right{
+        float:none;
+        width:100%;
+    }
+} */

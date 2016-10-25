@@ -1,0 +1,46 @@
+{
+    "title" : "Session",
+    "model_name" : "session",
+    "description" : "",
+    "type" : "object",
+    "properties" : {
+        "_id" : {
+            "type" : "string",
+            "options" : {
+                "hidden" : true
+            }
+        },
+        "key" : {
+            "type" : "string",
+            "title" : "Access Key"
+        },
+        "user_id" : {
+            "type" : "string",
+            "title" : "User ID"
+        },
+        "request_list" : {
+            "type" : "array",
+            "title" : "HTTP Requests",
+            "format" : "table",
+            "items" : {
+                "type" : "object",
+                "properties" : {
+                    "url" : {
+                        "type" : "string"
+                    },
+                    "timestamp" : {
+                        "type" : "number",
+                        "format" : "timestamp"
+                    },
+                    "request_method" : {
+                        "type" : "string"
+                    }
+                }
+            }
+        },
+        "last_used" : {
+            "type" : "number",
+            "format" : "timestamp"
+        }
+    }
+}

@@ -104,5 +104,17 @@ class group_controller extends Controller{
     
 }
 
+class session_implementation extends Implementation{
+    public $model_name = "session";
+    public $collection_name = "sessions";
+}
+
+class session_controller extends Controller{
+    public static $name = "session";
+    public static $title = "Sessions";
+    
+    public $implementation_name = "session_implementation";
+}
+
 
 }
