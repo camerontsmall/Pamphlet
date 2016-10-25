@@ -28,7 +28,7 @@ class homepage extends Controller{
     <div class="pages">
         <p>Click a page on the left to get started</p>
         <h5>Looking for help?</h5>
-        <p>Read the documentation <a href="https://github.com/camerontsmall/pamphlet_nosql/tree/master/docs">here.</a></p>
+        <p>Read the documentation <a href="https://github.com/camerontsmall/pamphlet/tree/master/docs">here.</a></p>
     </div>
 </div>
 <?php
