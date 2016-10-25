@@ -3,13 +3,14 @@ Proper MVC &amp; NoSQL version of the Pamphlet CMS. Works with MongoDB instead o
 
 Installation instructions:
 
-> git clone https://github.com/camerontsmall/pamphlet_nosql.git
+<code>git clone https://github.com/camerontsmall/pamphlet_nosql.git</code>
 
-> bower install
+<code>bower install</code>
 
-Rename config.sample.php to config.php
+Copy config.sample.php to config.php
 
 Fill in your MongoDB database settings
 
-
 Done!
+
+To update simply run <code>git pull && bower install</code>

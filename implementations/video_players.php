@@ -16,7 +16,7 @@ class videojs_5 extends mediaPlayer{
     public $live = true;
     public $ondemand = true;
     
-    public static function build($video,$setup){
+    public static function build($video){
         $poster = $video->poster;
         $data = json_decode($video->source,1);
         $css = false;   //Whether a primary CSS file has been included yet
@@ -104,7 +104,7 @@ class audio extends mediaPlayer{
         echo "<script src=\"bower_components/video.js/dist/video.min.js\"></script>", PHP_EOL;
         
         
-        if($data->autoplay == 1 || isset($_GET['autoplay'])){
+        if($params['autoplay'] == 1 || isset($_GET['autoplay'])){
             $autoplay = 'autoplay';
         }else{
             $autoplay = '';

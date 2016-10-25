@@ -68,7 +68,7 @@ Enter the URL of the server's info page
 
 ####Animated backgrounds
 
-For audio-only VideoJS objects, external implementations may support animated backgrounds. These parameters are not currently supported natively.
+Sets the background of the player to a specified gif image or gifv video (any webm or mp4 video will work, as long as it is no more than a few seconds long and loops properly).
 
 * <code>animated_background_type</code>
 
