@@ -1,0 +1,23 @@
+{
+    "title" : "Event",
+    "properties" : {
+        "_id" : {
+          "type" : "string",
+          "options" : {
+            "hidden" : true
+          }
+        },"title" : {
+            "type" : "string",
+            "title" : "Title"
+        },
+        "show_id" : {
+            "type" : "string",
+            "title" : "Show"
+        },
+        "description" : {
+            "type" : "string",
+            "title" : "Description",
+            "format" : "html"
+        }
+    }
+}

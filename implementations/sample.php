@@ -10,7 +10,7 @@ if(false){
 
 class sample_implementation extends Implementation{
     
-    public $model_name = "sample";
+    public $model_name = "blog";
     public $collection_name = "sample";
     
 }

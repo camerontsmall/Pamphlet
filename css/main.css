@@ -61,7 +61,7 @@ body {
   background-color: white;
   padding: 20px; }
 
-@media (min-width: 1820px) {
+@media (min-width: 1477px) {
   .row {
     max-width: 90%; }
 

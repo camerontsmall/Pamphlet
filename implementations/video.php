@@ -122,7 +122,7 @@ class video_controller extends Controller{
         ?>
 <div class="row">
     
-    <div class="small-12 large-8 column">
+    <div class="small-12 medium-12 large-8 column">
         <?php
         
         $form->render();
@@ -130,7 +130,7 @@ class video_controller extends Controller{
     </div>
    
     
-     <div class="small-12 large-4 column video-info" id="video-preview-section">
+     <div class="small-12 medium-12 large-4 column video-info" id="video-preview-section">
         <div class="video-preview-parent">
             <div class="video-preview-container">
                 <div class="video-preview"></div>

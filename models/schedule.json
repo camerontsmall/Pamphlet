@@ -1,0 +1,19 @@
+{
+    "title" : "Schedule",
+    "properties" : {
+        "_id" : {
+          "type" : "string",
+          "options" : {
+            "hidden" : true
+          }
+        },"title" : {
+            "type" : "string",
+            "title" : "Title"
+        },
+        "description" : {
+            "type" : "string",
+            "title" : "Description",
+            "format" : "html"
+        }
+    }
+}
