@@ -26,5 +26,5 @@
     
     studio.update();
     
-    var interval = setInterval(function(){ studio.update(); }, 3000);
+    var interval = setInterval(function(){ studio.update(); }, 1000);
 </script>

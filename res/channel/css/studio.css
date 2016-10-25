@@ -12,6 +12,8 @@ html{
     overflow-y:auto;
 }
 
+
+
 .theme-color{
     background-color:inherit;
 }
@@ -19,6 +21,11 @@ html{
 #studio-parent{
     font-family: monospace;
     color:white;
+}
+
+#studio-parent a{
+    text-decoration: underline;
+    color:inherit;
 }
 
 .off-canvas-content{
@@ -94,8 +101,13 @@ iframe{
     font-size: 20px;
     float:left;
 }
-.info-state{
+.info-link{
     float:right;
+    color:white;
+    text-decoration:underline;
+}
+.info-state{
+    clear:both;
 }
 .info-type{
     clear:both;

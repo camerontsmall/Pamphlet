@@ -1,4 +1,5 @@
 <div class="info-title">{{title}}</div>
+{{#if showlinks}}<div class="info-link"><a target="_blank" href="./?a=video/{{_id}}">Edit</a></div>{{/if}}
 <div class="info-state">{{#if live}}Livestream{{else}}On-Demand{{/if}}</div>
 {{#if type}}<div class="info-type">Type: {{type}}</div>{{/if}}
 {{#if tags}}<div class="info-tags">Tags: {{tags}}</div>{{/if}}

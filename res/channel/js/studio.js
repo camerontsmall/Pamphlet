@@ -93,7 +93,7 @@ function PamphletStudio(channel_id){
                 method: 'get',
                 accept: 'application/json',
                 success: function(data){
-
+                    data.showlinks = true;
                     self.pvw_meta_container.innerHTML = self.meta_template(data);
                     //self.container.innerHTML = html;
                 }
