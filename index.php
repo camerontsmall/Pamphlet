@@ -55,7 +55,7 @@ if(class_exists($ui_controller_class)){
         <!-- JS Includes -->
         <!-- Bower -->
         <script src="bower_components/jquery/dist/jquery.min.js" ></script>
-        <script src="bower_components/jquery-ui/jquery-ui.min.js" ></script>
+        <!-- <script src="bower_components/jquery-ui/jquery-ui.min.js" ></script> -->
         <script src="bower_components/handlebars/handlebars.min.js" ></script>
         <script src="bower_components/json-editor/dist/jsoneditor.min.js" ></script>
         <script src="bower_components/selectize/dist/js/standalone/selectize.min.js" ></script>

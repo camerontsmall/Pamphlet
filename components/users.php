@@ -130,5 +130,13 @@ class session_controller extends Controller{
     public $implementation_name = "session_implementation";
 }
 
+class session_public_interface extends View{
+    
+    public static $api_endpoint = "user";
+    
+    public $implementation_name = "user_implementation";
+    
+}
+
 
 }
