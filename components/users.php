@@ -95,6 +95,20 @@ class group_controller extends Controller{
 
     public $implementation_name = "group_implementation";
     
+    function PrepareModel() {
+        
+        $model = $this->implementation->model;
+        
+        $controllers = Controller::listAll();
+        
+        foreach($controllers as $cnt){
+            $model['properties']['permissions']['items']['properties']['collection_name']['enum'][] = $cnt::$title;
+            $model['properties']['permissions']['items']['properties']['collection_name']['enum_titles'][] = $cnt::$title;
+        }
+        
+        return $model;
+    }
+    
      function PrepareData($data) {
         foreach($data as $key => $row){
             $data[$key] = ["Title" => $row->title, "Description" => htmlspecialchars($row->description), "action" => "group/{$row->_id}"];
