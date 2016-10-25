@@ -16,6 +16,11 @@ html{
     background-color:inherit;
 }
 
+#studio-parent{
+    font-family: monospace;
+    color:white;
+}
+
 .off-canvas-content{
     background-color: black;
     color:white;
@@ -43,3 +48,62 @@ iframe{
 
 .title-preview{ border-bottom: 5px solid green; }
 .title-program{ border-bottom: 5px solid red; }
+
+.live-row{
+    height:40px;
+    line-height:40px;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+.live-row span, .live-row button{
+    height:40px;
+    line-height:40px;
+}
+
+.live-btn{
+    font-size:20px;
+    padding:0px 10px;
+    text-transform:uppercase;
+}
+
+.btn-fx{
+    transition:background-color 0.25s;
+    border:1px solid white;
+}
+
+.btn-fx:hover{
+    height:38px;
+    background-color:orange;
+    border:1px solid orange;
+}
+
+.live-btn.status-true{
+    background-color:red;
+}
+.live-btn.status-false{
+    background-color:green;
+}
+
+/* Meta info section */
+.meta-section{
+    font-size:18px;
+}
+
+.info-title{
+    font-size: 20px;
+    float:left;
+}
+.info-state{
+    float:right;
+}
+.info-type{
+    clear:both;
+}
+.info-tags{
+    
+}
+.info-description{
+    clear:both;
+    width:100%;
+}

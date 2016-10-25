@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="column small-12 medium-12 large-6" id="preview-pane">
+        <h4 class="studio-title title-preview">Preview</h4>
+         <div class="video-preview-container">
+             <iframe class="video-preview iframe-preview" src="./generated.php?a=video/{{video_id}}&autoplay=1" allowfullscreen="1"></iframe>
+        </div>
+        <div class="video-title" id="content-title-preview"></div>
+    </div>
+    <div class="column small-12 medium-12 large-6" id="program-pane">
+        <h4 class="studio-title title-program">Program</h4>
+        <div class="video-preview-container">
+            <iframe class="video-preview iframe-program" src="./generated.php?a=channel/{{_id}}&autoplay=1&muted=1" allowfullscreen="1"></iframe>
+        </div>
+        <div class="video-title" id="content-title-program"></div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="column small-12 live-row ">
+        <button class="live-btn btn-fx" onclick="studio.toggleLiveState();">{{#if on_air}}Stop Broadcast{{else}}Start Broadcast{{/if}}</button>
+        <span class="live-btn float-right status-{{on_air}}" id="live-button" >{{#if on_air}}ON AIR{{else}}OFF AIR{{/if}}</span>
+    </div>
+</div>
+

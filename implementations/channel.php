@@ -102,8 +102,6 @@ class channel_controller extends Controller{
     
     function BroadcastStudio($channel_id){
         
-        $input_data = $this->implementation->Read($channel_id);
-        
         include('res/channel/studio.php');
         
     }

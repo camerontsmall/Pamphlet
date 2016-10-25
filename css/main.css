@@ -70,7 +70,13 @@ body {
     margin-bottom: 40px; } }
 @media (max-width: 1476px) {
   .off-canvas-content {
-    background-color: white; } }
+    background-color: white; }
+
+  .off-canvas {
+    box-shadow: none; }
+
+  .navigation {
+    background-color: #e6e6e6; } }
 /* Breadcrumbs */
 .breadcrumbs {
   margin: 0;

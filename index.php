@@ -59,6 +59,7 @@ if(class_exists($ui_controller_class)){
         <script src="bower_components/handlebars/handlebars.min.js" ></script>
         <script src="bower_components/json-editor/dist/jsoneditor.min.js" ></script>
         <script src="bower_components/selectize/dist/js/standalone/selectize.min.js" ></script>
+        <script src="bower_components/diff-dom/diffDOM.js" ></script>
  
         <script src="ckeditor/ckeditor.js" ></script>        
         

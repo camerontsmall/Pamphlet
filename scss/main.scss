@@ -108,6 +108,15 @@ body{
     .off-canvas-content{
         background-color:white;
     }
+    .off-canvas{
+        box-shadow:none;
+        //border-right:1px solid rgba(0,0,0,0.12);
+        
+    }
+    .navigation{
+        background-color:#e6e6e6;
+    }
+    
 }
 
 /* Breadcrumbs */
