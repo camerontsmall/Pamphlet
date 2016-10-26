@@ -267,7 +267,7 @@ class video_view extends View{
     
     public $implementation_name = "video_implementation";
     
-    /* Return generated data */
+    /* Return generated data *//*
     public function APIMethod(){
         $tp = $this->task_parts;
         
@@ -278,8 +278,8 @@ class video_view extends View{
                     $id = $tp[1];
                     return $this->Output($id);
                 }else{
-                    $params = (array) json_decode($_GET['q']);
-                    return $this->implementation->ReadMany($params);
+                    
+                    return $this->OutputMany($filter, $limit);
                 }
                 
                 break;
@@ -287,6 +287,7 @@ class video_view extends View{
                 return ["ResponseStatus" => "Error", "ErrorName" => "InvalidRequestMethod", "Note" => "This API endpoint only supports GET requests"];
         }
     }
+    */
     
     public function Output($id){
         $data = $this->implementation->Read($id);

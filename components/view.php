@@ -39,7 +39,13 @@ class View {
                     $id = $tp[1];
                     return $this->Output($id);
                 }else{
-                    return $this->OutputMany();
+                    
+                    //Add filter
+                    $filter = (isset($_GET['q']))? (array) json_decode($_GET['q']) : [];
+                    //Add limit (0 = no limit)
+                    $limit = (isset($_GET['l']))? (integer) $_GET['l'] : 0;
+                    
+                    return $this->OutputMany($filter, $limit);
                 }
                 
                 break;
@@ -52,9 +58,9 @@ class View {
         return $this->implementation->Read($id);
     }
     
-    public function OutputMany(){
-        $filter = (array) json_decode($_GET['q']);
-        return $this->implementation->ReadMany($filter);
+    public function OutputMany($filter,$limit){
+        $options = ($limit > 0)? ['limit' => $limit]: [];
+        return $this->implementation->ReadMany($filter,$options);
     }
     
     public function GenerateMethod(){
