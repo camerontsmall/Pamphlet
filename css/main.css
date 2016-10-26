@@ -136,7 +136,10 @@ body {
   .list-filter .links {
     float: right; }
   .list-filter a {
-    text-decoration: underline; }
+    text-decoration: underline;
+    padding: 0px 3px; }
+  .list-filter a.active {
+    color: black; }
 
 /* Forms */
 .form {

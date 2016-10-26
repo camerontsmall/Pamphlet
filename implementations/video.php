@@ -61,6 +61,7 @@ class video_controller extends Controller{
         
             $data = $this->implementation->ReadMany($filter,['sort' => ['date' => -1]]);
             
+            $f = $_GET['f'];
             
             ?>
 <!--
@@ -73,9 +74,9 @@ class video_controller extends Controller{
         <div class="list-filter">
             Filter
             <span class="links">
-                <a href="./?a=video">All</a>
-                <a href="./?a=video&f=live">Live</a>
-                <a href="./?a=video&f=vod">VOD</a>
+                <a href="./?a=video" class="<?php if(!$f){ echo "active"; }?>">All</a>
+                <a href="./?a=video&f=live" class="<?php if($f == "live"){ echo "active"; }?>">Live</a>
+                <a href="./?a=video&f=vod" class="<?php if($f == "vod"){ echo "active"; }?>">VOD</a>
             </span>
         </div>
         <?php
