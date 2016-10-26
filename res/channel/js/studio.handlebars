@@ -1,4 +1,7 @@
 <div class="row">
+    {{#if public }}{{else}}
+    <div class="column small-12"><h4 class="studio-title" style="color:red" title="The channel is set to private mode and will not be visible to users">CHANNEL IS PRIVATE</h4></div>
+    {{/if}}
     <div class="column small-12 medium-12 large-6" id="preview-pane">
         <h4 class="studio-title title-preview">Preview</h4>
          <div class="video-preview-container">
