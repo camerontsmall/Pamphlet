@@ -25,7 +25,8 @@ class search extends View{
                 'q' => "(String) Search term [Required]", 
                 "l" => "(Int) Limit results", 
                 "o" => "(Int) Offset results", 
-                "d" => "(Array[String]) Collections to search"
+                "d" => "(Array[String]) Collections to search",
+                "c" => "(String) Restrict search results to those matching one category"
                 ], "Define which collections are searchable in config.php"];
         }
         
@@ -46,6 +47,14 @@ class search extends View{
             $data['offset'] = $offset;
         }
         
+        $filter = ['$or' => [["title" => ['$regex' => ".$q."]], ["tags" => ['$regex' => ".$q."]], ["description" => ['$regex' => ".$q."]], ["content" => ['$regex' => ".$q."]]]];
+
+        if(isset($_GET['c'])){
+            $category = $_GET['c'];
+            $filter['category'] = $category;
+            $data['category'] = $category;
+        }
+        
         $results = [];
         $num_results = 0;
         
@@ -56,8 +65,7 @@ class search extends View{
             if(class_exists($v_cname)){
                 
                 $i_imp = new $v_cname();
-                $filter = ['$or' => [["title" => ['$regex' => ".$q."]], ["tags" => ['$regex' => ".$q."]], ["description" => ['$regex' => ".$q."]], ["content" => ['$regex' => ".$q."]]]];
-                //return $filter;
+                
                 $col_results = $i_imp->implementation->ReadMany($filter,$options);
                 $num_results += count($col_results);
                 $results[$col_name] = $col_results;
