@@ -27,7 +27,7 @@ class category_implementation extends Implementation{
         $model['properties']['category']['options']['enum_titles'][] = "--";
         
         foreach($categories as $cat){
-            $model['properties']['category']['enum'][] = $cat->title;
+            $model['properties']['category']['enum'][] = $cat->_id;
             $model['properties']['category']['options']['enum_titles'][] = $cat->title;
         }
         

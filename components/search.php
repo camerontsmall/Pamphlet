@@ -51,10 +51,23 @@ class search extends View{
 
         if(isset($_GET['c'])){
             $category = $_GET['c'];
-            $filter['category'] = $category;
+            
+            
+            $c_imp = new category_implementation;
+            $all_cats = $c_imp->ReadMany();
+            
+            //Translate title to ID
+            foreach($all_cats as $cat){
+                if(strtolower($category) == strtolower($cat->title)){
+                    $category = $cat->_id;
+                }
+            }
+            
+            $filter = ['$and' => [$filter, ['category' => $category]]];
             $data['category'] = $category;
         }
         
+        //return $filter;
         $results = [];
         $num_results = 0;
         
