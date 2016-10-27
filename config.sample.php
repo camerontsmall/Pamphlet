@@ -23,6 +23,9 @@ $config = [
     /* Enable authentication. enable_users must be true for this to work*/
     "enable_auth" => false,
     /* Additional permissions for use by extenal services (array of strings) */
-    "additional_perms" => []
+    "additional_perms" => [],
+    
+    /* Enter names of Controllers whose collections should be searchable by the Search API */
+    "searchable_collections" => ["video","blog","playlist"]
     
 ];  

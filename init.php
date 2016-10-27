@@ -44,6 +44,7 @@ require 'components/view.php';
 require 'components/homepage.php';
 require 'components/users.php';
 require 'components/categories.php';
+require 'components/search.php';
 
 /* Load implementations */
 

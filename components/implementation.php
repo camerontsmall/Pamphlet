@@ -201,4 +201,27 @@ class Implementation {
         
         return false;
     }
+    
+    /* Generic static functions */
+    
+    static function loadImplementationByName($name){
+        
+        foreach(get_declared_classes() as $class){
+            if(is_subclass_of($class, 'Implementation')){
+                if($class::$collection_name == $name){
+                    return $class;
+                }
+            }
+        }
+    }
+    
+    static function listAll(){
+        $controller_list = [];
+        foreach(get_declared_classes() as $class){
+            if(is_subclass_of($class, 'Implementation')){
+                $controller_list[] = $class;
+            }
+        }
+        return $controller_list;
+    }
 }
