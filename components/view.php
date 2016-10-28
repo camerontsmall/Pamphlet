@@ -92,11 +92,21 @@ class View {
     }
     
     public function Output($id){
-        return $this->implementation->Read($id);
+        $data = $this->implementation->Read($id);
+        if($data['public'] === false){
+            return null;
+        }
+        return $data;
     }
     
     public function OutputMany($filter,$options){
-        return $this->implementation->ReadMany($filter,$options);
+        $data =  $this->implementation->ReadMany($filter,$options);
+        foreach($data as $key => $item){
+            if($item->public === false){
+                unset($data[$key]);
+            }
+        }
+        return array_values($data);
     }
     
     public function GenerateMethod(){
