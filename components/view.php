@@ -40,10 +40,34 @@ class View {
                     return $this->Output($id);
                 }else{
                     
+                    $filter = [];
                     //Add filter
-                    $filter = (isset($_GET['q']))? (array) json_decode($_GET['q']) : [];
+                    if(isset($_GET['q'])){ 
+                        $filter = array_merge($filter,((array) json_decode($_GET['q'])));
+                    }
                     //Add limit (0 = no limit)
                     $limit = (isset($_GET['l']))? (integer) $_GET['l'] : 0;
+                    
+                    //Apply category filter
+                    if(isset($_GET['c'])){
+                        
+                        $category = $_GET['c'];
+
+
+                        $c_imp = new category_implementation;
+                        $all_cats = $c_imp->ReadMany();
+
+                        //Translate title to ID
+                        foreach($all_cats as $cat){
+                            if(strtolower($category) == strtolower($cat->title)){
+                                $category = $cat->_id;
+                            }
+                        }
+
+                        $filter = ['$and' => [(object) $filter, ['category' => $category]]];
+                        $data['category'] = $category;
+                    }
+                    
                     
                     return $this->OutputMany($filter, $limit);
                 }
