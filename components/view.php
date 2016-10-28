@@ -41,12 +41,25 @@ class View {
                 }else{
                     
                     $filter = [];
+                    $options = [];
                     //Add filter
                     if(isset($_GET['q'])){ 
                         $filter = array_merge($filter,((array) json_decode($_GET['q'])));
                     }
                     //Add limit (0 = no limit)
-                    $limit = (isset($_GET['l']))? (integer) $_GET['l'] : 0;
+                    if(isset($_GET['l'])){
+                        $limit = (integer) $_GET['l'];
+                        if($limit > 0){
+                            $options['limit'] = $limit;
+                            $data['limit'] = $limit;
+                        }
+                    }
+                    //Add offset
+                    if(isset($_GET['o'])){
+                        $offset = (integer) $_GET['o'];
+                        $options['skip'] = $offset;
+                        $data['offset'] = $offset;
+                    }
                     
                     //Apply category filter
                     if(isset($_GET['c'])){
@@ -69,7 +82,7 @@ class View {
                     }
                     
                     
-                    return $this->OutputMany($filter, $limit);
+                    return $this->OutputMany($filter, $options);
                 }
                 
                 break;
@@ -82,8 +95,7 @@ class View {
         return $this->implementation->Read($id);
     }
     
-    public function OutputMany($filter,$limit){
-        $options = ($limit > 0)? ['limit' => $limit]: [];
+    public function OutputMany($filter,$options){
         return $this->implementation->ReadMany($filter,$options);
     }
     
