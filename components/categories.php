@@ -35,6 +35,19 @@ class category_implementation extends Implementation{
         
     }
     
+    
+    static function kpCategories(){
+        $imp = new category_implementation();
+        $data = $imp->ReadMany();
+        
+        $kp = [];
+        
+        foreach($data as $item){
+            $kp[$item->_id] = $item->title;
+        }
+        
+        return $kp;
+    }
 }
 
 class category_controller extends Controller{

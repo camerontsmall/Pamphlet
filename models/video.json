@@ -14,6 +14,7 @@
             "type": "boolean",
             "format" : "checkbox",
             "title" : "Public",
+            "default" : true,
             "propertyOrder" : 2
         },
         "title": {

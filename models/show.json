@@ -17,6 +17,7 @@
         "public": {
             "type": "boolean",
             "title" : "Public",
+            "default" : true,
             "format" : "checkbox"
         },
         "tags" : {

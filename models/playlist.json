@@ -17,6 +17,7 @@
         "public" : {
             "type" : "boolean",
             "format" : "checkbox",
+            "default" : true,
             "title" : "Publish"
         },
         "videos" : {

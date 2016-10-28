@@ -191,12 +191,16 @@ class video_controller extends Controller{
         $output = [];
         
         $player_types = mediaPlayer::kpTypes();
+        $cats = category_implementation::kpCategories();
         
         foreach($data as $item){
             $_id = (string) $item->{'_id'};
+            
             $output[] = [ 
                 "action" => "video/$_id",
                 "Title" => $item->title, 
+                "Published" => ($item->public)? "Yes" : "No",
+                "Category" => $cats[$item->category],
                 "Type" => $player_types[$item->type], 
                 "Tags" => $item->tags, 
                 "Date posted" => $item->date, 
