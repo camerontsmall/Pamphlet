@@ -81,27 +81,30 @@ class Implementation {
         global $db;
         $cn = $this->CollectionName();
         
-        $params = [
-            '_id' => new MongoDB\BSON\ObjectId($id)
-        ];
-        
-        if($options == null){
-            $options = [
-               
+        try{
+            $params = [
+                '_id' => new MongoDB\BSON\ObjectId($id)
             ];
+
+            if($options == null){
+                $options = [];
+            }
+
+            $query = new MongoDB\Driver\Query($params,$options);
+            $rows = $db->executeQuery($cn,$query);
+
+            $output = [];
+            foreach($rows as $data_row){
+                $doc = $data_row;
+                $doc->{'_id'} = (string) $doc->{'_id'};
+                return $data_row;
+            }
+            
+        }catch(Exception $e){
+            return null;
         }
         
-        $query = new MongoDB\Driver\Query($params,$options);
-        $rows = $db->executeQuery($cn,$query);
-        
-        $output = [];
-        foreach($rows as $data_row){
-            $doc = $data_row;
-            $doc->{'_id'} = (string) $doc->{'_id'};
-            return $data_row;
-        }
-        
-        return false;
+        return null;
     }
     
     public function Update($id_string, $data){

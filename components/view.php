@@ -29,6 +29,11 @@ class View {
         
     }
     
+    /**
+     * Generate API response
+     * 
+     * @return type
+     */
     public function APIMethod(){
         $tp = $this->task_parts;
         
@@ -93,6 +98,7 @@ class View {
     
     public function Output($id){
         $data = $this->implementation->Read($id);
+        //Nullify if private
         if($data->public === false){
             return null;
         }
