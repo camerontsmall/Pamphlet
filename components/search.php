@@ -82,7 +82,12 @@ class search extends View{
                 $col_results = $i_imp->implementation->ReadMany($filter,$options);
                 $num_results += count($col_results);
                 $results[$col_name] = $col_results;
-                
+                try{
+                    $col_controller = Controller::loadControllerByName($col_name);
+                    $data['typenames'][$col_name] = $col_controller::$title;
+                }catch(Exception $e){
+                    $data['typenames'][$col_name] = $col_name;
+                }
             }
             
         }
