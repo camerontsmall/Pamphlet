@@ -93,7 +93,7 @@ class View {
     
     public function Output($id){
         $data = $this->implementation->Read($id);
-        if($data['public'] === false){
+        if($data->public === false){
             return null;
         }
         return $data;
