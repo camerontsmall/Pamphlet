@@ -87,7 +87,7 @@ class Implementation {
         
         if($options == null){
             $options = [
-               //'projection' => ['_id' => 0],
+               
             ];
         }
         

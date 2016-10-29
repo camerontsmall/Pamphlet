@@ -199,7 +199,7 @@ class video_controller extends Controller{
             $output[] = [ 
                 "action" => "video/$_id",
                 "Title" => $item->title, 
-                "Published" => ($item->public)? "Yes" : "No",
+                "Published" => ($item->public === false)? "No" : "Yes",
                 "Category" => $cats[$item->category],
                 "Type" => $player_types[$item->type], 
                 "Tags" => $item->tags, 
