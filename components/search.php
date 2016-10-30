@@ -47,7 +47,7 @@ class search extends View{
             $data['offset'] = $offset;
         }
         
-        $regex = new MongoDB\BSON\Regex(".{$q}.",'i');
+        $regex = new MongoDB\BSON\Regex("^{$q}",'i');
 
         //ob_end_clean();
         //var_dump($regex);
