@@ -34,7 +34,7 @@ class search extends View{
         
         $data = ["generated" => time(), "search_term" => $q];
         
-        $options = [];
+        $options = ["sort" => ["date" => -1]];
         
         if(isset($_GET['l'])){
             $limit = (integer) $_GET['l'];
