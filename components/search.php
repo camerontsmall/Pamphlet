@@ -47,7 +47,15 @@ class search extends View{
             $data['offset'] = $offset;
         }
         
-        $filter = ['$or' => [["title" => ['$regex' => ".$q."]], ["tags" => ['$regex' => ".$q."]], ["description" => ['$regex' => ".$q."]], ["content" => ['$regex' => ".$q."]]]];
+        $regex = new MongoDB\BSON\Regex(".{$q}.",'i');
+
+        //ob_end_clean();
+        //var_dump($regex);
+        
+        $filter = ['$or' => [["title" => ['$regex' => $regex]], ["tags" => ['$regex' => $regex]], ["description" => ['$regex' => $regex]], ["content" => ['$regex' => $regex]]]];
+        
+        //var_dump($filter);
+        //return $filter;
 
         if(isset($_GET['c'])){
             $category = $_GET['c'];
