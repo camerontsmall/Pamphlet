@@ -15,8 +15,7 @@ Z-INDEXES
 */
 
 $primary-medium: #2196F3;
-//$primary-medium: #4a1863;
-
+//$primary-medium: #4a1863
 /* Fonts and stuff */
 
 @font-face{
@@ -99,8 +98,8 @@ body{
         max-width:90%;
     }
     .body-container{
-        margin-top:40px;
         margin-bottom:40px;
+        padding-top:80px;
     }
 }
 
@@ -116,6 +115,9 @@ body{
     .navigation{
         background-color:#e6e6e6;
     }
+    .body-container{
+        padding:40px 1rem;
+    }
     
 }
 
@@ -127,6 +129,12 @@ body{
     position:static;
     padding-left:20px;
     overflow:hidden;
+    
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 20;
+    
     .bc-action{
         float:right;
         line-height:40px;

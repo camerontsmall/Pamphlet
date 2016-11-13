@@ -20,7 +20,6 @@
     "handlebars": "^4.0.5",
     "jquery-ui": "^1.12.1",
     "json-editor": "^0.7.28",
-    "ace-builds": "^1.2.3",
     "foundation-sites": "6.2.4",
     "selectize": "^0.12.4",
     "material-design-icons": "^3.0.1",

@@ -66,8 +66,8 @@ body {
     max-width: 90%; }
 
   .body-container {
-    margin-top: 40px;
-    margin-bottom: 40px; } }
+    margin-bottom: 40px;
+    padding-top: 80px; } }
 @media (max-width: 1476px) {
   .off-canvas-content {
     background-color: white; }
@@ -76,14 +76,21 @@ body {
     box-shadow: none; }
 
   .navigation {
-    background-color: #e6e6e6; } }
+    background-color: #e6e6e6; }
+
+  .body-container {
+    padding: 40px 1rem; } }
 /* Breadcrumbs */
 .breadcrumbs {
   margin: 0;
   height: 40px;
   position: static;
   padding-left: 20px;
-  overflow: hidden; }
+  overflow: hidden;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 20; }
   .breadcrumbs .bc-action {
     float: right;
     line-height: 40px;
