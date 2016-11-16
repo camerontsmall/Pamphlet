@@ -112,6 +112,11 @@ class audio extends mediaPlayer{
         
         $muted = (isset($_GET['muted']) || $params['muted'])? "muted" : "";
         
+        //Load nowplaying information
+        if($params['server_type'] && $params['nowplaying_url']){
+            $video->server_info = self::ProcessRadioData($params);
+        }
+        
         if($params['animated_background_type'] == "gifv"){
             $anim_bg = $params['animated_background_url'];
             ?>
@@ -188,7 +193,48 @@ class audio extends mediaPlayer{
         return $video;
     }
     
-    public static function ProcessRadioData($data){
+    public static function ProcessRadioData($params){
+        $server_type = $params['server_type'];
+        $nowplaying_url = $params['nowplaying_url'];
+        
+        $info = [];
+        
+        switch($server_type){
+            case 'icecast':
+                $stringdata = file_get_contents($nowplaying_url);
+                
+                $info['raw'] = json_decode($string);
+                $stats = $info['raw']->icestats;
+                
+                if(is_array($stats->source)){
+                    $sourceinfo = $stats->source[0];
+                }else{
+                    $sourceinfo = $stats->source;
+                }
+                
+                $info['title'] = $sourceinfo->title;
+                $info['description'] = $sourceinfo->server_description;
+                $info['bitrate'] = $sourceinfo->audio_info;
+                $info['genre'] = $sourceinfo->genre;
+                
+                break;
+            case 'shoutcast':
+                $opts = ['http' => ['method' => 'GET', 'header' => 'User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.0.11) Gecko/2009060215 Firefox/3.0.11 (.NET CLR 3.5.30729)']];
+                $context = stream_context_create($opts);
+                
+                $response = file_get_contents($nowplaying_url,false,$context);
+                
+                $start = stripos($response, "<body");
+                $end = stripos($response, "</body");
+                $body = substr($response,$start,$end-$start);
+                $items = explode(',',$body);
+                $info['title'] = end($items);
+                $info['raw'] = $items;
+                break;
+        }
+        
+        
+        return $info;
         
     }
 }
