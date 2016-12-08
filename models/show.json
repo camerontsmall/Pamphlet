@@ -27,12 +27,12 @@
         "poster" : {
             "type" : "string",
             "title" : "Poster image",
-            "format" : "image"
+            "format" : "url"
         },
         "thumbnail" : {
             "type" : "string",
             "title" : "Thumbnail image",
-            "format" : "image"
+            "format" : "url"
         },
         "theme_color" : {
             "type" : "string",
@@ -49,5 +49,5 @@
         }
         
     },
-    "required" : ["title"]
+    "required" : ["title","poster","thumbnail","public"]
 }
